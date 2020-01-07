@@ -5,7 +5,7 @@
 This repository is used to record my personal Python learning process.  
 ***
 ## List
-### 1. 20200107_01_hello_world.py  
+### 1. [20200107_01_hello_world.py](https://github.com/peterliu502/Hello_Python/blob/master/20200107_01_hello_world.py)  
 * __time__  
 2020-01-07
 * __content__  
