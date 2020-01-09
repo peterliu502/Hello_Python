@@ -21,7 +21,16 @@ This repository is used to record my personal Python learning process.
             * 如果没有此文件编码类型的声明，则 python 默认以ASCII编码去处理；如果你没声明编码，但是文件中又包含非ASCII编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。
             * 必须放在python文件的第一行或第二行。 
             * 声明格式要符合[正则表达式 "__coding[:=]\s*([-\w.]+)__"](https://blog.csdn.net/xld_19920728/article/details/80534146)
-### 2. 20200107_02_print().py
+### 2. [20200107_02_输入输出.py](https://github.com/peterliu502/Hello_Python/blob/develop/20200107_02_%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA.py)
 * __time__  
 2020-01-07
 * __content__
+    * print()函数
+        * 显示单个字符串，需使用""或''引住文字
+        * 显示多个字符串
+            * 使用","符号，显示时","会被显示成空格，除了连接多个字符串，","还可以连接多个算式或者是连接字符串与算式；
+            * 使用"+"符号，显示时字符串之间不会有空格。"+"只可以连接字符串。或者连接多个数字或者算式作运算符使用，不可以连接字符串与数字或算式；
+        * 显示数字或算式，print()函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；
+    * input()函数
+        * input()函数中可以输入一个提示语，作为显示界面中提示用户输入的引导语；  
+        * input()函数输出的是字符串类型。
