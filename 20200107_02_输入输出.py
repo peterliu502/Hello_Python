@@ -32,9 +32,9 @@ print("您母亲是在", str(c), "岁时生的您。")  # 三个str，可以用,
 print("您母亲是在" + str(a - b) + "岁时生的您。")  # 三个str，可以用,和+相连
 print("您母亲是在" + str(c) + "岁时生的您。")  # 三个str，可以用,和+相连
 print()
-print("1.\\n:\n")
+print("1.\\n:\n换行符效果")
 print("2.\\\\:\\")
-print("3.\\t:\t")
+print("3.\\t:\t制表符效果")
 print('4.r"" or r\'\':' + r"\\\n\t")
 # 当字符串中存在引号时，真正用于括字符串的引号要注意作区别，文本时单引号外侧就要用双引号，反之亦然。
 # 举例："I'm Peter."，'他说"我是彼得。"'；
@@ -47,3 +47,11 @@ line3""")
 print('''5."""...""":
 line2
 line3''')
+print("""12345678
+a\tbcdefgh
+ab\tcdefgh
+abc\tdefgh
+abcd\tefgh
+abcde\tfgh
+abcdef\tgh
+abcdefg\th""")
