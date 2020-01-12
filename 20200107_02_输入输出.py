@@ -48,10 +48,14 @@ print('''5."""...""":
 line2
 line3''')
 print("""12345678
-a\tbcdefgh
+a\tbcdefgh 
 ab\tcdefgh
 abc\tdefgh
 abcd\tefgh
 abcde\tfgh
 abcdef\tgh
 abcdefg\th""")
+# \t是制表符，作用是将字符串的字数补齐成8的倍数，一般是输出表格的时候自动将各列对齐时使用的。
+# 举例来说"abc\t"，就是在"abc"后面补上5个空格，凑齐8个字符。
+# 而"abcdefghijk\t"一共11个字符，已经超过了8个字符，但是不满足16个字符，所以\t的作用就是补上7个空格，补齐16个字符。
+# 在某些编译器中\t不是默认占8位，可能是4位，但是一般可以手动调整。
