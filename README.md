@@ -45,4 +45,4 @@ This repository is used to record my personal Python learning process.
 * __time__  
 2020-01-09
 * __content__
-    * 
+    * 整数，可以表示
