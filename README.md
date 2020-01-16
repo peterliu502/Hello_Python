@@ -26,6 +26,13 @@ This repository is used to record my personal Python learning process.
 2020-01-07
 * __content__
     * print()函数
+        * 参数：print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+            * print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+            * objects -- 复数，表示可以一次输出多个对象。输出多个对象时，需要用 , 分隔。
+            * sep -- 用来间隔多个对象，默认值是一个空格。
+            * end -- 用来设定以什么结尾。默认值是换行符 \n，我们可以换成其他字符串。
+            * file -- 要写入的文件对象。
+            * flush -- 输出是否被缓存通常决定于 file，但如果 flush 关键字参数为 True，流会被强制刷新。
         * 显示单个字符串，需使用""或''引住文字
         * 显示多个字符串
             * 使用","符号，显示时","会被显示成空格，除了连接多个字符串，","还可以连接多个算式或者是连接字符串与算式；
@@ -45,4 +52,11 @@ This repository is used to record my personal Python learning process.
 * __time__  
 2020-01-09
 * __content__
-    * 
+    * 数据类型
+        * 分类
+            * 整数（int），即整型。不仅指十进制的整数，python也可以处理其他进制的整数；
+            * 浮点数（float），即小数；
+            * 字符串（str），需要用""或''将字符串文本内容括起来；
+            * 布尔值
+        
+        * 
