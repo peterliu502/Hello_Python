@@ -33,7 +33,7 @@ This repository is used to record my personal Python learning process.
         * 含义  
             如果没有此文件编码类型的声明，则 python 默认以ASCII编码去处理；如果你没声明编码，但是文件中又包含非ASCII编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。  
             必须放在python文件的第一行或第二行。   
-            声明格式要符合[正则表达式](https://blog.csdn.net/xld_19920728/article/details/80534146)  
+            声明格式要符合[__正则表达式__](https://blog.csdn.net/xld_19920728/article/details/80534146)  
             ```python
             "__coding[:=]\s*([-\w.]+)__"
             ```
