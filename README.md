@@ -20,7 +20,7 @@ This repository is used to record my personal Python learning process.
             ```python
             #!/usr/bin/env python3 
             ```
-            该代码表示从 "PATH 环境变量"中查找 python3 解释器的位置, 路径没有被写死, 而是在"环境变量"中寻找 python3 解释器的安装路径, 再调用该路径下的解释器来执行脚本。显然, 采用 
+            该代码表示从 "PATH 环境变量"中查找 python3 解释器的位置, 路径没有被写死, 而是在"环境变量"中寻找 python3 解释器的安装路径, 再调用该路径下的解释器来执行脚本。显然, 采用  
             ```python
             #!/usr/bin/env python3
             ```
@@ -115,7 +115,7 @@ This repository is used to record my personal Python learning process.
             print()函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
     * input()函数
         input()函数中可以输入一个提示语，作为显示界面中提示用户输入的引导语；  
-        input()函数输出的是字符串类型。
+        input()函数输出的是字符串类型。  
 ### 3. [20200109_01_数据类型与变量.py]()
 * __time__  
 2020-01-09
