@@ -221,3 +221,4 @@ This repository is used to record my personal Python learning process.
             print(10%3)
             ```
             因为无论整数做//除法还是取余数，结果永远是整数，所以，整数运算结果永远是精确的。
+
