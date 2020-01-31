@@ -119,7 +119,7 @@ This repository is used to record my personal Python learning process.
     * input()函数  
         input()函数中可以输入一个提示语，作为显示界面中提示用户输入的引导语；  
         input()函数输出的是字符串类型。    
-### 3. [20200109_01_数据类型与变量.py]()
+### 3. [20200109_01_数据类型与变量.py](https://github.com/peterliu502/Hello_Python/blob/master/20200109_01_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F.py)
 * __time__  
 2020-01-09
 * __content__
