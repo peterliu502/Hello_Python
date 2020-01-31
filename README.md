@@ -81,7 +81,7 @@ This repository is used to record my personal Python learning process.
             * \\:
                 * 写法：  
                     ```python
-                    \\\\
+                    \\
                     ```
             * "or':
                 * 写法：
@@ -174,34 +174,34 @@ This repository is used to record my personal Python learning process.
             a = 'XYZ'
             print(b)
             ```
-            程序执行过程如下：
-            1. 执行
+            程序执行过程如下：  
+            1.执行
             ```python
             a = 'ABC'
             ```
             解释器创建了字符串'ABC'和变量a，并把a指向'ABC'：  
             ![avatar](https://static.liaoxuefeng.com/files/attachments/923791878255456/0)  
-            2. 执行
+            2.执行
             ```python
             b = a
             ```
             解释器创建了变量b，并把b指向a指向的字符串'ABC'：  
             ![avatar](https://static.liaoxuefeng.com/files/attachments/923792058613440/0)  
-            3. 执行
+            3.执行
             ```python
             a = 'XYZ'
             ```
             解释器创建了字符串'XYZ'，并把a的指向改为'XYZ'，但b并没有更改：  
             ![avatar](https://static.liaoxuefeng.com/files/attachments/923792191637760/0)  
-            4. 所以，最后打印变量b的结果自然是'ABC'了  
-    * 常量
+            4.所以，最后打印变量b的结果自然是'ABC'了  
+    * 常量  
         所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在python中，通常用全部大写的变量名表示常量：
         ```python
         PI = 3.14159265359
         ```
         但事实上PI仍然是一个变量，python根本没有任何机制保证PI不会被改变，所以，用全部大写的变量名表示常量只是一个习惯上的用法，如果一定要改变变量PI的值，并不会报错
     * 除法
-        * /除法
+        * /除法  
             /除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数。可参考以下代码：
             ```python
             print(9/3)
@@ -210,7 +210,7 @@ This repository is used to record my personal Python learning process.
             print(10.0/3.0)
             ```
             python浮点数运算遵循IEEE 754的浮点运算标准，往往存在误差，或者叫做精度有限。  
-        * //除法
+        * //除法  
             //除法称为地板除，两个整数的除法仍然是整数，即使除不尽。具体参考以下代码：
             ```python
             print(9//3)
