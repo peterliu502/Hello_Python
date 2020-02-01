@@ -21,7 +21,7 @@ print(type(name))  # input返回值为str类型
 print(type(e))  # 赋值的传递性，随1定义为int
 print(type(f))  # 赋值的传递性，随1.1定义为float
 print(type(g))  # int与float运算，结果为float
-print(g)  #int与float运算，结果为float
+print(g)  # int与float运算，结果为float
 print()
 print("您母亲是在", int(a) - int(b), "岁时生的您。")  # int与str混用，只能用，相连
 print("您母亲是在", a - b, "岁时生的您。")  # int与str混用，只能用，相连

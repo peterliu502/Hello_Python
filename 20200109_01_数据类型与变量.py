@@ -32,8 +32,13 @@ print(9 // 3)
 print(9.0 // 3.0)
 print(10 / 3)
 print(10.0 / 3.0)
+print(10.0 / 3)
+print(10 / 3.0)
 print(10 // 3)
 print(10.0 // 3.0)
+print(10 // 3.0)
+print(10.0 // 3)
+print(0.1+0.2, 0.1+0.1+0.1-0.3, sep='\n')
 print('作业')
 n = 123
 f = 456.789
