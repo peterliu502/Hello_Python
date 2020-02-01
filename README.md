@@ -236,7 +236,7 @@ This repository is used to record my personal Python learning process.
             print(9%3)
             print(10%3)
             ```
- ### 3. [20200201_01_字符串与编码.py]()
+ ### 4. [20200201_01_字符串与编码.py](https://github.com/peterliu502/Hello_Python/blob/master/20200201_01_%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E7%BC%96%E7%A0%81.py)
 * __time__  
 2020-02-01
 * __content__           
