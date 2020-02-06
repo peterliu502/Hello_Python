@@ -29,7 +29,7 @@ This repository is used to record my personal Python learning process.
             显然, 采用第一种写法更灵活更具有通用性, 推荐使用这种写法。  
     * 了解 [__"## -\*- coding: utf-8 -\*-"__](https://blog.csdn.net/zhongbeida_xue/article/details/81736671) 作用  
         * 含义  
-            如果没有此文件编码类型的声明，则 python 默认以`ASCII`编码去处理；如果你没声明编码，但是文件中又包含非`ASCII`编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。  
+            如果没有此文件编码类型的声明，则 python2 默认以`ASCII`编码去处理；如果你没声明编码，但是文件中又包含非`ASCII`编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。  
             必须放在python文件的第一行或第二行。   
             声明格式要符合[__正则表达式__](https://blog.csdn.net/xld_19920728/article/details/80534146)  
             ```python
@@ -39,12 +39,12 @@ This repository is used to record my personal Python learning process.
 * __time__  
 2020-01-07
 * __content__
-    * print()函数
-        * 参数：
-            * 参数定义：    
+    * [print()函数](https://docs.python.org/zh-cn/3.8/library/functions.html#print)
+        * 函数定义：    
                 ```python
                 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)  
                 ```
+        * 参数：
             * `objects`  
                 复数，表示可以一次输出多个对象。输出多个对象时，需要用`,`分隔。  
             * `sep`  
@@ -124,24 +124,34 @@ This repository is used to record my personal Python learning process.
                     字符串直接使用回车键换行，不需要在行末加`\n`。
         * 显示数字或算式  
             `print()`函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
-    * input()函数  
-        `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
-        `input()`函数输出的是字符串类型。    
+    * [input()函数](https://docs.python.org/zh-cn/3.8/library/functions.html#input)
+        * 函数定义
+            input(prompt)
+        * 参数
+            * prompt  
+                `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
+        * 返回值  
+            `input()`函数输出的是字符串类型。    
 ### 3. [20200109_01_数据类型与变量.py](https://github.com/peterliu502/Hello_Python/blob/master/20200109_01_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F.py)
 * __time__  
 2020-01-09
 * __content__
     * 数据类型
         * 分类
-            * `整数`（`int`）：  
+            * [`整数`（`int`）](https://docs.python.org/zh-cn/3.8/library/functions.html#int)：  
                 即整型。不仅指十进制的整数，python也可以处理其他进制的整数  
                 python的整数没有大小限制  
-            * `浮点数`（`float`）：  
+            * [`浮点数`（`float`）](https://docs.python.org/zh-cn/3.8/library/functions.html#float)：  
                 即小数  
                 python的浮点数没有大小限制，但超过一定范围就直接表示为`inf`（`无限大`）   
-            * `字符串`（`str`）：  
-                需要用`" "`或`' '`将字符串文本内容括起来；  
-            * `布尔值`（`bool`）：  
+            * [`字符串`（`str`）](https://docs.python.org/zh-cn/3/library/stdtypes.html#str)：  
+                * 类定义：
+                    * str(object='')  
+                        如果 encoding或errors均未给出，则直接返回内容为object的字符串，object实参需要用`''`或`""`括起      
+                    * str(object=b'', encoding='utf-8', errors='strict')  
+                        如果object是一个bytes-like object(例如bytes或bytearray)，encoding或errors至少给出其中之一，否则会把object当str类型  
+                        str(bytes, encoding, errors) 等价于bytes.decode(encoding, errors)  
+            * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3.8/library/functions.html#bool)：  
                 * 分类：  
                 只有`True`和`False`两种，首字母必须大写；  
                 * 运算：
@@ -151,7 +161,7 @@ This repository is used to record my personal Python learning process.
                         只要其中有一个为True，or运算结果就是True  
                     * `not`（`非运算`）  
                         它是一个`单目运算符`，把True变成False，False变成True  
-            * `空值`（`None`）  
+            * [`空值`（`None`）](https://docs.python.org/zh-cn/3.8/library/constants.html#None):  
                 空值是Python里一个特殊的值，用`None`表示。`None`不能理解为0，因为0是有意义的，而`None`是一个特殊的空值，可以理解为没有任何东西。  
     * 变量
         * 变量名的表示方法：  
