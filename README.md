@@ -27,7 +27,7 @@ This repository is used to record my personal Python learning process.
             该代码表示 `python3` 解释器所处的绝对路径就是 `/usr/bin/python3`, 路径被写死了, 类似于编程中的`硬编码`。之所以有这种写法, 是因为在`类 Unix` 系统中, python 解释器一般情况下都位于这个路径。不过, 如果碰到 python 解释器不在该路径下的话, 脚本就无法执行了。  
             
             显然, 采用第一种写法更灵活更具有通用性, 推荐使用这种写法。  
-    * 了解 <a id = '编码声明'>["## -\*- coding: utf-8 -\*-"]</a>(https://blog.csdn.net/zhongbeida_xue/article/details/81736671) 作用  
+    * 了解 <a id = '编码声明'>["## -\*- coding: utf-8 -\*-"](https://blog.csdn.net/zhongbeida_xue/article/details/81736671)</a> 作用  
         * 含义  
             如果没有此文件编码类型的声明，则 python2 默认以`ASCII`编码去处理；如果你没声明编码，但是文件中又包含非`ASCII`编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。  
             必须放在python文件的第一行或第二行。   
@@ -150,7 +150,7 @@ This repository is used to record my personal Python learning process.
                         如果`encoding`或`errors`均未给出，则直接返回内容为`object`的字符串，`object`实参需要用`''`或`""`括起      
                     * str(object=b'', encoding='utf-8', errors='strict')  
                         如果`object`是一个`bytes-like object`(例如`bytes`或`bytearray`)，`encoding`或`errors`至少给出其中之一，否则会把`object`当`str`类型  
-                        str(bytes, encoding, errors) 等价于<a href = 'decode()'>bytes.decode(encoding, errors)</a>  
+                        str(bytes, encoding, errors) 等价于<a href = '#decode()'>bytes.decode(encoding, errors)</a>  
             * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3.8/library/functions.html#bool)：  
                 * 分类：  
                 只有`True`和`False`两种，首字母必须大写；  
@@ -277,7 +277,7 @@ This repository is used to record my personal Python learning process.
             ![avatar](https://static.liaoxuefeng.com/files/attachments/923923759189600/0)  
             很多网页的源码上会有类似`<meta charset="UTF-8" />`的信息，表示该网页正是用的`UTF-8`编码。  
         * python中的默认编码  
-            `python2`中默认编码是`ASCII`，所以在程序开头必须带上<a href = '编码声明'>`## -*- coding: utf-8 -*-`</a>，以保证`utf-8`编码的字符可以正常显示。  
+            `python2`中默认编码是`ASCII`，所以在程序开头必须带上<a href = '#编码声明'>`## -*- coding: utf-8 -*-`</a>，以保证`utf-8`编码的字符可以正常显示。  
             `python3`则默认采用`Unicode`编码，具体来说就是默认用`utf-8`编码去读源代码文件，而`python`内存中运行中的`str`是`Unicode`编码  
             然而通过`getsizeof()`方法插看`str`内存大小发现，`str`中`ASCII`字符为1字节，非`ASCII`字符为2字节，这与`Unicode`编码中所有字符都为2字节的设计有所差别。推测是因为出于节约空间的考虑，并非完全默认使用`Unicode`编码，而是将`ASCII`字符都按`ASCII`编码进行储存，非`ASCII`字符前`2^16`个字符每个2字节，往后每个4字节   
             检测方法：  
@@ -305,7 +305,7 @@ This repository is used to record my personal Python learning process.
             * 返回值
                 `int`  
             * 逆函数  
-                <a href = 'chr()'>`chr()`</a>  
+                <a href = '#chr()'>`chr()`</a>  
             * 备注
                 `ord()`只能接收`str`，所以注意`str`类型的'1'和`int`类型的1之间的区别
         * <a id = 'chr()'>[chr()函数](https://docs.python.org/zh-cn/3/library/functions.html#chr)</a>  
@@ -318,7 +318,7 @@ This repository is used to record my personal Python learning process.
             * 返回值  
                 `str`对象
             * 逆函数  
-                <a href = 'ord()'>`ord()`</a>  
+                <a href = '#ord()'>`ord()`</a>  
             * 备注  
                 >1.`int`类型的四种进制整数对`chr()`来说没有区别，或者说这四种进制数对程序来说一般也没有区别。  
                 2.`python`可以直接支持`Unicode`编码，所以直接在`str`对象中输入`\u`+四位`Unicode`编码即可打印出字符  
@@ -345,7 +345,7 @@ This repository is used to record my personal Python learning process.
             * 返回值  
                 `byte`对象  
             * 逆方法  
-                <a href = 'decode()'>`decode()`</a>
+                <a href = '#decode()'>`decode()`</a>
             * 备注  
                 `byte`对象的形式为`b'编码'`，具体写法由所用的字符编码决定  
             | 字符  |   ASCII  |        gbk         |     UTF-8     |     UTF-16     |
@@ -366,7 +366,7 @@ This repository is used to record my personal Python learning process.
             * 返回值  
                 `str`  
             * 逆方法  
-                <a href = 'encode()'>`encode()`</a>  
+                <a href = '#encode()'>`encode()`</a>  
     * 占位符  
         * %  
             * 格式  
