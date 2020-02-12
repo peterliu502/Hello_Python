@@ -23,6 +23,9 @@ list5.append(list5)
 print(list5, id(list5), id(list5[2]))
 list6 = copy.deepcopy(list5)
 print(list6, id(list6), id(list6[2]))
+# 遇到类似m = [n, m]这种某级元素是其对象自身的引用时，list对象时不会进行彻底的递归运算
+# 遇到m[1]这种已经处理的过的元素并不会分配新的内存地址，而是直接使用已经处理过的相同元素的引用
+# 所以id(m) = id(m[1])
 
 a = [3, 4]
 m = [1, 2, a, [5, a]]
