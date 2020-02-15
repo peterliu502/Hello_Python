@@ -36,12 +36,12 @@ This repository is used to record my personal Python learning process.
         ```python
         "__coding[:=]\s*([-\w.]+)__"
         ```
-### [![avatar](https://img.shields.io/badge/20200107--02-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA-red)](https://github.com/peterliu502/Hello_Python/blob/develop/20200107_02_%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA.py)
+### [![avatar](https://img.shields.io/badge/20200107--02-输入输出-red)](https://github.com/peterliu502/Hello_Python/blob/develop/20200107_02_输入输出.py)
 ***
 #### __time__  
 2020-01-07
 #### __content__
-##### [![avatar](https://img.shields.io/badge/%E5%87%BD%E6%95%B0-print()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#print)
+##### [![avatar](https://img.shields.io/badge/函数-print()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#print)
 * 函数定义：    
         ```python
         print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)  
@@ -77,7 +77,7 @@ This repository is used to record my personal Python learning process.
 * 显示多个字符串  
     使用`,`符号，默认状态下显示时`,`会被显示成空格，但可以通过修改`print()`函数的`sep`参数进行修改。除了连接多个字符串，`,`还可以连接多个算式或者是连接字符串与算式；  
     使用`+`符号，显示时字符串之间不会有空格。`+`只可以连接字符串，或者在多个数字或者算式之间作运算符使用，即数学意义上的加号。但不可以连接字符串与数字或算式；  
-##### 转义符
+##### ![avatar](https://img.shields.io/badge/关键概念-转义符-yellowgreen)
 * `\`:
     * 写法：  
         ```python
@@ -126,7 +126,7 @@ This repository is used to record my personal Python learning process.
         字符串直接使用回车键换行，不需要在行末加`\n`。
 * 显示数字或算式  
     `print()`函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
-##### [![avatar](https://img.shields.io/badge/%E5%87%BD%E6%95%B0-input()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#input)  
+##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#input)  
 * 函数定义  
     input(prompt)
 * 参数
@@ -134,12 +134,12 @@ This repository is used to record my personal Python learning process.
         `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
 * 返回值  
     `input()`函数输出的是字符串类型。    
-### [![avatar](https://img.shields.io/badge/20200109--01-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200109_01_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F.py)
+### [![avatar](https://img.shields.io/badge/20200109--01-数据类型与变量-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200109_01_数据类型与变量.py)
 ***
 #### __time__  
 2020-01-09
 #### __content__
-##### 数据类型
+##### ![avatar](https://img.shields.io/badge/关键概念-数据类型-yellowgreen)
 * 分类
     * [`整数`（`int`）](https://docs.python.org/zh-cn/3.8/library/functions.html#int)：  
         即整型。不仅指十进制的整数，python也可以处理其他进制的整数  
@@ -166,7 +166,7 @@ This repository is used to record my personal Python learning process.
                 它是一个`单目运算符`，把`True`变成`False`，`False`变成`True`  
     * [`空值`（`None`）](https://docs.python.org/zh-cn/3.8/library/constants.html#None):  
         空值是Python里一个特殊的值，用`None`表示。`None`不能理解为0，因为0是有意义的，而`None`是一个特殊的空值，可以理解为没有任何东西。  
-##### 变量
+##### ![avatar](https://img.shields.io/badge/关键概念-变量-yellowgreen)
 * 变量名的表示方法：  
     变量在程序中就是用一个变量名表示了，变量名必须是大小写英文、数字和下划线的组合，且不能用数字开头；  
 * 赋值：  
@@ -197,27 +197,27 @@ This repository is used to record my personal Python learning process.
     a = 'ABC'
     ```
     解释器创建了字符串'ABC'和变量a，并把a指向'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/%E5%8F%98%E9%87%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%951.png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法1.png)  
     2.执行
     ```python
     b = a
     ```
     解释器创建了变量b，并把b指向a指向的字符串'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/%E5%8F%98%E9%87%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%952.png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法2.png)  
     3.执行
     ```python
     a = 'XYZ'
     ```
     解释器创建了字符串'XYZ'，并把a的指向改为'XYZ'，但b并没有更改：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/%E5%8F%98%E9%87%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%953.png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法3.png)  
     4.所以，最后打印变量b的结果自然是'ABC'了  
-##### 常量  
+##### ![avatar](https://img.shields.io/badge/关键概念-常量-yellowgreen)  
 所谓常量就是不能变的变量，比如常用的数学常数`π`就是一个常量。在`python`中，通常用全部大写的变量名表示常量：
 ```python
 PI = 3.14159265359
 ```
 但事实上`PI`仍然是一个变量，`python`根本没有任何机制保证`PI`不会被改变，所以，用全部大写的变量名表示常量只是一个习惯上的用法，如果一定要改变变量PI的值，并不会报错
-##### 除法
+##### ![avatar](https://img.shields.io/badge/关键概念-除法-yellowgreen)
 * /除法  
     /除法计算结果是浮点数，即使是两个数恰好整除，结果也是浮点数。可参考以下代码：
     ```python
@@ -245,12 +245,12 @@ PI = 3.14159265359
     print(9%3)
     print(10%3)
     ```
-### [![avatar](https://img.shields.io/badge/20200201--01-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E7%BC%96%E7%A0%81-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200201_01_%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E7%BC%96%E7%A0%81.py)
+### [![avatar](https://img.shields.io/badge/20200201--01-字符串与编码-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200201_01_字符串与编码.py)
 ***
 #### __time__  
 2020-02-01
 #### __content__           
-##### 字符编码
+##### ![avatar](https://img.shields.io/badge/关键概念-字符编码-yellowgreen)
 * 字节  
     由于计算机只能处理二进制数字，所以所有的文本都必须转为数字才可以交由计算机处理。因此通常由8`比特`（`bit`）构成1个`字节`（`byte`），也可以理解为为每1个字符都可以对应一个8位的二进制数字。  
     1个字节8比特可以表示`2^8`个数字（`0`-`255`），2个字节16比特可以表示`2^16`个数字（`0`-`65535`），4个字节32比特可以表示`2^32`个数字（`0`-`4294967295`）
@@ -276,9 +276,9 @@ PI = 3.14159265359
     可以看出`ASCII`码中的字符在`UTF-8`中的编码并没有变化，这意味着一些只支持`ASCII`编码的软件与系统可以在`UTF-8`中较好的运行。  
     在计算机内存中默认使用`Unicode`编码，而数据传输和储存时考虑到存储体积更偏向于使用`UTF-8`编码，因此在日常计算机操作中经常涉及到几种字符编码的转换，具体可以参看以下2个例子：  
     1.编辑`UTF-8`编码的TXT格式文档  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200201_01/%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC.png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200201_01/浏览网页中的文本.png)  
     2.浏览网页中的文本  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200201_01/%E7%BC%96%E8%BE%91UTF-8%E7%BC%96%E7%A0%81%E7%9A%84TXT%E6%A0%BC%E5%BC%8F%E6%96%87%E6%A1%A3.png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200201_01/编辑UTF-8编码的TXT格式文档.png)  
     很多网页的源码上会有类似`<meta charset="UTF-8" />`的信息，表示该网页正是用的`UTF-8`编码。  
 * python中的默认编码  
     `python2`中默认编码是`ASCII`，所以在程序开头必须带上<a href = '#编码声明'>`## -*- coding: utf-8 -*-`</a>，以保证`utf-8`编码的字符可以正常显示。  
@@ -300,7 +300,7 @@ PI = 3.14159265359
     ```  
     测试结果中，第`127`/`255`/`2^16`个字符比较异常，原因是这几个字节正好是编码中首位数字由0变1的字符，所以结构体所占的内存也会有变化  
 ##### 字符串  
-* <a id = 'ord()'>[![avatar](https://img.shields.io/badge/%E5%87%BD%E6%95%B0-ord()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#ord)</a>  
+* <a id = 'ord()'>[![avatar](https://img.shields.io/badge/函数-ord()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#ord)</a>  
     * 函数定义  
         ord(c)  
     * 参数
@@ -312,7 +312,7 @@ PI = 3.14159265359
         <a href = '#chr()'>`chr()`</a>  
     * 备注
         `ord()`只能接收`str`，所以注意`str`类型的'1'和`int`类型的1之间的区别
-* <a id = 'chr()'>[![avatar](https://img.shields.io/badge/%E5%87%BD%E6%95%B0-chr()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#chr)</a>  
+* <a id = 'chr()'>[![avatar](https://img.shields.io/badge/函数-chr()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#chr)</a>  
     * 函数定义  
         chr(i)
     * 参数
@@ -326,7 +326,7 @@ PI = 3.14159265359
     * 备注  
         >1.`int`类型的四种进制整数对`chr()`来说没有区别，或者说这四种进制数对程序来说一般也没有区别。  
         2.`python`可以直接支持`Unicode`编码，所以直接在`str`对象中输入`\u`+四位`Unicode`编码即可打印出字符  
-* <a id = 'encode()'>[![avatar](https://img.shields.io/badge/%E6%96%B9%E6%B3%95-str.encode()-yellow)](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.encode)</a>  
+* <a id = 'encode()'>[![avatar](https://img.shields.io/badge/方法-str.encode()-orange)](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.encode)</a>  
     * 作用  
         `str`类型的特殊方法，返回原字符串编码为字节串对象的版本。
     * 方法定义
@@ -356,7 +356,7 @@ PI = 3.14159265359
     |  :-:  |    :-:   |        :-:         |      :-:      |       :-:      |
     |   A   |   b'A'   |        b'A'        |      b'A'     |b'\xff\xfeA\x00'|
     |   中  |   null   |    b'\xd6\xd0'     |b'\xe4\xb8\xad'|  b'\xff\xfe-N' |  
-* <a id = 'decode()'>[![avatar](https://img.shields.io/badge/%E6%96%B9%E6%B3%95-bytes.decode()-yellow)](https://docs.python.org/zh-cn/3/library/stdtypes.html#bytes.decode)</a>  
+* <a id = 'decode()'>[![avatar](https://img.shields.io/badge/方法-bytes.decode()-orange)](https://docs.python.org/zh-cn/3/library/stdtypes.html#bytes.decode)</a>  
     * 作用  
         `bytes`和`bytearray`对象的附加方法，返回从给定`bytes`解码出来的`str`。  
     * 方法定义  
@@ -371,152 +371,152 @@ PI = 3.14159265359
         `str`  
     * 逆方法  
         <a href = '#encode()'>`encode()`</a>  
-* 占位符  
-* %  
-    * 格式  
-        '%[[-][+][0][width][.precision]type]' % (obj)  
-        只有一处占位符时可以`obj`可以不加括号  
-    * 参数  
-        * \-  
-            左对齐，默认是右对齐  
-        * \+  
-            正数默认显示`+`符号  
-        * 0  
-            左侧空白位置补0  
-        * width  
-            整个数据输出的位数，含小数点  
-        * .precision  
-            对浮点数的作用是保留小数点后多少位  
-            对字符串的作用是最大字符大小，即最多显示多少位字符串的内容    
-        * type  
-            用于指定占位符最后输出的字符类型  
-            * %s  
-                `%s`可以接受任何类型的对象，然后转为`str`，但`%-0a.bf`只能识别为`%-af`，即补0与`.precision`会失效  
-            * %d  
-                `%d`可以接受任何类型的数字对象，然后输出为十进制数字`str`，`float`对象会向`-inf`取整  
-            * %b  
-                `%b`可以接受任何类型的数字对象，然后输出为二进制数字`str`，`float`对象会向`-inf`取整再转二进制，结果不带进制前缀     
-            * %o  
-                `%o`可以接受任何类型的数字对象，然后输出为八进制数字`str`，`float`对象会向`-inf`取整再转八进制，结果不带进制前缀  
-            * %x  
-                `%x`可以接受任何类型的数字对象，然后输出为十六进制数字`str`，`float`对象会向`-inf`取整再转二进制，结果不带进制前缀  
-            * %f  
-                `%b`可以接受任何类型的数字对象，然后输出为浮点型数字`str`，不设置`.precision`参数则默认6位小数  
-    * 备注  
-        1.对`%`转义的方式为`%%`  
-* [![avatar](https://img.shields.io/badge/%E6%96%B9%E6%B3%95-str.format()-yellow)](https://docs.python.org/zh-cn/3/library/string.html#format-string-syntax)  
-    * 格式  
-        '{[field_name][!conversion]:[:format_spec]}'.format()  
-    * 参数  
-        * field_name
-            * 作用  
-                将占位符指向一个参数  
-            * 格式  
-                arg_name("."attribute_name|"["element_index"]")*  
-            * 备注  
-                >1.`field_name`本身以一个数字或关键字`arg_name`打头。如果为数字，则它指向一个位置参数，而如果为关键字，则它指向一个命名关键字参数。  
-                2.如果格式字符串中的数字`arg_names`为0,1,2,... 的序列，它们可以全部省略（而非部分省略）。数字 0, 1, 2, ... 将会按顺序自动插入。  
-                3.由于`arg_name`不使用引号分隔，因此无法在格式字符串中指定任意的字典键 (例如字符串`'10'`或`':-]'`)。  
-                4.`arg_name`之后可以带上任意数量的`arg_name.attribute_name`索引或`arg_name[element_index]`属性表达式。    
-        * conversion  
-            * 作用  
-                在`format()`方式对参数格式化之前对其转为字符串  
-            * 格式
-                !conversion
-            * 转换旗标类型  
-                * a  
-                    调用`ascii()`转为`ASCII`字符  
-                * s  
-                    调用`str()`转为`Unicode`编码的`str`字符串  
-                * r  
-                    调用`repr()`  
-            * 备注  
-                `conversion`只对`type`为`s`的有效  
-        * [format_spec](https://docs.python.org/zh-cn/3/library/string.html#formatspec)  
-            * 作用  
-            `format_spec`字段用于指定`format()`返回值呈现的规格  
-            * 格式  
-            :[[fill]align][sign][#][0][width][grouping_option][.precision][type]  
-            * 参数  
-                * fill  
-                    * 作用  
-                        `fill`参数用于接收一个字符作补位字符，不指定字符则默认是空格  
-                    * 备注  
-                        >1.仅当输出的字符串宽度小于`width`时才会进行补位  
-                        2.仅当`align`是有效值时`fill`参数才会有效  
-                        3.当指定了`fill`参数，则`width`前的`0`无效    
-                * align  
-                    * 作用  
-                        `align`参数用于指定对齐方式，考虑到`=`的情况，更精确的说法是指定`fill`和`0`参数的补位方式  
-                    * 分类  
-                        * <  
-                            强制字段在可用空间内左对齐，即在右侧补位  
-                            * 备注  
-                                这是大多数对象的默认值  
-                        * \>  
-                            强制字段在可用空间内右对齐，即在左侧补位  
-                            * 备注  
-                                这是数字对象的默认值  
-                        * =  
-                            强制将`fill`和`0`参数指定的补位字符填充在有效的`sign`参数和进制前缀之后但在数字之前  
-                            * 备注  
-                                >1.该方式仅对数字类型有效  
-                                2.当`0`参数有效时，它成为默认值  
-                        * ^  
-                            强制字段在可用空间内居中对齐，即在两侧补位  
-                * sign  
-                    * 作用  
-                        `sign`参数用于指定数字对象前的符号，不指定参数值则默认是`-`  
+* ![avatar](https://img.shields.io/badge/关键概念-占位符-yellowgreen)  
+    * %  
+        * 格式  
+            '%[[-][+][0][width][.precision]type]' % (obj)  
+            只有一处占位符时可以`obj`可以不加括号  
+        * 参数  
+            * \-  
+                左对齐，默认是右对齐  
+            * \+  
+                正数默认显示`+`符号  
+            * 0  
+                左侧空白位置补0  
+            * width  
+                整个数据输出的位数，含小数点  
+            * .precision  
+                对浮点数的作用是保留小数点后多少位  
+                对字符串的作用是最大字符大小，即最多显示多少位字符串的内容    
+            * type  
+                用于指定占位符最后输出的字符类型  
+                * %s  
+                    `%s`可以接受任何类型的对象，然后转为`str`，但`%-0a.bf`只能识别为`%-af`，即补0与`.precision`会失效  
+                * %d  
+                    `%d`可以接受任何类型的数字对象，然后输出为十进制数字`str`，`float`对象会向`-inf`取整  
+                * %b  
+                    `%b`可以接受任何类型的数字对象，然后输出为二进制数字`str`，`float`对象会向`-inf`取整再转二进制，结果不带进制前缀     
+                * %o  
+                    `%o`可以接受任何类型的数字对象，然后输出为八进制数字`str`，`float`对象会向`-inf`取整再转八进制，结果不带进制前缀  
+                * %x  
+                    `%x`可以接受任何类型的数字对象，然后输出为十六进制数字`str`，`float`对象会向`-inf`取整再转二进制，结果不带进制前缀  
+                * %f  
+                    `%b`可以接受任何类型的数字对象，然后输出为浮点型数字`str`，不设置`.precision`参数则默认6位小数  
+        * 备注  
+            1.对`%`转义的方式为`%%`  
+    * [![avatar](https://img.shields.io/badge/方法-str.format()-orange)](https://docs.python.org/zh-cn/3/library/string.html#format-string-syntax)  
+        * 格式  
+            '{[field_name][!conversion]:[:format_spec]}'.format()  
+        * 参数  
+            * field_name
+                * 作用  
+                    将占位符指向一个参数  
+                * 格式  
+                    arg_name("."attribute_name|"["element_index"]")*  
+                * 备注  
+                    >1.`field_name`本身以一个数字或关键字`arg_name`打头。如果为数字，则它指向一个位置参数，而如果为关键字，则它指向一个命名关键字参数。  
+                    2.如果格式字符串中的数字`arg_names`为0,1,2,... 的序列，它们可以全部省略（而非部分省略）。数字 0, 1, 2, ... 将会按顺序自动插入。  
+                    3.由于`arg_name`不使用引号分隔，因此无法在格式字符串中指定任意的字典键 (例如字符串`'10'`或`':-]'`)。  
+                    4.`arg_name`之后可以带上任意数量的`arg_name.attribute_name`索引或`arg_name[element_index]`属性表达式。    
+            * conversion  
+                * 作用  
+                    在`format()`方式对参数格式化之前对其转为字符串  
+                * 格式
+                    !conversion
+                * 转换旗标类型  
+                    * a  
+                        调用`ascii()`转为`ASCII`字符  
+                    * s  
+                        调用`str()`转为`Unicode`编码的`str`字符串  
+                    * r  
+                        调用`repr()`  
+                * 备注  
+                    `conversion`只对`type`为`s`的有效  
+            * [format_spec](https://docs.python.org/zh-cn/3/library/string.html#formatspec)  
+                * 作用  
+                `format_spec`字段用于指定`format()`返回值呈现的规格  
+                * 格式  
+                :[[fill]align][sign][#][0][width][grouping_option][.precision][type]  
+                * 参数  
+                    * fill  
+                        * 作用  
+                            `fill`参数用于接收一个字符作补位字符，不指定字符则默认是空格  
+                        * 备注  
+                            >1.仅当输出的字符串宽度小于`width`时才会进行补位  
+                            2.仅当`align`是有效值时`fill`参数才会有效  
+                            3.当指定了`fill`参数，则`width`前的`0`无效    
+                    * align  
+                        * 作用  
+                            `align`参数用于指定对齐方式，考虑到`=`的情况，更精确的说法是指定`fill`和`0`参数的补位方式  
                         * 分类  
-                            * \+  
-                                表示正数和负数前要加上`+`和`-`符号  
-                            * \-  
-                                表示只在负数前要加上`-`符号  
-                            * 空格  
-                                表示应在正数前使用前加空格，在负数上使用`-`  
-                                
-                * \#  
-                    * 作用  
-                        >1.对非十进制整数强制显示进制前缀  
-                        2.对浮点数、复数、十进制整数强制显示小数点符号  
-                    * 备注  
-                        仅对数字对象有效  
-                * 0  
-                    * 作用  
-                        使用`0`来进行补位  
-                    * 备注  
-                        >1.仅当输出的字符串宽度小于`width`时才会进行补位  
-                        2.当有`fill`参数，则`0`无效  
-                        3.当指定了有效的`0`参数后，`align`的默认值为`=`，{:0d}等于{:0=d}  
-                        4.由于当`type`为`s`类型时，不支持`=`类型的对齐方式，指定`0`参数后，必须手动把`align`改为其他值  
-                * width  
-                    * 作用  
-                        接收一个十进制整数，用于指定输出字符串的最小宽度，若没有指定则字段宽度将由`obj`确定  
-                * precision  
-                    * 格式  
-                        .precision  
-                    * 作用  
-                        接收一个十进制数字，然后根据对象的`type`差异作不同处理：  
-                        >1.对于以`f`和`F`格式化的浮点数值要在小数点后显示多少个数位  
-                        2.对于以`g`或`G`格式化的浮点数值要在小数点前后共显示多少个数位  
-                        3.对于非数字类型，该字段表示最大字段大小，即要使用多少个来自字段内容的字符  
-                    * 备注  
-                        对于整数对象不允许使用precision  
-                * grouping_option  
-                    * 作用  
-                        对数字对象的每3位进行一次分割  
-                    * 分类  
-                        * ,  
-                        * _  
-                            >1.对浮点表示类型和整数表示类型`d`使用下划线作为千位分隔符  
-                            2.对于整数表示类型`b`,`o`,`x`和`X`，将为每4个数位插入一个`_`  
-                    * 备注  
-                        对于其他表示类型指定千位分隔符则将导致错误  
-                * type  
-                    * 作用  
-                        确定数据应如何呈现  
-                    * 分类  
-                        具体参见[格式规格迷你语言](https://docs.python.org/zh-cn/3/library/string.html#format-specification-mini-language)的`type`参数部分  
+                            * <  
+                                强制字段在可用空间内左对齐，即在右侧补位  
+                                * 备注  
+                                    这是大多数对象的默认值  
+                            * \>  
+                                强制字段在可用空间内右对齐，即在左侧补位  
+                                * 备注  
+                                    这是数字对象的默认值  
+                            * =  
+                                强制将`fill`和`0`参数指定的补位字符填充在有效的`sign`参数和进制前缀之后但在数字之前  
+                                * 备注  
+                                    >1.该方式仅对数字类型有效  
+                                    2.当`0`参数有效时，它成为默认值  
+                            * ^  
+                                强制字段在可用空间内居中对齐，即在两侧补位  
+                    * sign  
+                        * 作用  
+                            `sign`参数用于指定数字对象前的符号，不指定参数值则默认是`-`  
+                            * 分类  
+                                * \+  
+                                    表示正数和负数前要加上`+`和`-`符号  
+                                * \-  
+                                    表示只在负数前要加上`-`符号  
+                                * 空格  
+                                    表示应在正数前使用前加空格，在负数上使用`-`  
+                                    
+                    * \#  
+                        * 作用  
+                            >1.对非十进制整数强制显示进制前缀  
+                            2.对浮点数、复数、十进制整数强制显示小数点符号  
+                        * 备注  
+                            仅对数字对象有效  
+                    * 0  
+                        * 作用  
+                            使用`0`来进行补位  
+                        * 备注  
+                            >1.仅当输出的字符串宽度小于`width`时才会进行补位  
+                            2.当有`fill`参数，则`0`无效  
+                            3.当指定了有效的`0`参数后，`align`的默认值为`=`，{:0d}等于{:0=d}  
+                            4.由于当`type`为`s`类型时，不支持`=`类型的对齐方式，指定`0`参数后，必须手动把`align`改为其他值  
+                    * width  
+                        * 作用  
+                            接收一个十进制整数，用于指定输出字符串的最小宽度，若没有指定则字段宽度将由`obj`确定  
+                    * precision  
+                        * 格式  
+                            .precision  
+                        * 作用  
+                            接收一个十进制数字，然后根据对象的`type`差异作不同处理：  
+                            >1.对于以`f`和`F`格式化的浮点数值要在小数点后显示多少个数位  
+                            2.对于以`g`或`G`格式化的浮点数值要在小数点前后共显示多少个数位  
+                            3.对于非数字类型，该字段表示最大字段大小，即要使用多少个来自字段内容的字符  
+                        * 备注  
+                            对于整数对象不允许使用precision  
+                    * grouping_option  
+                        * 作用  
+                            对数字对象的每3位进行一次分割  
+                        * 分类  
+                            * ,  
+                            * _  
+                                >1.对浮点表示类型和整数表示类型`d`使用下划线作为千位分隔符  
+                                2.对于整数表示类型`b`,`o`,`x`和`X`，将为每4个数位插入一个`_`  
+                        * 备注  
+                            对于其他表示类型指定千位分隔符则将导致错误  
+                    * type  
+                        * 作用  
+                            确定数据应如何呈现  
+                        * 分类  
+                            具体参见[格式规格迷你语言](https://docs.python.org/zh-cn/3/library/string.html#format-specification-mini-language)的`type`参数部分  
+                              
                           
-                      
-                                                          
+                                                              
