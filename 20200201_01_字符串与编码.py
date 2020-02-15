@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import codecs
-
+import urllib.parse
 print("ord()函数:")  # ord()函数
 print('函数返回值数据类型:', type(ord('中')), sep='\n')  # ord()函数返回的是int类型
 # 下面转完二进制之后需要在高位补0，补齐16位之后才是
@@ -62,21 +62,32 @@ print(b'\xe4\xb8\xad\xe6\x96\x87\xff'.decode("utf-8", 'ignore'))  # 对无法编
 print(b'\xe4\xb8\xad\xe6\x96\x87\xff'.decode("utf-8", 'replace'))  # 对无法编码的部分用�代替
 print(b'\xe4\xb8\xad\xe6\x96\x87\xff'.decode("utf-8", "backslashreplace"), end='\n\n')  # 对无法编码的部分用XML字符引用代替
 
-print('str格式utf-8编码转Unicode字符')
-print('方法1：')
-str1 = r'\xE5\x87\xBD\xE6\x95\xB0'
-# print(str1)
-bytes1 = str1.encode('utf-8')
+print('url中乱码转Unicode字符')
+print('方法1:codecs.escape_decode()')
+str1 = '%E5%87%BD%E6%95%B0'
+str2 = str1.replace('%', r'\x')
+# print(str2)
+bytes1 = str2.encode('utf-8')
 # print(bytes1)
 bytes2 = codecs.escape_decode(bytes1, 'hex-escape')
+# 需要import codecs
 print(bytes2[0].decode())
-print('方法2：')
-str1 = r'\xE5\x87\xBD\xE6\x95\xB0'.replace(r'\x', '')
-# print(str1)
-bytes1 = codecs.decode(str1, "hex")
+
+print('方法2:codecs.decode()')
+str1 = '%E5%87%BD%E6%95%B0'
+str2 = str1.replace('%', '')
+# print(str2)
+bytes1 = codecs.decode(str2, "hex")
+# 需要import codecs
 # print(bytes1)
-bytes2 = bytes1.decode()
-print(bytes2, end='\n\n')
+str3 = bytes1.decode()
+print(str3)
+
+print('方法3:urllib.parse.unquote()')
+str1 = '%E5%87%BD%E6%95%B0'
+str2 = urllib.parse.unquote(str1)
+# 需要import urllib.parse，光import urllib会引发错误
+print(str2, end='\n\n')
 
 print('占位符%测试')
 # 格式 : %[- + 0 宽度.精度]类型码

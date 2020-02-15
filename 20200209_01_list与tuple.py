@@ -154,14 +154,31 @@ list10.append(list10[0])
 # 对于可变类型对象来说只有将整个对象替换掉才算重新赋值，只是对象内部操作并不算赋值
 print(id(list10), end='\n\n')
 
-print('list运算:')
+print('list&tuple通用运算:')
 print('in 与 not in:')
 print([1] in list8, [] in list8)  # 使用in来确认list中是否有某元素
 print([1] not in list8, [] not in list8)  # 使用not in来确认list中是否没有某元素
 print('min(list) 与 max(list):')
 print(max([1000, True, 6]))  # 取最大值的元素，True=1，False=0
 print(min([1000, True, 6]))  # 取最大值的元素，True=1，False=0
+print('tuple * n')
+tuple1 = tuple(list8)  # 使用tuple()生成tuple对象
+tuple2 = tuple1 * 4  # 使用tuple * n生成tuple对象
+print(tuple2)
+print('tuple1 + tuple2')
+tuple3 = tuple1 + tuple1  # 使用+拼接tuple
+print(tuple3)
+print('tuple[i:j:k]')
+print('tuple3[1]:', tuple3[1])  # 返回tuple指定元素
+print('tuple3[2:4]', tuple3[2:4])  # 返回tuple指定切片
+print('tuple3[None:None:2]', tuple3[None:None:2])  # 返回tuple指定步长的切片
+print('len(tuple)')
+print('len(tuple3)', len(tuple3))  # 返回tuple3的元素数量
+print('tuple.index(x)')
+print('tuple3.index([2], 2, -1)=', tuple3.index([2], 4, len(tuple3)))
+print('tuple3[0:-1].count([2])=', tuple3[0:-1].count([2]), end='\n\n')
 
+print('构造s.count&s.index()的测试函数')
 list11 = [[j] for i in range(1000) for j in range(i + 1)]  # 构造测试函数
 print(list11[0:len(list11):2].count([0]))  # 统计元素出现次数
 print(list11[0:len(list11):2].index([1]))  # 查找特定元素首次出现的序数
@@ -188,12 +205,14 @@ list13_4 = list13.copy()
 list13_4s = list13[0:1].copy()
 list13_5 = list(list13)
 list13_5s = list(list13[0:1])
+
 # copy.copy() = list.copy() = list[:] = list()
 print('copy.copy():', list13_1 is list13, list13_1[0] is list13[0])  # False True
 print('copy.deepcopy():', list13_2 is list13, list13_2[0] is list13[0])  # False False
 print('list.copy():', list13_3 is list13, list13_3[0] is list13[0])  # False True
 print('list[:]:', list13_4 is list13, list13_4[0] is list13[0])  # False True
 print('list():', list13_5 is list13, list13_5[0] is list13[0])  # False True
+
 # copy.copy()/copy.deepcopy()/list.copy()/list[:]/list()都支持切片操作
 print('copy.copy():', list13_1s, list13_1s[0] is list13[0])  # True
 print('copy.deepcopy():', list13_2s, list13_2s[0] is list13[0])  # False
@@ -305,3 +324,48 @@ print(list7_10)
 # 在list7_10.sort(key=copy.deepcopy(list7_10).count)中
 # list7_10[0]和list7_10[5]的返回值都是1，所以根据处理的先后顺序
 # 将先处理的9排在7前面
+
+
+def srch_list_elm(list_0: list, elm):
+    list_1 = []
+    for k in range(len(list_0)):
+        if list_0[k] == elm:  # 找到了elm
+            list_1.append(k)
+            return list_1
+        elif type(list_0[k]) == list:
+            if not (srch_list_elm(list_0[k], elm) == []):  # 返回值非[]，说明递归函数在高维list中找到了elm
+                list_1.append(k)
+                list_1 = list_1 + srch_list_elm(list_0[k], elm)
+                return list_1
+    return list_1
+
+
+def get_list_elm(list_0: list, position: list):
+    for num in range(len(position)):
+        if type(position[num]) != int:  # 验证position元素是否全为int
+            return 'Only int is available!'
+    if not(position != []):  # 验证首次输入的position是否为[]
+        return '[] is not available!'
+    else:
+        index = position[0]
+        position.pop(0)
+        if index >= len(list_0):  # 验证指定的元素位置是否超过list长度
+            return 'position wrong!'
+        else:
+            list_1 = list_0[index]
+            if not(position != []):  # position元素耗尽，输出元素
+                return list_1
+            elif type(list_1) != list:  # 当前元素非list类型，无法提取下一维的元素，position指定位置错误
+                return 'position wrong!'
+            else:
+                return get_list_elm(list_1, position)
+
+
+L = [
+    ['Apple', 'Google', 'Microsoft'],
+    ['Java', 'Python', 'Ruby', 'PHP'],
+    ['Adam', 'Bart', 'Lisa']
+]
+print(srch_list_elm(L, 'Apple'), get_list_elm(L, srch_list_elm(L, 'Apple')))
+print(srch_list_elm(L, 'Python'), get_list_elm(L, srch_list_elm(L, 'Python')))
+print(srch_list_elm(L, 'Lisa'), get_list_elm(L, srch_list_elm(L, 'Lisa')))
