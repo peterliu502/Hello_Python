@@ -154,7 +154,7 @@ list10.append(list10[0])
 # 对于可变类型对象来说只有将整个对象替换掉才算重新赋值，只是对象内部操作并不算赋值
 print(id(list10), end='\n\n')
 
-print('list&tuple通用运算:')
+print('序列类型通用运算:')
 print('in 与 not in:')
 print([1] in list8, [] in list8)  # 使用in来确认list中是否有某元素
 print([1] not in list8, [] not in list8)  # 使用not in来确认list中是否没有某元素
@@ -175,8 +175,8 @@ print('tuple3[None:None:2]', tuple3[None:None:2])  # 返回tuple指定步长的�
 print('len(tuple)')
 print('len(tuple3)', len(tuple3))  # 返回tuple3的元素数量
 print('tuple.index(x)')
-print('tuple3.index([2], 2, -1)=', tuple3.index([2], 4, len(tuple3)))
-print('tuple3[0:-1].count([2])=', tuple3[0:-1].count([2]), end='\n\n')
+print('tuple3.index([2], 2, 5)=', tuple3.index([2], 2, 5))  # i在查询范围内而j不在，等价于s[i:j].index(x)
+print('tuple3[2:5].count([2])=', tuple3[2:5].count([2]), end='\n\n')
 
 print('构造s.count&s.index()的测试函数')
 list11 = [[j] for i in range(1000) for j in range(i + 1)]  # 构造测试函数
@@ -300,7 +300,7 @@ print(list7_9, end='\n\n')
 
 # list.sort()
 # list().sort()
-print('list.sort()&list().sort():')
+print('list.sort()')
 list7_10 = [[1, 2], [1, 3], [2, 4], [2, 3, 4], [1.5]]
 list7_10.sort()
 print(list7_10)
