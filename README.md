@@ -41,7 +41,7 @@ This repository is used to record my personal Python learning process.
 #### __time__  
 2020-01-07
 #### __content__
-##### [![avatar](https://img.shields.io/badge/函数-print()-orange)](https://docs.python.org/zh-cn/3. 8/library/functions.html#print)
+##### [![avatar](https://img.shields.io/badge/函数-print()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#print)  
 * 函数定义：    
         ```python
         print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)  
@@ -126,9 +126,9 @@ This repository is used to record my personal Python learning process.
         字符串直接使用回车键换行，不需要在行末加`\n`。
 * 显示数字或算式  
     `print()`函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
-##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3. 8/library/functions.html#input)  
+##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#input)  
 * 函数定义  
-    input(prompt)
+    input(prompt) 
 * 参数
     * prompt  
         `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
@@ -141,10 +141,10 @@ This repository is used to record my personal Python learning process.
 #### __content__
 ##### ![avatar](https://img.shields.io/badge/关键概念-数据类型-yellowgreen)
 * 分类
-    * [`整数`（`int`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#int)：  
+    * [`整数`（`int`）](https://docs.python.org/zh-cn/3.8/library/functions.html#int)：  
         即整型。不仅指十进制的整数，python也可以处理其他进制的整数  
         python的整数没有大小限制  
-    * [`浮点数`（`float`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#float)：  
+    * [`浮点数`（`float`）](https://docs.python.org/zh-cn/3.8/library/functions.html#float)：  
         即小数  
         `python`的浮点数没有大小限制，但超过一定范围就直接表示为`inf`（`无限大`）   
     * [`字符串`（`str`）](https://docs.python.org/zh-cn/3/library/stdtypes.html#str)：  
@@ -153,8 +153,8 @@ This repository is used to record my personal Python learning process.
                 如果`encoding`或`errors`均未给出，则直接返回内容为`object`的字符串，`object`实参需要用`''`或`""`括起      
             * str(object=b'', encoding='utf-8', errors='strict')  
                 如果`object`是一个`bytes-like object`(例如`bytes`或`bytearray`)，`encoding`或`errors`至少给出其中之一，否则会把`object`当`str`类型  
-                str(bytes, encoding, errors) 等价于<a href = '#decode()'>bytes.decode(encoding, errors)</a>  
-    * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#bool)：  
+                `str(bytes, encoding, errors)` 等价于<a href = '#decode()'>`bytes.decode(encoding, errors)`</a>  
+    * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3.8/library/functions.html#bool)：  
         * 分类：  
         只有`True`和`False`两种，首字母必须大写；  
         * 运算：
@@ -164,7 +164,7 @@ This repository is used to record my personal Python learning process.
                 只要其中有一个为`True`，`or`运算结果就是`True`  
             * `not`（`非运算`）  
                 它是一个`单目运算符`，把`True`变成`False`，`False`变成`True`  
-    * [`空值`（`None`）](https://docs.python.org/zh-cn/3. 8/library/constants.html#None):  
+    * [`空值`（`None`）](https://docs.python.org/zh-cn/3.8/library/constants.html#None):  
         空值是Python里一个特殊的值，用`None`表示。`None`不能理解为0，因为0是有意义的，而`None`是一个特殊的空值，可以理解为没有任何东西。  
 ##### ![avatar](https://img.shields.io/badge/关键概念-变量-yellowgreen)
 * 变量名的表示方法：  
@@ -197,19 +197,19 @@ This repository is used to record my personal Python learning process.
     a = 'ABC'
     ```
     解释器创建了字符串'ABC'和变量a，并把a指向'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法1. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法1.png)  
     2. 执行
     ```python
     b = a
     ```
     解释器创建了变量b，并把b指向a指向的字符串'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法2. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法2.png)  
     3. 执行
     ```python
     a = 'XYZ'
     ```
     解释器创建了字符串'XYZ'，并把a的指向改为'XYZ'，但b并没有更改：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法3. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法3.png)  
     4. 所以，最后打印变量b的结果自然是'ABC'了  
 ##### ![avatar](https://img.shields.io/badge/关键概念-常量-yellowgreen)  
 所谓常量就是不能变的变量，比如常用的数学常数`π`就是一个常量。在`python`中，通常用全部大写的变量名表示常量：
@@ -352,10 +352,10 @@ PI = 3. 14159265359
         <a href = '#decode()'>`decode()`</a>
     * 备注  
         >`bytes`对象的形式为`b'编码'`，具体写法由所用的字符编码决定  
-    >| 字符  |   ASCII  |        gbk         |     UTF-8     |     UTF-16     |
-    |  :-:  |    :-:   |        :-:         |      :-:      |       :-:      |
-    |   A   |   b'A'   |        b'A'        |      b'A'     |b'\xff\xfeA\x00'|
-    |   中  |   null   |    b'\xd6\xd0'     |b'\xe4\xb8\xad'|  b'\xff\xfe-N' |  
+        >| 字符  |   ASCII  |        gbk         |     UTF-8     |     UTF-16     |
+        >|  :-:  |    :-:   |        :-:         |      :-:      |       :-:      |
+        >|   A   |   b'A'   |        b'A'        |      b'A'     |b'\xff\xfeA\x00'|
+        >|   中  |   null   |    b'\xd6\xd0'     |b'\xe4\xb8\xad'|  b'\xff\xfe-N' |  
 * <a id = 'decode()'>[![avatar](https://img.shields.io/badge/方法-bytes.decode()-orange)](https://docs.python.org/zh-cn/3/library/stdtypes.html#bytes.decode)</a>  
     * 作用  
         `bytes`和`bytearray`对象的附加方法，返回从给定`bytes`解码出来的`str`。  
