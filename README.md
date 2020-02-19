@@ -41,7 +41,7 @@ This repository is used to record my personal Python learning process.
 #### __time__  
 2020-01-07
 #### __content__
-##### [![avatar](https://img.shields.io/badge/函数-print()-orange)](https://docs.python.org/zh-cn/3. 8/library/functions.html#print)
+##### [![avatar](https://img.shields.io/badge/函数-print()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#print)  
 * 函数定义：    
         ```python
         print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)  
@@ -126,7 +126,7 @@ This repository is used to record my personal Python learning process.
         字符串直接使用回车键换行，不需要在行末加`\n`。
 * 显示数字或算式  
     `print()`函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
-##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3. 8/library/functions.html#input)  
+##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#input)  
 * 函数定义  
     input(prompt)
 * 参数
@@ -141,10 +141,10 @@ This repository is used to record my personal Python learning process.
 #### __content__
 ##### ![avatar](https://img.shields.io/badge/关键概念-数据类型-yellowgreen)
 * 分类
-    * [`整数`（`int`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#int)：  
+    * [`整数`（`int`）](https://docs.python.org/zh-cn/3.8/library/functions.html#int)：  
         即整型。不仅指十进制的整数，python也可以处理其他进制的整数  
         python的整数没有大小限制  
-    * [`浮点数`（`float`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#float)：  
+    * [`浮点数`（`float`）](https://docs.python.org/zh-cn/3.8/library/functions.html#float)：  
         即小数  
         `python`的浮点数没有大小限制，但超过一定范围就直接表示为`inf`（`无限大`）   
     * [`字符串`（`str`）](https://docs.python.org/zh-cn/3/library/stdtypes.html#str)：  
@@ -154,7 +154,7 @@ This repository is used to record my personal Python learning process.
             * str(object=b'', encoding='utf-8', errors='strict')  
                 如果`object`是一个`bytes-like object`(例如`bytes`或`bytearray`)，`encoding`或`errors`至少给出其中之一，否则会把`object`当`str`类型  
                 str(bytes, encoding, errors) 等价于<a href = '#decode()'>bytes.decode(encoding, errors)</a>  
-    * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3. 8/library/functions.html#bool)：  
+    * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3.8/library/functions.html#bool)：  
         * 分类：  
         只有`True`和`False`两种，首字母必须大写；  
         * 运算：
@@ -164,7 +164,7 @@ This repository is used to record my personal Python learning process.
                 只要其中有一个为`True`，`or`运算结果就是`True`  
             * `not`（`非运算`）  
                 它是一个`单目运算符`，把`True`变成`False`，`False`变成`True`  
-    * [`空值`（`None`）](https://docs.python.org/zh-cn/3. 8/library/constants.html#None):  
+    * [`空值`（`None`）](https://docs.python.org/zh-cn/3.8/library/constants.html#None):  
         空值是Python里一个特殊的值，用`None`表示。`None`不能理解为0，因为0是有意义的，而`None`是一个特殊的空值，可以理解为没有任何东西。  
 ##### ![avatar](https://img.shields.io/badge/关键概念-变量-yellowgreen)
 * 变量名的表示方法：  
