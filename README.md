@@ -128,7 +128,7 @@ This repository is used to record my personal Python learning process.
     `print()`函数可以接收一个变量或算式，直接显示变量的值或者是算式的结果；  
 ##### [![avatar](https://img.shields.io/badge/函数-input()-orange)](https://docs.python.org/zh-cn/3.8/library/functions.html#input)  
 * 函数定义  
-    input(prompt)
+    input(prompt) 
 * 参数
     * prompt  
         `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
@@ -153,7 +153,7 @@ This repository is used to record my personal Python learning process.
                 如果`encoding`或`errors`均未给出，则直接返回内容为`object`的字符串，`object`实参需要用`''`或`""`括起      
             * str(object=b'', encoding='utf-8', errors='strict')  
                 如果`object`是一个`bytes-like object`(例如`bytes`或`bytearray`)，`encoding`或`errors`至少给出其中之一，否则会把`object`当`str`类型  
-                str(bytes, encoding, errors) 等价于<a href = '#decode()'>bytes.decode(encoding, errors)</a>  
+                `str(bytes, encoding, errors)` 等价于<a href = '#decode()'>`bytes.decode(encoding, errors)`</a>  
     * [`布尔值`（`bool`）](https://docs.python.org/zh-cn/3.8/library/functions.html#bool)：  
         * 分类：  
         只有`True`和`False`两种，首字母必须大写；  
@@ -197,19 +197,19 @@ This repository is used to record my personal Python learning process.
     a = 'ABC'
     ```
     解释器创建了字符串'ABC'和变量a，并把a指向'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法1. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法1.png)  
     2. 执行
     ```python
     b = a
     ```
     解释器创建了变量b，并把b指向a指向的字符串'ABC'：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法2. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法2.png)  
     3. 执行
     ```python
     a = 'XYZ'
     ```
     解释器创建了字符串'XYZ'，并把a的指向改为'XYZ'，但b并没有更改：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法3. png)  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200109_01/变量在内存中的表示方法3.png)  
     4. 所以，最后打印变量b的结果自然是'ABC'了  
 ##### ![avatar](https://img.shields.io/badge/关键概念-常量-yellowgreen)  
 所谓常量就是不能变的变量，比如常用的数学常数`π`就是一个常量。在`python`中，通常用全部大写的变量名表示常量：
