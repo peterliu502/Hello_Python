@@ -719,7 +719,7 @@ PI = 3. 14159265359
                 >1. `s.clear()`是为了与不支持切片操作的可变容器(例如`dict`和`set`)的接口保持一致。 
         * s.copy()  
             * 结果  
-                创建一个s的<a href = '#浅拷贝'>浅拷贝</a>，等同于`copy.copy(s)`、`s[:]`和`list(s)`  
+                创建一个s的浅拷贝，等同于`copy.copy(s)`、`s[:]`和`list(s)`  
             * 备注  
                 >1. `s.copy()`是为了与不支持切片操作的可变容器(例如`dict`和`set`)的接口保持一致。  
                 >2. `copy()`不是`collections.abc.MutableSequence ABC`的一部分，但大多数具体的可变序列类都提供了它  
@@ -761,4 +761,90 @@ PI = 3. 14159265359
             * 备注  
                 >1. `s.reverse()`不是创建s的逆序副本，而是对s自身进行修改  
                 >2. `s.reverse()`并不会返回反转后的序列  
-        
+### [![avatar](https://img.shields.io/badge/20200212--01-浅拷贝与深拷贝-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200212_01_浅拷贝与深拷贝.py)                        
+***
+#### __time__  
+2020-02-12
+#### __content__  
+##### ![avatar](https://img.shields.io/badge/关键概念-赋值-yellowgreen)  
+* 常用方法  
+    `identifier = object`  
+* 解释  
+    使一个变量（官方称之为标识符（`identifier`））建立起与对象的引用  
+* 备注  
+    >1. 与`C`、`C++`等语言不同，变量（标识符）本身无类型，与之绑定的对象有类型  
+    >2. `=`是赋值的关键，大部分情况下有无严格的`identifier =`可以区分操作是修改对象还是再赋值，比如`s = s + t`和`s += t`、`s = s * t`和`s *= t`、`s.expend(t)`和`s = s + t`  
+    >>请看下面这个例子：  
+    >>```python
+    >>def func(m):
+    >>    m[0] = 20
+    >>    m = [4, 5, 6]
+    >>    return m
+    >>
+    >>
+    >>l = [1, 2, 3]
+    >>func(l)
+    >>print('l =', l)
+    >>```
+    >>l被赋值为`[1, 2, 3]`,所以在`func(l)`在传参时x也被赋值为`func(l)`，`m[0] = 20`将被引对象修改为`[20, 2, 3]`,l因为引用同一个对象所以也同步更新为`[20, 2, 3]`，而`m = [4, 5, 6]`则是对m的重新赋值，所以m和原list对象`[20, 2, 3]`脱离关系  
+    因为l不受m的再次赋值的影响，所以最终的值为`[20, 2, 3]`  
+    >3. 函数传参数就相当于对形参进行赋值，而非`C`、`C++`意义上的传值或传引用  
+    >4. 赋值的过程如下面的代码与图片所示：  
+    >```python
+    >a = 1
+    >print('a', a, id(a))
+    >b = 2
+    >print('b', b, id(b))
+    >c = 1
+    >print('c', c, id(c))
+    ># 再次赋值
+    >a = b
+    >print('a', a, id(a))
+    >```
+    >```
+    >输出结果：  
+    >a 1 4301490544
+    >b 2 4301490576
+    >c 1 4301490544
+    >a 2 4301490576
+    >```  
+    >![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/赋值.jpg)  
+##### ![avatar](https://img.shields.io/badge/关键概念-浅拷贝-yellowgreen)  
+* 常用方法  
+    `import copy`  
+    `copy.copy()`  
+* 解释  
+    浅拷贝生成的对象自身使用新的内存地址，而其一维元素和更高维的元素仍是被拷贝对象的引用  
+* 备注  
+    >1. 对于多维可变类型对象来说非常容易产生浅拷贝现象，比如拼接等操作  
+    >2. 浅拷贝对象与被拷贝对象的关系示意图：  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝1.jpg)  
+##### ![avatar](https://img.shields.io/badge/关键概念-深拷贝-yellowgreen)  
+* 常用方法  
+    `import copy`  
+    `copy.deepcopy()`  
+* 解释  
+    深拷贝生成的对象自身、一维元素和更高维的元素都使用新的内存地址  
+* 备注  
+    >* 当被引对象中存在多个项引用同一对象的情况，请参看下面的代码：  
+    >>```python
+    >>from copy import deepcopy
+    >>a = [3, 4]
+    >>m = [1, 2, a, [5, a]]
+    >>n = deepcopy(m)
+    >>n[3][1][0] = -1
+    >>print(n)
+    >>print(m)
+    >>print(a)
+    >>```
+    >>```
+    >>输出结果：
+    >>[1, 2, [-1, 4], [5, [-1, 4]]]
+    >>[1, 2, [3, 4], [5, [3, 4]]]
+    >>[3, 4]
+    >>```
+    >>m中的a只是起到引用同一个`list`对象`[3, 4]`的作用，可以理解为a只是这个list对象的别名，他俩是绑定关系  
+    `deepcopy()`对各层元素都会建立副本，所以`m[2]`和`m[3][1]`指向的都是list对象`[3, 4]`的副本，而非本体  
+    所以`m[2]`和`m[3][1]`和原本的list对象`[3, 4]`以及a都没有关系了    
+    >* 深拷贝对象与被拷贝对象的关系示意图：  
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝2.jpg)        
