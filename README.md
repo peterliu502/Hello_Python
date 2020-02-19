@@ -352,10 +352,10 @@ PI = 3. 14159265359
         <a href = '#decode()'>`decode()`</a>
     * 备注  
         >`bytes`对象的形式为`b'编码'`，具体写法由所用的字符编码决定  
-    >| 字符  |   ASCII  |        gbk         |     UTF-8     |     UTF-16     |
-    |  :-:  |    :-:   |        :-:         |      :-:      |       :-:      |
-    |   A   |   b'A'   |        b'A'        |      b'A'     |b'\xff\xfeA\x00'|
-    |   中  |   null   |    b'\xd6\xd0'     |b'\xe4\xb8\xad'|  b'\xff\xfe-N' |  
+        >| 字符  |   ASCII  |        gbk         |     UTF-8     |     UTF-16     |
+        >|  :-:  |    :-:   |        :-:         |      :-:      |       :-:      |
+        >|   A   |   b'A'   |        b'A'        |      b'A'     |b'\xff\xfeA\x00'|
+        >|   中  |   null   |    b'\xd6\xd0'     |b'\xe4\xb8\xad'|  b'\xff\xfe-N' |  
 * <a id = 'decode()'>[![avatar](https://img.shields.io/badge/方法-bytes.decode()-orange)](https://docs.python.org/zh-cn/3/library/stdtypes.html#bytes.decode)</a>  
     * 作用  
         `bytes`和`bytearray`对象的附加方法，返回从给定`bytes`解码出来的`str`。  
