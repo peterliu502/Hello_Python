@@ -828,10 +828,10 @@ PI = 3. 14159265359
 * 备注  
     >* 当被引对象中存在多个项引用同一对象的情况，请参看下面的代码：  
     >>```python
-    >>from copy import deepcopy
+    >>import deepcopy
     >>a = [3, 4]
     >>m = [1, 2, a, [5, a]]
-    >>n = deepcopy(m)
+    >>n = copy.deepcopy(m)
     >>n[3][1][0] = -1
     >>print(n)
     >>print(m)
@@ -847,4 +847,25 @@ PI = 3. 14159265359
     `deepcopy()`对各层元素都会建立副本，所以`m[2]`和`m[3][1]`指向的都是list对象`[3, 4]`的副本，而非本体  
     所以`m[2]`和`m[3][1]`和原本的list对象`[3, 4]`以及a都没有关系了    
     >* 深拷贝对象与被拷贝对象的关系示意图：  
-    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝2.jpg)        
+    ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝2.jpg)
+### [![avatar](https://img.shields.io/badge/20200220--01-if语句与循环语句-red)]()
+***
+#### __time__  
+2020-02-20
+#### __content__  
+##### ![avatar](https://img.shields.io/badge/关键概念-条件判断语句-yellowgreen)
+* 结构  
+    ```python
+    if a:
+        do a1
+    elif b:
+        do b1
+    else:
+        do c1
+    ```
+* 备注  
+    >1. if语句自上而下逐行运行，当判断语句为`True`时跳入当前分支的执行语句，后面的分支不再执行。因此各分支的判断范围必须彼此独立，或者范围逐渐扩大。
+    >2. 判断语句必须以`:`结尾，执行语句必须缩进  
+    >3. `elif`和`else`语句是可省略的  
+    >4. 判断语句如果是非零数值、非空字符串、非空`list`等，就判断为`True`，否则为`False`  
+            
