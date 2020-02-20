@@ -848,7 +848,7 @@ PI = 3. 14159265359
     所以`m[2]`和`m[3][1]`和原本的list对象`[3, 4]`以及a都没有关系了    
     >* 深拷贝对象与被拷贝对象的关系示意图：  
     ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝2.jpg)
-### [![avatar](https://img.shields.io/badge/20200220--01-if语句与循环语句-red)]()
+### [![avatar](https://img.shields.io/badge/20200220--01-if语句与循环语句-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200220_01_if语句与循环语句.py)
 ***
 #### __time__  
 2020-02-20
@@ -868,4 +868,31 @@ PI = 3. 14159265359
     >2. 判断语句必须以`:`结尾，执行语句必须缩进  
     >3. `elif`和`else`语句是可省略的  
     >4. 判断语句如果是非零数值、非空字符串、非空`list`等，就判断为`True`，否则为`False`  
-            
+##### ![avatar](https://img.shields.io/badge/关键概念-循环语句-yellowgreen)  
+* 分类  
+    * for in循环  
+        * 格式  
+        ```python
+        for i in s:
+            do a    
+        ```
+        * 说明  
+            将s中的元素依次赋值给i，每完成一次赋值循环一次  
+    * while循环  
+       * 格式  
+        ```python
+        while a:
+            do a    
+        ```
+       * 说明  
+           只要a为`True`就执行循环  
+* 循环相关语法  
+    * break  
+        结束当前循环  
+    * continue  
+        跳过本次循环  
+* 备注  
+    >1. 循环语句的条件语句都要以`:`结尾，执行语句缩进  
+    >2. `continue`和`break`一般都是配合`if`使用。但不可以滥用`break`和`continue`会造成代码执行逻辑分叉过多，容易出错。
+         大多数循环并不需要用到break和continue语句，通常可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句  
+    >3. 出现死循环可以使用`ctrl + c`强制结束程序  
