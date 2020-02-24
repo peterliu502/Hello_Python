@@ -903,7 +903,7 @@ PI = 3. 14159265359
          大多数循环并不需要用到`break`和`continue`语句，通常可以通过改写循环条件或者修改循环逻辑，去掉`break`和`continue`语句  
     >3. 出现死循环可以使用`ctrl + c`强制结束程序  
     >4. `else`语句可选  
-### [![avatar](https://img.shields.io/badge/20200220--01-dict与set类型-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200221_01_dict与set类型.py)
+### [![avatar](https://img.shields.io/badge/20200220--01-dict与集合类型-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200221_01_dict与集合类型.py)
 ***
 #### __time__  
 2020-02-21
@@ -953,7 +953,7 @@ PI = 3. 14159265359
             返回一个以`dict`的键为元素的`iterable`对象  
     * dict.fromkeys(seq[, value])
         * 结果  
-            返回一个以`iterable`的`seq`参数为键，`value`参数为值的`dict`对象  
+            返回一个以`iterable`的`seq`参数为键，`value`参数为值的`dict`对象,所以与该方法绑定的`dict`对象没什么关系  
     * dict.get(key, default)  
         * 结果  
             `dict`中有`key`元素则返回`key`的值，没有则返回`default`，不会触发报错  
@@ -991,4 +991,6 @@ PI = 3. 14159265359
     >2. 数字类型用作键时遵循数字比较的一般规则：如果两个数值相等(例如1和1.0)则两者可以被用来索引同一字典条目（但是请注意，由于计算机对于浮点数存储的只是近似值，因此将其用作字典键是不明智的。）  
     >3. `dict`对象因为采用`key-value`(键-值方法)储存，查找和插入的速度极快，不会随着`key`的增加而变慢。但是需要占用大量的内存，内存浪费多  
     >4. 两个字典的比较当且仅当它们具有相同的键-值对时才会相等（不考虑顺序）。排序比较`<`,`<=`,`>=`,`>`会引发`TypeError`  
-    >5. `dict`对会保留插入时的顺序。请注意对键的更新不会影响顺序。删除并再次添加的键将被插入到末尾                                                                                        
+    >5. `dict`对会保留插入时的顺序。请注意对键的更新不会影响顺序。删除并再次添加的键将被插入到末尾  
+##### [集合类型](https://docs.python.org/zh-cn/3/library/stdtypes.html#set-types-set-frozenset)  
+                                                                                    
