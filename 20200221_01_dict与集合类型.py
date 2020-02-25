@@ -64,21 +64,21 @@ print('超集:', my_set >= my_set1)  # 验证A集合是否是B集合的超集，
 print('真超集:', my_set > my_set1)  # 验证A集合是否是B集合的真超集，即set >= other and set != other
 my_set1 = my_set1.union([4, 5], [5, 6])  # 返回集合对象A和可迭代对象B1-Bn的并集
 print('并集:', my_set1)
-my_set = my_set | my_frozenset | {4, 5} | {5, 6}  # 返回A和B1-Bn的并集,只能set与frozenset之间运算
+my_set = my_set | my_frozenset | {4, 5} | {5, 6}  # 返回B1-Bn的并集,只能set与frozenset之间运算
 my_frozenset1 = my_frozenset | my_set
 print('并集:my_frozenset | my_set', my_frozenset1, type(my_frozenset1))  # set和frozenset取并集的结果是取第一个对象的类型
 print('并集:my_set | my_frozenset', my_set, type(my_set))  # set和frozenset取并集的结果是取第一个对象的类型
 my_set = my_set.intersection([2, 3, 4, 5], (1, 2, 3, 4))  # 返回集合对象A和可迭代对象B1-Bn的交集
 print('交集:', my_set)
-my_set1 = my_set1 & {2, 3, 4, 5} & {1, 2, 3, 4}  # 返回集合对象A和B1-Bn的交集,只能set与frozenset之间运算
+my_set1 = my_set1 & {2, 3, 4, 5} & {1, 2, 3, 4}  # 返回集合对象B1-Bn的交集,只能set与frozenset之间运算
 print('交集:', my_set1, type(my_set))
 my_set = my_set.difference([2], (4, ))  # 返回集合对象A与可迭代对象B1-Bn的差集
 print('差集:', my_set)
-my_set1 = my_set1 - {2} - {4}  # 返回集合对象A与B1-Bn的差集
+my_set1 = my_set1 - {2} - {4}  # 返回集合对象B1-Bn的差集
 print('差集:', my_set1)
-my_set = my_set.symmetric_difference([1, 2, 3, 4, 5])  # 集合对象A和可迭代对象B的并集减去交集
+my_set = my_set.symmetric_difference([1, 2, 3, 4, 5])  # 集合对象A和可迭代对象B的对称差集
 print('对称差集:', my_set)
-my_set1 = my_set1 ^ {1, 2, 3, 4, 5}  # 集合对象A和B的并集减去交集
+my_set1 = my_set1 ^ {1, 2, 3, 4, 5} ^ {5, 6, 7} # 集合对象B1-Bn的对称差集
 print('对称差集:', my_set)
 my_set2 = my_set1.copy()  # 创建浅拷贝
 print('id(my_set1):', id(my_set1), 'id(my_set2):', id(my_set2))
@@ -96,11 +96,12 @@ my_set3 &= {2, 3, 4, 5} & {1, 2, 3, 4}  # set类型版的set1 & set2 & …… & 
 print('交集:', my_set3, type(my_set3))
 my_set2.difference_update([2], (4, ))   # set类型版的set.difference()，可直接对原对象进行修改
 print('差集:', my_set2)
-my_set3 -= {2} - {4}  # set类型版的set1 - set2 - …… - setn，可直接对原对象进行修改
+my_set3 -= {2} | {4}  # set类型版的set1 - set2 - …… - setn，可直接对原对象进行修改
+# 因为运算符优先级的问题，不可以写为B1 -= B2 - ... - Bn，需改为B1 -= B2 | ... | Bn
 print('差集:', my_set3)
 my_set2.symmetric_difference_update([1, 2, 3, 4, 5])   # set类型版的set.symmetric_difference()，可直接对原对象进行修改
 print('对称差集:', my_set2)
-my_set2 ^= {1, 2, 3, 4, 5}  # set类型版的set1 ^ set2，可直接对原对象进行修改
+my_set2 ^= {1, 2, 3, 4, 5} ^ {5, 6, 7}  # set类型版的set1 ^ set2 ^ …… ^ setn，可直接对原对象进行修改
 print('对称差集:', my_set2)
 my_set2.add(4)  # 在set对象的末尾插入x元素
 print('插入元素:', my_set2)
@@ -109,6 +110,12 @@ print('删除元素(remove):', my_set2)
 elm = {1}
 my_set2.discard(elm)  # 相当于不会报错版的set.remove()
 print('删除元素(discard):', my_set2)
-my_set3.pop()  # 消除set对象中的一个元素（打印出来的最后一个元素）
+my_set3.pop()  # 随机消除set对象中的一个元素（因为set对象中的元素没有顺序的概念）
 print('删除元素(pop):', my_set3)
 my_set3.clear()  # 清除set对象中所有的元素
+
+s1 = {1, 2, 3, 4, 5, 6}
+s2 = {1, 2, 3, 4, 5, 6}
+s1 -= {1} - {2} - {3} - {4}
+s2 -= {1} | {2} | {3} | {4}
+print(s1, s2)

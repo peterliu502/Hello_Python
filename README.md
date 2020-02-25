@@ -993,4 +993,186 @@ PI = 3. 14159265359
     >4. 两个字典的比较当且仅当它们具有相同的键-值对时才会相等（不考虑顺序）。排序比较`<`,`<=`,`>=`,`>`会引发`TypeError`  
     >5. `dict`对会保留插入时的顺序。请注意对键的更新不会影响顺序。删除并再次添加的键将被插入到末尾  
 ##### [集合类型](https://docs.python.org/zh-cn/3/library/stdtypes.html#set-types-set-frozenset)  
-                                                                                    
+* 定义  
+    集合对象是由具有唯一性的`hashable`对象所组成的无序多项集  
+    常见的用途包括成员检测、从序列中去除重复项以及数学中的集合类计算，例如交集、并集、差集与对称差集等  
+* 分类  
+    * set类型  
+        * 定义  
+            `set`类型是可变的,其内容可以使用`add()`和`remove()`这样的方法来改变。由于是可变类型，它是非`hashable`的，且不能被用作`dict`的`key`或其他集合对象的元素  
+        * 函数  
+            set([iterable])
+            * 备注  
+                >1. 想要创建一个空`set`对象必须借助其构造器函数，直接使用`{}`会被识别为`dict`对象  
+                >2. 返回一个新的`set`对象，其元素来自于`iterable`。集合的元素必须为`hashable`  
+                >3. 要表示由集合对象构成的`set`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，则将返回一个新的空集合    
+    * frozenset类型  
+        * 定义  
+            `frozenset`类型是不可变并且为`hashable`，其内容在被创建后不能再改变。因此它可以被用作`dict`的`key`或其他集合的元素  
+        * 函数  
+            frozenset([iterable])  
+            * 备注  
+                >1. 想要创建一个空`frozenset`对象必须借助其构造器函数，直接使用`{}`会被识别为`dict`对象  
+                >2. 返回一个新的`frozenset`对象，其元素来自于`iterable`。集合的元素必须为`hashable`  
+                >3. 要表示由集合对象构成的`frozenset`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，则将返回一个新的空集合    
+* 操作  
+    * 集合对象通用操作  
+        * <a id = 'len(set)'>len(set)</a>  
+            * 结果  
+                返回集合对象中项的个数（即对象的基数）  
+        * <a id = 'set.copy()'>set.copy()</a>  
+            * 结果  
+                返回集合对象的浅拷贝      
+        * <a id = 'x in set'>x in set</a>  
+            * 结果  
+                如果集合对象中的某项等于x则结果为`True`，否则为`False`       
+        * <a id = 'x not in set'>x not in set</a>  
+            * 结果  
+                如果集合对象中的某项等于x则结果为`False`，否则为`True`  
+        * <a id = 'A.isdisjoint(B)'>A.isdisjoint(B)</a>  
+            * 结果  
+                验证A集合和B可迭代对象是否没有交集，没有则返回`True`，反之则`False`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较    
+        * <a id = 'A.issubset(B)'>A.issubset(B)</a>  
+            * 结果  
+                验证A集合是否是B可迭代对象的子集，等价于`set1 <= set2`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+        * <a id = 'set1 <= set2'>set1 <= set2</a>  
+            * 结果  
+                验证集合set1是否是set2的子集，等价于`A.issubset(B)`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issubset(B)`方法最大的区别  
+        * <a id = 'set1 < set2'>set1 < set2</a>  
+            * 结果  
+                验证集合set1是否是set2的真子集，即`set <= other and set != other`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较          
+        * A.issuperset(B)  
+            * 结果  
+                验证A集合是否是B可迭代对象的超集，等价于`set1 >= set2`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+        * <a id = 'set1 >= set2'>set1 >= set2</a>  
+            * 结果  
+                验证集合set1是否是set2的超集，等价于`A.issuperset(B)`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issuperset(B)`方法最大的区别  
+        * <a id = 'set1 > set2'>set1 > set2</a>  
+            * 结果  
+                验证集合set1是否是set2的真超集，即`set >= other and set != other`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较     
+        * <a id = 'A.union(B1, B2, ...,Bn)'>A.union(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的并集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+        * <a id = 'set1 | set2 | …… | setn'>set1 | set2 | …… | setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的并集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.union(B1, B2, ...,Bn)`方法最大的区别      
+        * <a id = 'A.intersection(B1, B2, ...,Bn)'>A.intersection(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的交集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+        * <a id = 'set1 & set2 & …… & setn'>set1 & set2 & …… & setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的交集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection(B1, B2, ...,Bn)`方法最大的区别  
+        * <a id = 'A.difference(B1, B2, ...,Bn)'>A.difference(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的差集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+        * <a id = 'set1 - set2 - …… - setn'>set1 - set2 - …… - setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的差集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference(B1, B2, ...,Bn)`方法最大的区别  
+        * <a id = 'A.symmetric_difference(B)'>A.symmetric_difference(B)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B的对称差集  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+        * <a id = 'set1 ^ set2 ^ …… ^ setn'>set1 ^ set2 ^ …… ^ setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的对称差集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference(B1, B2, ...,Bn)`方法是不同的  
+                >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference(B)`只支持两个对象求对称差集  
+    * set类型操作  
+        * A.add(x)  
+            * 结果  
+                在`set`对象A中插入x元素  
+        * A.remove(x)  
+            * 结果  
+                `set`对象A中存在x元素则消除该元素，不存在则报错  
+            * 备注  
+                >1. `set.remove()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
+        * A.discard(x)
+            * 结果
+                `set`对象A中存在x元素则消除该元素，不存在不会报错  
+            * 备注  
+                >1. `set.discard()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
+        * A.pop()  
+            * 结果  
+                随机消除`set`对象中的一个元素（因为`set`对象中的元素没有顺序的概念） 
+        * A.clear()  
+            * 结果  
+                清除`set`对象中所有的元素  
+        * A.update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.union(B1, B2, ...,Bn)'>`A.union(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+        * set1 |= set2 | …… | setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 | set2 | …… | setn'>`set1 | set2 | …… | setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.update(B1, B2, ...,Bn)`方法最大的区别      
+        * A.intersection_update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.intersection(B1, B2, ...,Bn)'>`A.intersection(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+        * set1 &= set2 & …… & setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 & set2 & …… & setn'>`set1 & set2 & …… & setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection_update(B1, B2, ...,Bn)`方法最大的区别  
+        * A.difference_update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.difference(B1, B2, ...,Bn)'>`A.difference(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+        * set1 -= set2 | …… | setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 - set2 - …… - setn'>`set1 - set2 - …… - setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference_update(B1, B2, ...,Bn)`方法最大的区别  
+                >2. 由于在运算符优先级中`-`高于`-=`,所以`set1 -= set2 - …… - setn`的写法是不行的，相当于`set1 -= (set2 - …… - setn)`，所以要改为`set1 -= set2 | …… | setn`  
+        * A.symmetric_difference_update(B)  
+            * 结果  
+                `set`类型版的<a href = '#A.symmetric_difference(B)'>`A.symmetric_difference(B)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+        * set1 ^= set2 ^ …… ^ setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 ^ set2 ^ …… ^ setn'>`set1 ^ set2 ^ …… ^ setn`</a>，可直接对原对象进行修改    
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference_update(B1, B2, ...,Bn)`方法是不同的  
+                >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference_update(B)`只支持两个对象求对称差集  
+* 备注  
+    >1. 作为一种无序的多项集，集合对象并不记录元素位置或插入顺序。相应地，集合不支持索引、切片或其他序列类对象的操作  
+    >2. 集合对象是可遍历的，因此可以使用`for i in set/frozenset`这样的遍历语句  
+    >3. 集合对象进行`|`/`|=`/`&`/`&=`/`-`/`-+`/`^`/`^=`等集合对象运算符操作时，如果参与运算的集合对象同时包括`set`和`frozenset`，则结果的类型取参与运算的第一个对象的类型  
+    >4. `set`和`frozenset`均支持集合与集合的比较。两个集合当且仅当各为对方的子集时则相等。一个集合当且仅当其为另一个集合的真子集时则小于另一个集合。一个集合当且仅当其为另一个集合的真超集时则大于另一个集合  
+    >5. `set`的实例与`frozenset`的实例之间基于它们的成员进行比较。例如`set('abc') == frozenset('abc')`返回`True``set('abc') in set([frozenset('abc')])`也一样  
+    >6. 子集与相等比较并不能推广为完全排序函数。例如任意两个非空且不相交的集合不相等且互不为对方的子集，因此`a<b`、`a==b`或`a>b`比较均返回`False`  
+    >7. 由于集合仅定义了部分排序（子集关系），因此由集合构成的列表`list.sort()`方法的输出并无定义  
+                                                                             
