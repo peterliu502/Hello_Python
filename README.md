@@ -545,7 +545,7 @@ PI = 3. 14159265359
                         * key  
                             `key`参数可以接收一个函数，该函数必须可以接收一个参数并返回一个值，`list`对象中的元素会依次输入该函数，并将返回值作为排序对象  
                             `list`对象自身不可以作`key`参数，但可以用深浅拷贝来做参数  
-                            默认值`None`表示直接对列表项排序而不计算一个单独的键值  
+                            默认值`None`表示直接对列表项排序而不计算一个单独的键-值  
                         * reverse  
                             `reverse`为一个布尔值。如果设为`True`，则每个列表元素将按反向顺序比较进行排序。默认为`False`  
                     * 备注  
@@ -853,7 +853,7 @@ PI = 3. 14159265359
 #### __time__  
 2020-02-20
 #### __content__  
-##### ![avatar](https://img.shields.io/badge/关键概念-条件判断语句-yellowgreen)
+##### [![avatar](https://img.shields.io/badge/关键概念-条件判断语句-yellowgreen)](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#the-if-statement)
 * 结构  
     ```python
     if a:
@@ -863,6 +863,8 @@ PI = 3. 14159265359
     else:
         do c1
     ```
+* 说明  
+    `if`语句通过对表达式逐个求值直至找到一个真值在子句体中选择唯一匹配的一个，然后执行该子句体的执行语句。而其他部分不会被执行或求值。如果所有表达式均为假值，且存在`else`子句体，就会执行`else`。 
 * 备注  
     >1. if语句自上而下逐行运行，当判断语句为`True`时跳入当前分支的执行语句，后面的分支不再执行。因此各分支的判断范围必须彼此独立，或者范围逐渐扩大。
     >2. 判断语句必须以`:`结尾，执行语句必须缩进  
@@ -870,29 +872,307 @@ PI = 3. 14159265359
     >4. 判断语句如果是非零数值、非空字符串、非空`list`等，就判断为`True`，否则为`False`  
 ##### ![avatar](https://img.shields.io/badge/关键概念-循环语句-yellowgreen)  
 * 分类  
-    * for in循环  
+    * [for in循环](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#the-for-statement)  
         * 格式  
         ```python
         for i in s:
-            do a    
+            do a
+        else:
+            do b    
         ```
         * 说明  
-            将s中的元素依次赋值给i，每完成一次赋值循环一次  
-    * while循环  
+            将s中的元素依次赋值给i，每完成一次赋值循环一次。当完成s中元素的遍历后，如果存在else就执行else语句然后结束循环  
+    * [while循环](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#the-while-statement)  
        * 格式  
         ```python
         while a:
-            do a    
+            do a
+        else:
+            do b  
         ```
        * 说明  
-           只要a为`True`就执行循环  
+           只要a为`True`就执行循环。当a判断为`False`时，如果存在else就执行else语句然后结束循环  
 * 循环相关语法  
-    * break  
+    * [break](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#break)  
         结束当前循环  
-    * continue  
+    * [continue](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#the-continue-statement)  
         跳过本次循环  
 * 备注  
     >1. 循环语句的条件语句都要以`:`结尾，执行语句缩进  
     >2. `continue`和`break`一般都是配合`if`使用。但不可以滥用`break`和`continue`会造成代码执行逻辑分叉过多，容易出错。
-         大多数循环并不需要用到break和continue语句，通常可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句  
+         大多数循环并不需要用到`break`和`continue`语句，通常可以通过改写循环条件或者修改循环逻辑，去掉`break`和`continue`语句  
     >3. 出现死循环可以使用`ctrl + c`强制结束程序  
+    >4. `else`语句可选  
+### [![avatar](https://img.shields.io/badge/20200220--01-dict与集合类型-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200221_01_dict与集合类型.py)
+***
+#### __time__  
+2020-02-21
+#### __content__  
+##### [dict(字典)](https://docs.python.org/zh-cn/3/library/stdtypes.html#mapping-types-dict)  
+* 定义  
+    字典是另一种采用`key-value`(键-值方法)储存可变容器模型，且可存储任意类型对象。  
+    字典的每个键-值`key=>value`对用冒号`:`分割，每个键-值对之间用逗号`,`分割，整个字典包括在花括号`{}`中  
+* 函数  
+    [![avatar](https://img.shields.io/badge/函数-dict()-orange)](https://docs.python.org/zh-cn/3/library/stdtypes.html#mapping-types-dict)  
+    * 格式  
+        dict(**kwarg)  
+        dict(mapping, **kwarg)  
+        dict(iterable, **kwarg)  
+    * 备注  
+        >从函数的三种格式可知，`dict()`支持三种方式输入参数：
+        >>1. 直接通过任意数量的关键词（`**kwarg`）参数传参，比如`dict(subject: Math, teacher: Jack, classroom: 401)`  
+        >>2. 通过`map()`、`zip()`函数等可映射对象（`mapping`）传参，比如`dict(zip(list1, list2))`  
+        >>3. 通过可迭代(`iterable`)对象传参，参数需要以可迭代的键-值对元组的形式输入，如`dict([(subject, Math), (teacher, Jack), (classroom, 401)])`  
+* 操作  
+    * list(dict)  
+        * 结果  
+            将`dict`对象输入`list`构造器可以输出一个以`dict`的键为元素的`list`  
+    * len(dict)  
+        * 结果  
+            返回`dict`对象中项的个数  
+    * dict.keys()  
+        * 结果  
+            返回以`dict`对象的键为元素的`list`对象  
+    * dict.values()  
+        * 结果  
+            返回以`dict`对象的值为元素的`list`对象  
+    * dict.items()  
+        * 结果  
+            返回以`dict`对象的键-值对元组为元素的`list`对象  
+    * dict.copy()  
+        * 结果  
+            创建`dict`对象的浅拷贝  
+    * dict.clear()  
+        * 结果  
+            清除`list`中的所有元素  
+    * reversed(dict)  
+        * 结果  
+            返回一个以`dict`的键为元素逆序排列的`iterable`对象  
+    * iter(dict)  
+        * 结果  
+            返回一个以`dict`的键为元素的`iterable`对象  
+    * dict.fromkeys(seq[, value])
+        * 结果  
+            返回一个以`iterable`的`seq`参数为键，`value`参数为值的`dict`对象,所以与该方法绑定的`dict`对象没什么关系  
+    * dict.get(key, default)  
+        * 结果  
+            `dict`中有`key`元素则返回`key`的值，没有则返回`default`，不会触发报错  
+        * 备注  
+            >1. `default`默认为`None`  
+    * dict.pop(x)  
+        * 结果  
+            去除键为x的项，并返回该项的值  
+    * dict.popitem()  
+        * 结果  
+            按照`LIFO`（先进后出）的顺序删去最后一项，并返回该键-值对元组  
+    * dict.setdefault(x, default)  
+        * 结果  
+            如果存在键为x的对象则返回键的值，不存在则建立该键并赋值为`default`  
+        * 备注  
+            >1. `default`默认为`None`  
+    * dict.update()  
+        * 结果  
+            使用`update()`的参数来更新`dict`，已存在的键会更新对应的值，不存在的键会直接建立并赋值  
+        * 备注  
+            >1. `dict`对象的常用拼接方法    
+    * x (not) in dict  
+        * 结果  
+          （没）有键为x的项返回`True`，否则返回`False`  
+* 字段推导式  
+    * 格式  
+        {key: value for key, value in …… if ……}  
+    * 备注  
+        >1. `for in`后面要接一个元素为键-值对的可迭代对象，`value`和`key`分别对应键和值  
+        >2. 也可以通过`zip()`函数缝合两个可迭代对象，在`for in`分别为`value`和`key`赋值  
+        >3. `for in`后面接了`if`条件句，用于筛选可迭代对象中的元素  
+        >4. `key: value`部分可以对键-值做一些运算，然后以运算结果作为最终的键-值  
+* 备注  
+    >1. `dict`对象的键几乎可以是任何值，除了非`hashable`的值，如列表、字典或其他可变类型的值。  
+    >2. 数字类型用作键时遵循数字比较的一般规则：如果两个数值相等(例如1和1.0)则两者可以被用来索引同一字典条目（但是请注意，由于计算机对于浮点数存储的只是近似值，因此将其用作字典键是不明智的。）  
+    >3. `dict`对象因为采用`key-value`(键-值方法)储存，查找和插入的速度极快，不会随着`key`的增加而变慢。但是需要占用大量的内存，内存浪费多  
+    >4. 两个字典的比较当且仅当它们具有相同的键-值对时才会相等（不考虑顺序）。排序比较`<`,`<=`,`>=`,`>`会引发`TypeError`  
+    >5. `dict`对会保留插入时的顺序。请注意对键的更新不会影响顺序。删除并再次添加的键将被插入到末尾  
+##### [集合类型](https://docs.python.org/zh-cn/3/library/stdtypes.html#set-types-set-frozenset)  
+* 定义  
+    集合对象是由具有唯一性的`hashable`对象所组成的无序多项集  
+    常见的用途包括成员检测、从序列中去除重复项以及数学中的集合类计算，例如交集、并集、差集与对称差集等  
+* 分类  
+    * set类型  
+        * 定义  
+            `set`类型是可变的,其内容可以使用`add()`和`remove()`这样的方法来改变。由于是可变类型，它是非`hashable`的，且不能被用作`dict`的`key`或其他集合对象的元素  
+        * 函数  
+            set([iterable])
+            * 备注  
+                >1. 想要创建一个空`set`对象必须借助其构造器函数，直接使用`{}`会被识别为`dict`对象  
+                >2. 返回一个新的`set`对象，其元素来自于`iterable`。集合的元素必须为`hashable`  
+                >3. 要表示由集合对象构成的`set`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，则将返回一个新的空集合    
+    * frozenset类型  
+        * 定义  
+            `frozenset`类型是不可变并且为`hashable`，其内容在被创建后不能再改变。因此它可以被用作`dict`的`key`或其他集合的元素  
+        * 函数  
+            frozenset([iterable])  
+            * 备注  
+                >1. 想要创建一个空`frozenset`对象必须借助其构造器函数，直接使用`{}`会被识别为`dict`对象  
+                >2. 返回一个新的`frozenset`对象，其元素来自于`iterable`。集合的元素必须为`hashable`  
+                >3. 要表示由集合对象构成的`frozenset`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，则将返回一个新的空集合    
+* 操作  
+    * 集合对象通用操作  
+        * <a id = 'len(set)'>len(set)</a>  
+            * 结果  
+                返回集合对象中项的个数（即对象的基数）  
+        * <a id = 'set.copy()'>set.copy()</a>  
+            * 结果  
+                返回集合对象的浅拷贝      
+        * <a id = 'x in set'>x in set</a>  
+            * 结果  
+                如果集合对象中的某项等于x则结果为`True`，否则为`False`       
+        * <a id = 'x not in set'>x not in set</a>  
+            * 结果  
+                如果集合对象中的某项等于x则结果为`False`，否则为`True`  
+        * <a id = 'A.isdisjoint(B)'>A.isdisjoint(B)</a>  
+            * 结果  
+                验证A集合和B可迭代对象是否没有交集，没有则返回`True`，反之则`False`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较    
+        * <a id = 'A.issubset(B)'>A.issubset(B)</a>  
+            * 结果  
+                验证A集合是否是B可迭代对象的子集，等价于`set1 <= set2`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+        * <a id = 'set1 <= set2'>set1 <= set2</a>  
+            * 结果  
+                验证集合set1是否是set2的子集，等价于`A.issubset(B)`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issubset(B)`方法最大的区别  
+        * <a id = 'set1 < set2'>set1 < set2</a>  
+            * 结果  
+                验证集合set1是否是set2的真子集，即`set <= other and set != other`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较          
+        * A.issuperset(B)  
+            * 结果  
+                验证A集合是否是B可迭代对象的超集，等价于`set1 >= set2`  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+        * <a id = 'set1 >= set2'>set1 >= set2</a>  
+            * 结果  
+                验证集合set1是否是set2的超集，等价于`A.issuperset(B)`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issuperset(B)`方法最大的区别  
+        * <a id = 'set1 > set2'>set1 > set2</a>  
+            * 结果  
+                验证集合set1是否是set2的真超集，即`set >= other and set != other`  
+            * 备注  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较     
+        * <a id = 'A.union(B1, B2, ...,Bn)'>A.union(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的并集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+        * <a id = 'set1 | set2 | …… | setn'>set1 | set2 | …… | setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的并集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.union(B1, B2, ...,Bn)`方法最大的区别      
+        * <a id = 'A.intersection(B1, B2, ...,Bn)'>A.intersection(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的交集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+        * <a id = 'set1 & set2 & …… & setn'>set1 & set2 & …… & setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的交集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection(B1, B2, ...,Bn)`方法最大的区别  
+        * <a id = 'A.difference(B1, B2, ...,Bn)'>A.difference(B1, B2, ...,Bn)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B1-Bn的差集  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+        * <a id = 'set1 - set2 - …… - setn'>set1 - set2 - …… - setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的差集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference(B1, B2, ...,Bn)`方法最大的区别  
+        * <a id = 'A.symmetric_difference(B)'>A.symmetric_difference(B)</a>  
+            * 结果  
+                返回集合对象A和可迭代对象B的对称差集  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+        * <a id = 'set1 ^ set2 ^ …… ^ setn'>set1 ^ set2 ^ …… ^ setn</a>  
+            * 结果  
+                返回集合对象`set1`到`setn`的对称差集  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference(B1, B2, ...,Bn)`方法是不同的  
+                >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference(B)`只支持两个对象求对称差集  
+    * set类型操作  
+        * A.add(x)  
+            * 结果  
+                在`set`对象A中插入x元素  
+        * A.remove(x)  
+            * 结果  
+                `set`对象A中存在x元素则消除该元素，不存在则报错  
+            * 备注  
+                >1. `set.remove()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
+        * A.discard(x)
+            * 结果
+                `set`对象A中存在x元素则消除该元素，不存在不会报错  
+            * 备注  
+                >1. `set.discard()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
+        * A.pop()  
+            * 结果  
+                随机消除`set`对象中的一个元素（因为`set`对象中的元素没有顺序的概念） 
+        * A.clear()  
+            * 结果  
+                清除`set`对象中所有的元素  
+        * A.update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.union(B1, B2, ...,Bn)'>`A.union(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+        * set1 |= set2 | …… | setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 | set2 | …… | setn'>`set1 | set2 | …… | setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.update(B1, B2, ...,Bn)`方法最大的区别      
+        * A.intersection_update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.intersection(B1, B2, ...,Bn)'>`A.intersection(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+        * set1 &= set2 & …… & setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 & set2 & …… & setn'>`set1 & set2 & …… & setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection_update(B1, B2, ...,Bn)`方法最大的区别  
+        * A.difference_update(B1, B2, ...,Bn)  
+            * 结果  
+                `set`类型版的<a href = '#A.difference(B1, B2, ...,Bn)'>`A.difference(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+        * set1 -= set2 | …… | setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 - set2 - …… - setn'>`set1 - set2 - …… - setn`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference_update(B1, B2, ...,Bn)`方法最大的区别  
+                >2. 由于在运算符优先级中`-`高于`-=`,所以`set1 -= set2 - …… - setn`的写法是不行的，相当于`set1 -= (set2 - …… - setn)`，所以要改为`set1 -= set2 | …… | setn`  
+        * A.symmetric_difference_update(B)  
+            * 结果  
+                `set`类型版的<a href = '#A.symmetric_difference(B)'>`A.symmetric_difference(B)`</a>，可直接对原对象进行修改  
+            * 备注  
+                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+        * set1 ^= set2 ^ …… ^ setn  
+            * 结果  
+                `set`类型版的<a href = '#set1 ^ set2 ^ …… ^ setn'>`set1 ^ set2 ^ …… ^ setn`</a>，可直接对原对象进行修改    
+            * 备注  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference_update(B1, B2, ...,Bn)`方法是不同的  
+                >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference_update(B)`只支持两个对象求对称差集  
+* 备注  
+    >1. 作为一种无序的多项集，集合对象并不记录元素位置或插入顺序。相应地，集合不支持索引、切片或其他序列类对象的操作  
+    >2. 集合对象是可遍历的，因此可以使用`for i in set/frozenset`这样的遍历语句  
+    >3. 集合对象进行`|`/`|=`/`&`/`&=`/`-`/`-+`/`^`/`^=`等集合对象运算符操作时，如果参与运算的集合对象同时包括`set`和`frozenset`，则结果的类型取参与运算的第一个对象的类型  
+    >4. `set`和`frozenset`均支持集合与集合的比较。两个集合当且仅当各为对方的子集时则相等。一个集合当且仅当其为另一个集合的真子集时则小于另一个集合。一个集合当且仅当其为另一个集合的真超集时则大于另一个集合  
+    >5. `set`的实例与`frozenset`的实例之间基于它们的成员进行比较。例如`set('abc') == frozenset('abc')`返回`True``set('abc') in set([frozenset('abc')])`也一样  
+    >6. 子集与相等比较并不能推广为完全排序函数。例如任意两个非空且不相交的集合不相等且互不为对方的子集，因此`a<b`、`a==b`或`a>b`比较均返回`False`  
+    >7. 由于集合仅定义了部分排序（子集关系），因此由集合构成的列表`list.sort()`方法的输出并无定义  
+                                                                             
