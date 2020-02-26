@@ -5,7 +5,7 @@
 This repository is used to record my personal Python learning process.  
 ***
 ## List
-### [![avatar](https://img.shields.io/badge/20200107--01-hello%20world-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200107_01_hello_world.py)  
+### [![avatar](https://img.shields.io/badge/主题-hello%20world-red)](https://github.com/peterliu502/Hello_Python/blob/master/hello_world.py)  
 ***
 #### __time__  
 2020-01-07
@@ -36,7 +36,7 @@ This repository is used to record my personal Python learning process.
         ```python
         "__coding[:=]\s*([-\w.]+)__"
         ```
-### [![avatar](https://img.shields.io/badge/20200107--02-输入输出-red)](https://github.com/peterliu502/Hello_Python/blob/develop/20200107_02_输入输出.py)
+### [![avatar](https://img.shields.io/badge/主题-输入输出-red)](https://github.com/peterliu502/Hello_Python/blob/develop/输入输出.py)
 ***
 #### __time__  
 2020-01-07
@@ -134,7 +134,7 @@ This repository is used to record my personal Python learning process.
         `input()`函数中可以输入一个`提示语`(`prompt`)，作为显示界面中提示用户输入的引导语；  
 * 返回值  
     `input()`函数输出的是字符串类型。    
-### [![avatar](https://img.shields.io/badge/20200109--01-数据类型与变量-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200109_01_数据类型与变量.py)
+### [![avatar](https://img.shields.io/badge/主题-数据类型与变量-red)](https://github.com/peterliu502/Hello_Python/blob/master/数据类型与变量.py)
 ***
 #### __time__  
 2020-01-09
@@ -245,7 +245,7 @@ PI = 3. 14159265359
     print(9%3)
     print(10%3)
     ```
-### [![avatar](https://img.shields.io/badge/20200201--01-字符串与编码-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200201_01_字符串与编码.py)
+### [![avatar](https://img.shields.io/badge/主题-字符串与编码-red)](https://github.com/peterliu502/Hello_Python/blob/master/字符串与编码.py)
 ***
 #### __time__  
 2020-02-01
@@ -517,7 +517,7 @@ PI = 3. 14159265359
                             确定数据应如何呈现  
                         * 分类  
                             具体参见[格式规格迷你语言](https://docs.python.org/zh-cn/3/library/string.html#format-specification-mini-language)的`type`参数部分  
-### [![avatar](https://img.shields.io/badge/20200209--01-list与tuple-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200209_01_序列类型.py)                              
+### [![avatar](https://img.shields.io/badge/主题-list与tuple-red)](https://github.com/peterliu502/Hello_Python/blob/master/序列类型.py)                              
 ***
 #### __time__  
 2020-02-09
@@ -761,7 +761,7 @@ PI = 3. 14159265359
             * 备注  
                 >1. `s.reverse()`不是创建s的逆序副本，而是对s自身进行修改  
                 >2. `s.reverse()`并不会返回反转后的序列  
-### [![avatar](https://img.shields.io/badge/20200212--01-浅拷贝与深拷贝-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200212_01_浅拷贝与深拷贝.py)                        
+### [![avatar](https://img.shields.io/badge/主题-浅拷贝与深拷贝-red)](https://github.com/peterliu502/Hello_Python/blob/master/浅拷贝与深拷贝.py)                        
 ***
 #### __time__  
 2020-02-12
@@ -848,7 +848,7 @@ PI = 3. 14159265359
     所以`m[2]`和`m[3][1]`和原本的list对象`[3, 4]`以及a都没有关系了    
     >* 深拷贝对象与被拷贝对象的关系示意图：  
     ![avatar](https://raw.githubusercontent.com/peterliu502/Hello_Python/master/resource/20200212_01/深浅拷贝2.jpg)
-### [![avatar](https://img.shields.io/badge/20200220--01-if语句与循环语句-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200220_01_if语句与循环语句.py)
+### [![avatar](https://img.shields.io/badge/主题-if语句与循环语句-red)](https://github.com/peterliu502/Hello_Python/blob/master/if语句与循环语句.py)
 ***
 #### __time__  
 2020-02-20
@@ -903,7 +903,7 @@ PI = 3. 14159265359
          大多数循环并不需要用到`break`和`continue`语句，通常可以通过改写循环条件或者修改循环逻辑，去掉`break`和`continue`语句  
     >3. 出现死循环可以使用`ctrl + c`强制结束程序  
     >4. `else`语句可选  
-### [![avatar](https://img.shields.io/badge/20200220--01-dict与集合类型-red)](https://github.com/peterliu502/Hello_Python/blob/master/20200221_01_dict与集合类型.py)
+### [![avatar](https://img.shields.io/badge/主题-dict与集合类型-red)](https://github.com/peterliu502/Hello_Python/blob/master/dict与集合类型.py)
 ***
 #### __time__  
 2020-02-21
@@ -1025,50 +1025,50 @@ PI = 3. 14159265359
                 返回集合对象的浅拷贝      
         * <a id = 'x in set'>x in set</a>  
             * 结果  
-                如果集合对象中的某项等于x则结果为`True`，否则为`False`       
+                如果集合对象中的某项等于`x`则结果为`True`，否则为`False`       
         * <a id = 'x not in set'>x not in set</a>  
             * 结果  
-                如果集合对象中的某项等于x则结果为`False`，否则为`True`  
+                如果集合对象中的某项等于`x`则结果为`False`，否则为`True`  
         * <a id = 'A.isdisjoint(B)'>A.isdisjoint(B)</a>  
             * 结果  
-                验证A集合和B可迭代对象是否没有交集，没有则返回`True`，反之则`False`  
+                验证`A`集合和`B`可迭代对象是否没有交集，没有则返回`True`，反之则`False`  
             * 备注  
-                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较    
+                >1. `B`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B`隐性地转为集合对象进行比较    
         * <a id = 'A.issubset(B)'>A.issubset(B)</a>  
             * 结果  
                 验证A集合是否是B可迭代对象的子集，等价于`set1 <= set2`  
             * 备注  
-                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+                >1. `B`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B`隐性地转为集合对象进行比较  
         * <a id = 'set1 <= set2'>set1 <= set2</a>  
             * 结果  
-                验证集合set1是否是set2的子集，等价于`A.issubset(B)`  
+                验证集合`set1`是否是`set2`的子集，等价于`A.issubset(B)`  
             * 备注  
                 >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issubset(B)`方法最大的区别  
         * <a id = 'set1 < set2'>set1 < set2</a>  
             * 结果  
-                验证集合set1是否是set2的真子集，即`set <= other and set != other`  
+                验证集合`set1`是否是`set2`的真子集，即`set <= other and set != other`  
             * 备注  
                 >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较          
         * A.issuperset(B)  
             * 结果  
-                验证A集合是否是B可迭代对象的超集，等价于`set1 >= set2`  
+                验证`A`集合是否是`B`可迭代对象的超集，等价于`set1 >= set2`  
             * 备注  
-                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行比较  
+                >1. `B`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B`隐性地转为集合对象进行比较  
         * <a id = 'set1 >= set2'>set1 >= set2</a>  
             * 结果  
-                验证集合set1是否是set2的超集，等价于`A.issuperset(B)`  
+                验证集合`set1`是否是`set2`的超集，等价于`A.issuperset(B)`  
             * 备注  
                 >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issuperset(B)`方法最大的区别  
         * <a id = 'set1 > set2'>set1 > set2</a>  
             * 结果  
-                验证集合set1是否是set2的真超集，即`set >= other and set != other`  
+                验证集合`set1`是否是`set2`的真超集，即`set >= other and set != other`  
             * 备注  
                 >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较     
         * <a id = 'A.union(B1, B2, ...,Bn)'>A.union(B1, B2, ...,Bn)</a>  
             * 结果  
-                返回集合对象A和可迭代对象B1-Bn的并集  
+                返回集合对象`A`和可迭代对象`B1-Bn`的并集  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行并集操作  
         * <a id = 'set1 | set2 | …… | setn'>set1 | set2 | …… | setn</a>  
             * 结果  
                 返回集合对象`set1`到`setn`的并集  
@@ -1076,9 +1076,9 @@ PI = 3. 14159265359
                 >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.union(B1, B2, ...,Bn)`方法最大的区别      
         * <a id = 'A.intersection(B1, B2, ...,Bn)'>A.intersection(B1, B2, ...,Bn)</a>  
             * 结果  
-                返回集合对象A和可迭代对象B1-Bn的交集  
+                返回集合对象`A`和可迭代对象`B1-Bn`的交集  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行交集操作  
         * <a id = 'set1 & set2 & …… & setn'>set1 & set2 & …… & setn</a>  
             * 结果  
                 返回集合对象`set1`到`setn`的交集  
@@ -1086,9 +1086,9 @@ PI = 3. 14159265359
                 >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection(B1, B2, ...,Bn)`方法最大的区别  
         * <a id = 'A.difference(B1, B2, ...,Bn)'>A.difference(B1, B2, ...,Bn)</a>  
             * 结果  
-                返回集合对象A和可迭代对象B1-Bn的差集  
+                返回集合对象`A`和可迭代对象`B1-Bn`的差集  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行差集操作  
         * <a id = 'set1 - set2 - …… - setn'>set1 - set2 - …… - setn</a>  
             * 结果  
                 返回集合对象`set1`到`setn`的差集  
@@ -1096,9 +1096,9 @@ PI = 3. 14159265359
                 >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference(B1, B2, ...,Bn)`方法最大的区别  
         * <a id = 'A.symmetric_difference(B)'>A.symmetric_difference(B)</a>  
             * 结果  
-                返回集合对象A和可迭代对象B的对称差集  
+                返回集合对象`A`和可迭代对象`B`的对称差集  
             * 备注  
-                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+                >1. `B`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B`隐性地转为集合对象进行对称差集操作  
         * <a id = 'set1 ^ set2 ^ …… ^ setn'>set1 ^ set2 ^ …… ^ setn</a>  
             * 结果  
                 返回集合对象`set1`到`setn`的对称差集  
@@ -1111,12 +1111,12 @@ PI = 3. 14159265359
                 在`set`对象A中插入x元素  
         * A.remove(x)  
             * 结果  
-                `set`对象A中存在x元素则消除该元素，不存在则报错  
+                `set`对象`A`中存在`x`元素则消除该元素，不存在则报错  
             * 备注  
                 >1. `set.remove()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
         * A.discard(x)
             * 结果
-                `set`对象A中存在x元素则消除该元素，不存在不会报错  
+                `set`对象`A`中存在`x`元素则消除该元素，不存在不会报错  
             * 备注  
                 >1. `set.discard()`方法支持输入`set`对象，等同于同内容的`frozenset`对象  
         * A.pop()  
@@ -1129,7 +1129,7 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#A.union(B1, B2, ...,Bn)'>`A.union(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行并集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行并集操作  
         * set1 |= set2 | …… | setn  
             * 结果  
                 `set`类型版的<a href = '#set1 | set2 | …… | setn'>`set1 | set2 | …… | setn`</a>，可直接对原对象进行修改  
@@ -1139,7 +1139,7 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#A.intersection(B1, B2, ...,Bn)'>`A.intersection(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行交集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行交集操作  
         * set1 &= set2 & …… & setn  
             * 结果  
                 `set`类型版的<a href = '#set1 & set2 & …… & setn'>`set1 & set2 & …… & setn`</a>，可直接对原对象进行修改  
@@ -1149,7 +1149,7 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#A.difference(B1, B2, ...,Bn)'>`A.difference(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. B1-Bn并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B1-Bn隐性地转为集合对象进行差集操作  
+                >1. `B1-Bn`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B1-Bn`隐性地转为集合对象进行差集操作  
         * set1 -= set2 | …… | setn  
             * 结果  
                 `set`类型版的<a href = '#set1 - set2 - …… - setn'>`set1 - set2 - …… - setn`</a>，可直接对原对象进行修改  
@@ -1160,7 +1160,7 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#A.symmetric_difference(B)'>`A.symmetric_difference(B)`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. B并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将B隐性地转为集合对象进行对称差集操作  
+                >1. `B`并不一定要集合对象，只要是可迭代对象即可，执行该方法的时候会将`B`隐性地转为集合对象进行对称差集操作  
         * set1 ^= set2 ^ …… ^ setn  
             * 结果  
                 `set`类型版的<a href = '#set1 ^ set2 ^ …… ^ setn'>`set1 ^ set2 ^ …… ^ setn`</a>，可直接对原对象进行修改    
@@ -1175,4 +1175,67 @@ PI = 3. 14159265359
     >5. `set`的实例与`frozenset`的实例之间基于它们的成员进行比较。例如`set('abc') == frozenset('abc')`返回`True``set('abc') in set([frozenset('abc')])`也一样  
     >6. 子集与相等比较并不能推广为完全排序函数。例如任意两个非空且不相交的集合不相等且互不为对方的子集，因此`a<b`、`a==b`或`a>b`比较均返回`False`  
     >7. 由于集合仅定义了部分排序（子集关系），因此由集合构成的列表`list.sort()`方法的输出并无定义  
-                                                                             
+### ![avatar](https://img.shields.io/badge/主题-函数定义与调用-red)  
+***
+#### __time__  
+2020-02-26
+#### __content__  
+##### [定义函数](https://github.com/peterliu502/Hello_Python/blob/master/函数定义与检查.py)  
+* 格式
+    * 规则    
+        >1. 定义一个函数要使用`def`语句，依次写出函数名、括号`()`、括号中的参数和冒号`:`  
+        >2. 然后，在缩进块中编写函数体  
+        >3. 函数的返回值用`return`语句返回  
+    * 结构示例  
+        ```python
+        # 前面空两行
+        
+        
+        def 函数名(参数):
+            函数体
+        reture 返回值
+        
+        
+        # 后面空两行
+        ```  
+    * 备注  
+        >1. 函数体内部的语句在执行时，一旦执行到`return`时，函数就执行完毕，并将结果返回。因此，函数内部通过条件判断和循环可以实现非常复杂的逻辑  
+        >2. 函数如果没有`return`语句，函数执行完毕后也会返回结果，只是结果为`None`  
+        >3. `return None`可以简写为`return`  
+        >4. `return`多个值，会以`tuple`的形式返回  
+        >5. 如果想定义一个什么事也不做的空函数，可以在函数体中用`pass`语句。`pass`也可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个`pass`，让代码能运行起来  
+##### [检查参数](https://github.com/peterliu502/Hello_Python/blob/master/函数定义与检查.py)  
+* 检查参数个数  
+    调用函数时，如果参数个数不对，`Python`解释器会自动检查出来，并抛出`TypeError`  
+* 检查参数类型  
+    如果参数类型不对，`Python`解释器无法帮我们检查，必须自己设置报错机制。思路为`isintance()`+`raise`  
+    * 报错设置方法  
+        * [![avatar](https://img.shields.io/badge/函数-isinstance()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#isinstance)  
+            * 格式  
+                isinstance(object, classinfo)  
+            * 作用  
+                如果参数`object`是参数`classinfo`的实例或者是其(直接、间接或虚拟)子类则返回`True`。如果`object`不是给定类型的对象，函数将总是返回`False`  
+            * 备注  
+                >1. 如果`classinfo`是类型对象元组（或由其他此类元组递归组成的元组），那么如果`object`是其中任何一个类型的实例就返回`True`  
+                >2. 如果`classinfo`既不是类型，也不是类型元组或类型元组的元组，则将引发`TypeError`异常  
+        * [![avatar](https://img.shields.io/badge/关键概念-raise-yellowgreen)](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#the-raise-statement)
+            * 作用  
+                `raise`可以显式地激活最近的一个异常，然后结束函数  
+            * 格式  
+                raise [expression [from expression]]  
+            * 参数  
+                * expression  
+                    `raise`会将第一个`expression`求值为异常对象。它必须为`BaseException`的子类或实例  
+                * from  
+                    用于连接多个`expression`  
+##### [调用函数](https://github.com/peterliu502/Hello_Python/blob/master/函数调用.py)  
+* 本文件调用自定义函数  
+    定义完自定义函数后就可以向内置函数一样直接使用  
+* 跨文件使用自定义函数  
+    * 方法
+        >1. from filename import function
+        >2. import function
+    * 备注  
+        >1. `filename`是指自定义函数所在文件的文件名，不含后缀
+        >2. `function`只需要写函数名，不需要带`括号`    
+                                                                                                                     
