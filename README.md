@@ -16,21 +16,25 @@ This repository is used to record my personal Python learning process.
     ```
 * 了解 ["#!/usr/bin/env python3"](https://www.jianshu.com/p/400c612381dd) 作用   
     * 含义  
-        注释是为了告诉 `Linux` / `OS X` 系统，这是一个 `python3` 可执行程序，这在电脑上同时安装了 `python2` 和 `python3` 的时候尤其重要，因为 `python3` 不向下兼容。而 `Windows` 系统会忽略这个注释；  
+        注释是为了告诉 `Linux` / `OS X` 系统，这是一个 `python3` 可执行程序，这在电脑上同时安装了 `python2` 和 `python3` 的时候尤其重要，
+        因为 `python3` 不向下兼容。而 `Windows` 系统会忽略这个注释；  
     * env的作用  
         ```python
         #!/usr/bin/env python3 
         ```
-        该代码表示从`PATH 环境变量`中查找 `python3` 解释器的位置, 路径没有被写死, 而是在`环境变量`中寻找 `python3` 解释器的安装路径, 再调用该路径下的解释器来执行脚本。  
+        该代码表示从`PATH 环境变量`中查找 `python3` 解释器的位置, 路径没有被写死, 而是在`环境变量`中寻找 `python3` 解释器的安装路径, 
+        再调用该路径下的解释器来执行脚本。  
        ```python
         #!/usr/bin/python3
         ```
-        该代码表示 `python3` 解释器所处的绝对路径就是 `/usr/bin/python3`, 路径被写死了, 类似于编程中的`硬编码`。之所以有这种写法, 是因为在`类 Unix` 系统中, python 解释器一般情况下都位于这个路径。不过, 如果碰到 python 解释器不在该路径下的话, 脚本就无法执行了。  
+        该代码表示 `python3` 解释器所处的绝对路径就是 `/usr/bin/python3`, 路径被写死了, 类似于编程中的`硬编码`。之所以有这种写法,
+        是因为在`类 Unix` 系统中, python 解释器一般情况下都位于这个路径。不过, 如果碰到 python 解释器不在该路径下的话, 脚本就无法执行了。  
         
         显然, 采用第一种写法更灵活更具有通用性, 推荐使用这种写法。  
 * 了解 <a id = '编码声明'>["## -\*- coding: utf-8 -\*-"](https://blog.csdn.net/zhongbeida_xue/article/details/81736671)</a> 作用  
     * 含义  
-        如果没有此文件编码类型的声明，则 python2 默认以`ASCII`编码去处理；如果你没声明编码，但是文件中又包含非`ASCII`编码的字符的话，python解析器去解析的 python 文件，自然就会报错了。  
+        如果没有此文件编码类型的声明，则 python2 默认以`ASCII`编码去处理；如果你没声明编码，但是文件中又包含非`ASCII`编码的字符的话，
+        python解析器去解析的 python 文件，自然就会报错了。  
         必须放在python文件的第一行或第二行。   
         声明格式要符合[正则表达式](https://blog.csdn.net/xld_19920728/article/details/80534146)  
         ```python
@@ -101,7 +105,8 @@ This repository is used to record my personal Python learning process.
         ```
     * 作用：  
         制表符\t作用是将字符串的字数补齐成8的倍数，一般是输出表格的时候自动将各列对齐时使用的。  
-        举例来说"abc\t"，就是在"abc"后面补上5个空格，凑齐8个字符。而"abcdefghijk\t"一共11个字符，已经超过了8个字符，但是不满足16个字符，所以\t的作用就是补上7个空格，补齐16个字符。  
+        举例来说"abc\t"，就是在"abc"后面补上5个空格，凑齐8个字符。而"abcdefghijk\t"一共11个字符，已经超过了8个字符，
+        但是不满足16个字符，所以\t的作用就是补上7个空格，补齐16个字符。  
         在某些编译器中\t不是默认占8位，可能是4位，但是一般可以手动调整。  
 * `r'文本'` or `r"文本"`：
     * 作用：  
@@ -113,7 +118,8 @@ This repository is used to record my personal Python learning process.
         print('他说："我是彼得。"')
         # 文本含双引号，外扩单引号
         ```
-        当字符串中同时存在`""`和`''`两种引号时，`r''`和`r""`都不太好用，建议单独转义。因为英文中的引号无前后之分，字符串中的引号必然会和真正的引号混在一起，使字符串异常。  
+        当字符串中同时存在`""`和`''`两种引号时，`r''`和`r""`都不太好用，建议单独转义。因为英文中的引号无前后之分，
+        字符串中的引号必然会和真正的引号混在一起，使字符串异常。  
         举例：
         ```python
         print(r"I'm Peter,'他说："我是彼得。"")
@@ -252,20 +258,27 @@ PI = 3. 14159265359
 #### __content__           
 ##### ![avatar](https://img.shields.io/badge/关键概念-字符编码-yellowgreen)
 * 字节  
-    由于计算机只能处理二进制数字，所以所有的文本都必须转为数字才可以交由计算机处理。因此通常由8`比特`（`bit`）构成1个`字节`（`bytes`），也可以理解为为每1个字符都可以对应一个8位的二进制数字。  
+    由于计算机只能处理二进制数字，所以所有的文本都必须转为数字才可以交由计算机处理。因此通常由8`比特`（`bit`）构成1个`字节`（`bytes`）
+    ，也可以理解为为每1个字符都可以对应一个8位的二进制数字。  
     1个字节8比特可以表示`2^8`个数字（`0`-`255`），2个字节16比特可以表示`2^16`个数字（`0`-`65535`），4个字节32比特可以表示`2^32`个数字（`0`-`4294967295`）
 * 几种常用编码
     * ASCII  
-        全称`美国信息交换标准代码`。计算机最早由美国人发明，所以一开始设计编码时只考虑到了26个英文字母大小写、数字以及一些基本符号，合计127个字符。这个字符编码表就被称为`ASCII编码表`。  
-        由于字符数没有超出8比特的表示范围（`256`），所以`ASCII`码用1个字节表示1个字符。而实际上，`ASCII`的字符数根本不需要8位数字，7位即可。所以首位数字一般默认为0，只有在一些`ASCII`码的变形编码上会将首位标为1，使之与原版`ASCII`码作区别。
+        全称`美国信息交换标准代码`。计算机最早由美国人发明，所以一开始设计编码时只考虑到了26个英文字母大小写、数字以及一些基本符号，
+        合计127个字符。这个字符编码表就被称为`ASCII编码表`。  
+        由于字符数没有超出8比特的表示范围（`256`），所以`ASCII`码用1个字节表示1个字符。而实际上，`ASCII`的字符数根本不需要8位数字，
+        7位即可。所以首位数字一般默认为0，只有在一些`ASCII`码的变形编码上会将首位标为1，使之与原版`ASCII`码作区别。
     * Unicode  
         由于`ASCII`码没有包含非英语字符，所以后续又出现了许多包含非英语字符的编码，这些编码大多与`ASCII`码兼容  
-        比如中文的`GB2312`编码，与`ASCII`码不同的是由于中文字符数量远大于英文字符，1个字节的范围不够表示所有字符，所以`GB2312`编码采用2字节构成1个字符。诸如此类的编码还有很多，比如日文的`Shift_JIS`编码，韩文的`Euc-kr`编码等等  
-        但如果同时存在两种或以上语言的字符，采用任何一种编码都会出现乱码。针对这种情况，出现了将各种编码整合到一起的`Unicode`编码，该编码大多使用2字节构成一个字符，少部分字符需要4字节。目前大部分操作系统和编程语言都可以很好的支持`Unicode`。  
+        比如中文的`GB2312`编码，与`ASCII`码不同的是由于中文字符数量远大于英文字符，1个字节的范围不够表示所有字符，
+        所以`GB2312`编码采用2字节构成1个字符。诸如此类的编码还有很多，比如日文的`Shift_JIS`编码，韩文的`Euc-kr`编码等等  
+        但如果同时存在两种或以上语言的字符，采用任何一种编码都会出现乱码。针对这种情况，出现了将各种编码整合到一起的`Unicode`编码，
+        该编码大多使用2字节构成一个字符，少部分字符需要4字节。目前大部分操作系统和编程语言都可以很好的支持`Unicode`。  
         无论是`Unicode`还是`UTF-16`，都是2字节起步，所以`ASCII`码需要补1个字节，即在前面补上`00000000`，凑齐16比特。  
     * UTF-8  
-        由于`Unicode`中1个字符的字节数至少是`ASCII`码的2倍，这意味着`Unicode`所需的存储空间也至少是`ASCII`码的2倍。这使得文本基本以英文为主时，使用`Unicode`在存贮和传输上非常浪费。  
-        而`UTF-8`码则解决了这个问题，`UTF-8`码是一种`可变长编码`。1个字符对应的字节数由1个到6个不等。`ASCII`码中的字符采用1个字节，与`ASCII`保持一致，大部分汉字采用3个字节，部分生僻字符采用4-6个字节。在以英文字符为主时可以节省大量空间。
+        由于`Unicode`中1个字符的字节数至少是`ASCII`码的2倍，这意味着`Unicode`所需的存储空间也至少是`ASCII`码的2倍。
+        这使得文本基本以英文为主时，使用`Unicode`在存贮和传输上非常浪费。  
+        而`UTF-8`码则解决了这个问题，`UTF-8`码是一种`可变长编码`。1个字符对应的字节数由1个到6个不等。`ASCII`码中的字符采用1个字节，
+        与`ASCII`保持一致，大部分汉字采用3个字节，部分生僻字符采用4-6个字节。在以英文字符为主时可以节省大量空间。
 * 几种常用编码对比  
 
     |  字符  |  ASCII  |      Unicode       |           UTF-8            |
@@ -283,7 +296,9 @@ PI = 3. 14159265359
 * python中的默认编码  
     `python2`中默认编码是`ASCII`，所以在程序开头必须带上<a href = '#编码声明'>`## -*- coding: utf-8 -*-`</a>，以保证`utf-8`编码的字符可以正常显示。  
     `python3`则默认采用`Unicode`编码，具体来说就是默认用`utf-8`编码去读源代码文件，而`python`内存中运行中的`str`是`Unicode`编码  
-    然而通过`getsizeof()`方法插看`str`内存大小发现，`str`中`ASCII`字符为1字节，非`ASCII`字符为2字节，这与`Unicode`编码中所有字符都为2字节的设计有所差别。推测是因为出于节约空间的考虑，并非完全默认使用`Unicode`编码，而是将`ASCII`字符都按`ASCII`编码进行储存，非`ASCII`字符前`2^16`个字符每个2字节，往后每个4字节   
+    然而通过`getsizeof()`方法插看`str`内存大小发现，`str`中`ASCII`字符为1字节，非`ASCII`字符为2字节，
+    这与`Unicode`编码中所有字符都为2字节的设计有所差别。推测是因为出于节约空间的考虑，并非完全默认使用`Unicode`编码，
+    而是将`ASCII`字符都按`ASCII`编码进行储存，非`ASCII`字符前`2^16`个字符每个2字节，往后每个4字节   
     检测方法：  
     ```python
     import sys
@@ -335,7 +350,8 @@ PI = 3. 14159265359
         * encoding  
             设定`encode()`返回的字节串编码方式，参数值缺省则默认为`utf-8`，也可以设定为其他[可用编码](https://docs.python.org/zh-cn/3/library/codecs.html#standard-encodings)  
         * errors  
-            设定`encode()`无法对字符串全部或部分进行解码时的处理方法，参数值缺省则默认方法是`strict`，即会引发`UnicodeError`错误，其他方法还包括`ignore`,`replace`,`xmlcharrefreplace`,`backslashreplace`，具体参见[错误处理方案](https://docs.python.org/zh-cn/3/library/codecs.html#error-handlers)  
+            设定`encode()`无法对字符串全部或部分进行解码时的处理方法，参数值缺省则默认方法是`strict`，即会引发`UnicodeError`错误，
+            其他方法还包括`ignore`,`replace`,`xmlcharrefreplace`,`backslashreplace`，具体参见[错误处理方案](https://docs.python.org/zh-cn/3/library/codecs.html#error-handlers)  
             * `ignore`  
                 对无法解码的部分进行忽略  
             * `replace`  
@@ -366,13 +382,14 @@ PI = 3. 14159265359
         * encoding  
             指定`bytes`对象的编码方式，参数缺省则默认为`utf-8`，也可以指定其他[可用编码](https://docs.python.org/zh-cn/3/library/codecs.html#standard-encodings)  
         * errors  
-            设定`encode()`无法对字节串全部或部分进行编码时的处理方法，参数值缺省则默认方法是`strict`，即会引发`UnicodeError`错误。其他方法具体参见[错误处理方案](https://docs.python.org/zh-cn/3/library/codecs.html#error-handlers)  
+            设定`encode()`无法对字节串全部或部分进行编码时的处理方法，参数值缺省则默认方法是`strict`，即会引发`UnicodeError`错误。
+            其他方法具体参见[错误处理方案](https://docs.python.org/zh-cn/3/library/codecs.html#error-handlers)  
     * 返回值  
         `str`  
     * 逆方法  
         <a href = '#encode()'>`encode()`</a>  
 * ![avatar](https://img.shields.io/badge/关键概念-占位符-yellowgreen)  
-    * %  
+    * [printf风格的字符串格式化](https://docs.python.org/zh-cn/3/library/stdtypes.html#printf-style-string-formatting)  
         * 格式  
             '%[[-][+][0][width][.precision]type]' % (obj)  
             只有一处占位符时可以`obj`可以不加括号  
@@ -389,7 +406,7 @@ PI = 3. 14159265359
                 对浮点数的作用是保留小数点后多少位  
                 对字符串的作用是最大字符大小，即最多显示多少位字符串的内容    
             * type  
-                用于指定占位符最后输出的字符类型  
+                用于指定占位符最后输出的字符类型，更多类型参见`python`手册  
                 * %s  
                     `%s`可以接受任何类型的对象，然后转为`str`，但`%-0a.bf`只能识别为`%-af`，即补0与`.precision`会失效  
                 * %d  
@@ -553,7 +570,11 @@ PI = 3. 14159265359
                         >2. 如需要返回一个已排序列表对象，请使用`sorted()`显示地请求一个新的已排序列表  
                         >3. `sort()`方法确保是稳定的。如果一个排序确保不会改变比较结果相等的元素的相对顺序就称其为稳定的，这有利于进行多重排序。  
             * [![avatar](https://img.shields.io/badge/关键概念-列表推导式-yellowgreen)](https://docs.python.org/zh-cn/3/faq/programming.html#how-do-i-create-a-multidimensional-list)  
-                result = [obj.method() for obj in mylist]  
+                * 格式  
+                    result = [obj.method() if …… else obj.method() for obj in mylist if ……]
+                * 备注  
+                    >1. `for in`前面也可以接一个`if else`表达式，按情况输出不同的`obj.method()` 
+                    >2. `for in`后面接了`if`条件句，用于筛选可迭代对象中的元素    
     * 不可变序列类型      
         * [tuple(元组)](https://docs.python.org/zh-cn/3/library/stdtypes.html#tuples)  
             * 定义  
@@ -599,7 +620,8 @@ PI = 3. 14159265359
                             >```  
 * 三种类型区别  
     >1. `list`对象为可变类型对象，`tuple`和`range`为不可变类型对象  
-    >2. `range`比`tuple`占用更少的内存，因为`range`总是占用固定数量的内存，不论其所表示的范围有多大（因为它只保存了`start`,`stop`和`step`值，并会根据需要计算具体单项或子范围的值）  
+    >2. `range`比`tuple`占用更少的内存，因为`range`总是占用固定数量的内存，不论其所表示的范围有多大（因为它只保存了`start`,`stop`和`step`值，
+        并会根据需要计算具体单项或子范围的值）  
 * 操作  
     * [序列类型通用操作](https://docs.python.org/zh-cn/3/library/stdtypes.html#common-sequence-operations)  
         * x in s  
@@ -661,7 +683,8 @@ PI = 3. 14159265359
                 >* 当k为正值时  
                 >>1. 若i或j的值大于`len(s)`时，只能识别为`len(s)`  
                 >>2. i与j须遵守`i <= j`, i或j为负数则索引顺序是相对于s的末尾，索引号需被替换为`len(s) + i`或`len(s) + j`进行判断大小，否则返回`[]`  
-                >>3. `s.[i:i:1] = t`等价于<a id = 's.[i:i] = t'>`s.[i:i] = t`</a>（`0 <= i <= len(s)`）,表示在i位置插入序列t，i为`len(s)`表示在序列最后插入  
+                >>3. `s.[i:i:1] = t`等价于<a id = 's.[i:i] = t'>`s.[i:i] = t`</a>（`0 <= i <= len(s)`）,表示在i位置插入序列t，
+                     i为`len(s)`表示在序列最后插入  
                 >>4. 当i或j的值缺省时，i默认为0，j默认为`len(s) - 1`  
                 >* 当k为负值时    
                 >>1. 若i或j的值大于`len(s) - 1`时，只能识别为`len(s) - 1`，所以k为负数时无法用`s.[len(s):len(s):k] = t`进行序列插入  
@@ -695,20 +718,24 @@ PI = 3. 14159265359
             * 结果  
                 s从i到j位置的切片替换成可迭代对象t  
             * 备注      
-                >1. <a id = 's[:] = []'>`s[:] = []`</a>表示清空s，等价于<a href = '#s.clear()'>`s.clear()`</a>和<a href = '#del s[:]'>`del s[:]`</a>  
-                >2. <a id = 's.[i:i] = t'>`s.[i:i] = t`</a>（`0 <= i <= len(s)`）,表示在i位置插入序列t，i为`len(s)`表示在序列最后插入
+                >1. <a id = 's[:] = []'>`s[:] = []`</a>表示清空s，等价于<a href = '#s.clear()'>`s.clear()`</a>和
+                    <a href = '#del s[:]'>`del s[:]`</a>  
+                >2. <a id = 's.[i:i] = t'>`s.[i:i] = t`</a>（`0 <= i <= len(s)`）,表示在i位置插入序列t，
+                    i为`len(s)`表示在序列最后插入
         * del s[i:j]  
             * 结果  
                 删除i到j位置的切片，等价于`s[i:j] = []`
             * 备注  
-                >1. <a id = 'del s[:]'>`del s[:]`</a>表示清空s的元素，等价于<a href = '#s.clear()'>`s.clear()`</a>和<a href = '#s.[:] = []'>`s.[:] = []`</a>  
+                >1. <a id = 'del s[:]'>`del s[:]`</a>表示清空s的元素，等价于<a href = '#s.clear()'>`s.clear()`</a>和
+                    <a href = '#s.[:] = []'>`s.[:] = []`</a>  
                 >2. `del s`表示删除整个s对象，要与`del s[:]`区别开来  
                 >3. <a id = 'del s[i]'>`del s[i]`</a>表示删除i位置的元素    
         * s[i:j:k] = t  
             * 结果  
                 所有满足`0 <= n < (j-i)/k`的索引号`x = i + n*k`的项(`x < j`)依次替换成t中的元素  
             * 备注  
-                >1. 不同于`s[i:j] = t`的整段覆盖，`s[i:j:k] = t`中k绝对值不为1时，其元素是间隔排列的，所以不能直接整段替换成t，必须严格遵循元素一一替换，因此要求`len(s[i:j:k]) == len(t)`  
+                >1. 不同于`s[i:j] = t`的整段覆盖，`s[i:j:k] = t`中k绝对值不为1时，其元素是间隔排列的，所以不能直接整段替换成t，
+                    必须严格遵循元素一一替换，因此要求`len(s[i:j:k]) == len(t)`  
         * s.append(x)  
             * 结果   
                 在s末端插入x，等价于<a href = '#s[i:i] = t'>`s[len(s):len(s)] = [x]`</a>  
@@ -728,14 +755,16 @@ PI = 3. 14159265359
                 s后面拼接上t，等价于<a href = '#s[i:i] = t'>`s[len(s):len(s)] = t`</a>  
             * 备注  
                 >1. `s.extend(t)`和`s += t`的效率等同
-                >2. 作用类似<a href = '#s + t'>`s + t`</a>，但区别是`s = s + t`会生成一个新对象而`s += t`不会，所以在效率上`s += t`更优，关系类似`s = s * n`和`s *= n`    
+                >2. 作用类似<a href = '#s + t'>`s + t`</a>，但区别是`s = s + t`会生成一个新对象而`s += t`不会，
+                    所以在效率上`s += t`更优，关系类似`s = s * n`和`s *= n`    
                 >3. `s = s + t`因为是生成新对象，所以可以应用于不可变类型序列，而`s += t`是对自身的修改，所以只有可变类型序列可以使用  
                 >4. 要注意类似<a href = '#s + t'>`s + t`</a>，序列中的项不会被拷贝，它们会被多次引用。   
         * s *= n  
             * 结果  
                 s的n次拼接
             * 备注  
-                >1. 作用类似<a href = '#s * n'>`s * n`</a>，但区别是`s = s * n`会生成一个新对象而`s *= n`不会，所以在效率上`s *= n`更优，关系类似`s = s + n`和`s += n`    
+                >1. 作用类似<a href = '#s * n'>`s * n`</a>，但区别是`s = s * n`会生成一个新对象而`s *= n`不会，
+                    所以在效率上`s *= n`更优，关系类似`s = s + n`和`s += n`    
                 >2. `s = s * n`因为是生成新对象，所以可以应用于不可变类型序列，而`s *= n`是对自身的修改，所以只有可变类型序列可以使用  
                 >3. 要注意类似<a href = '#s * n'>`s * n`</a>，序列中的项不会被拷贝，它们会被多次引用。  
                 >4. n值为一个整数，或是一个实现了`__index__()`的对象。n值为零或负数将清空序列     
@@ -773,7 +802,8 @@ PI = 3. 14159265359
     使一个变量（官方称之为标识符（`identifier`））建立起与对象的引用  
 * 备注  
     >1. 与`C`、`C++`等语言不同，变量（标识符）本身无类型，与之绑定的对象有类型  
-    >2. `=`是赋值的关键，大部分情况下有无严格的`identifier =`可以区分操作是修改对象还是再赋值，比如`s = s + t`和`s += t`、`s = s * t`和`s *= t`、`s.expend(t)`和`s = s + t`  
+    >2. `=`是赋值的关键，大部分情况下有无严格的`identifier =`可以区分操作是修改对象还是再赋值，
+    比如`s = s + t`和`s += t`、`s = s * t`和`s *= t`、`s.expend(t)`和`s = s + t`  
     >>请看下面这个例子：  
     >>```python
     >>def func(m):
@@ -786,7 +816,8 @@ PI = 3. 14159265359
     >>func(l)
     >>print('l =', l)
     >>```
-    >>l被赋值为`[1, 2, 3]`,所以在`func(l)`在传参时x也被赋值为`func(l)`，`m[0] = 20`将被引对象修改为`[20, 2, 3]`,l因为引用同一个对象所以也同步更新为`[20, 2, 3]`，而`m = [4, 5, 6]`则是对m的重新赋值，所以m和原list对象`[20, 2, 3]`脱离关系  
+    >>l被赋值为`[1, 2, 3]`,所以在`func(l)`在传参时x也被赋值为`func(l)`，`m[0] = 20`将被引对象修改为`[20, 2, 3]`,
+    l因为引用同一个对象所以也同步更新为`[20, 2, 3]`，而`m = [4, 5, 6]`则是对m的重新赋值，所以m和原list对象`[20, 2, 3]`脱离关系  
     因为l不受m的再次赋值的影响，所以最终的值为`[20, 2, 3]`  
     >3. 函数传参数就相当于对形参进行赋值，而非`C`、`C++`意义上的传值或传引用  
     >4. 赋值的过程如下面的代码与图片所示：  
@@ -864,9 +895,11 @@ PI = 3. 14159265359
         do c1
     ```
 * 说明  
-    `if`语句通过对表达式逐个求值直至找到一个真值在子句体中选择唯一匹配的一个，然后执行该子句体的执行语句。而其他部分不会被执行或求值。如果所有表达式均为假值，且存在`else`子句体，就会执行`else`。 
+    `if`语句通过对表达式逐个求值直至找到一个真值在子句体中选择唯一匹配的一个，然后执行该子句体的执行语句。而其他部分不会被执行或求值。
+    如果所有表达式均为假值，且存在`else`子句体，就会执行`else`。 
 * 备注  
-    >1. if语句自上而下逐行运行，当判断语句为`True`时跳入当前分支的执行语句，后面的分支不再执行。因此各分支的判断范围必须彼此独立，或者范围逐渐扩大。
+    >1. if语句自上而下逐行运行，当判断语句为`True`时跳入当前分支的执行语句，后面的分支不再执行。因此各分支的判断范围必须彼此独立，
+        或者范围逐渐扩大。
     >2. 判断语句必须以`:`结尾，执行语句必须缩进  
     >3. `elif`和`else`语句是可省略的  
     >4. 判断语句如果是非零数值、非空字符串、非空`list`等，就判断为`True`，否则为`False`  
@@ -922,7 +955,8 @@ PI = 3. 14159265359
         >从函数的三种格式可知，`dict()`支持三种方式输入参数：
         >>1. 直接通过任意数量的关键词（`**kwarg`）参数传参，比如`dict(subject: Math, teacher: Jack, classroom: 401)`  
         >>2. 通过`map()`、`zip()`函数等可映射对象（`mapping`）传参，比如`dict(zip(list1, list2))`  
-        >>3. 通过可迭代(`iterable`)对象传参，参数需要以可迭代的键-值对元组的形式输入，如`dict([(subject, Math), (teacher, Jack), (classroom, 401)])`  
+        >>3. 通过可迭代(`iterable`)对象传参，参数需要以可迭代的键-值对元组的形式输入，
+             如`dict([(subject, Math), (teacher, Jack), (classroom, 401)])`  
         >>4. `mapping`传参可以和关键词传参方式混用，`iterable`传参也可以和关键词传参方式混用  
 * 操作  
     * list(dict)  
@@ -930,7 +964,19 @@ PI = 3. 14159265359
             将`dict`对象输入`list`构造器可以输出一个以`dict`的键为元素的`list`  
     * len(dict)  
         * 结果  
-            返回`dict`对象中项的个数  
+            返回`dict`对象中项的个数
+    * dict[key]
+        * 结果    
+            返回`dict`中以`key`为键的项。 如果映射中不存在`key`则会引发`KeyError`  
+    * dict[key] = value
+        * 结果
+            对键`key`的项，将其值设为`value`  
+    * del dict  
+        * 结果  
+            删除`dict`对象  
+    * del dict[key]  
+        * 结果  
+            删除`dict`对象键为`key`的项                          
     * dict.keys()  
         * 结果  
             返回以`dict`对象的键为元素的`list`对象  
@@ -979,18 +1025,21 @@ PI = 3. 14159265359
     * x (not) in dict  
         * 结果  
           （没）有键为x的项返回`True`，否则返回`False`  
-* 字段推导式  
+* 字典推导式  
     * 格式  
-        {key: value for key, value in …… if ……}  
+        {key: value if …… else key: value for key, value in …… if ……}  
     * 备注  
         >1. `for in`后面要接一个元素为键-值对的可迭代对象，`value`和`key`分别对应键和值  
-        >2. 也可以通过`zip()`函数缝合两个可迭代对象，在`for in`分别为`value`和`key`赋值  
-        >3. `for in`后面接了`if`条件句，用于筛选可迭代对象中的元素  
-        >4. `key: value`部分可以对键-值做一些运算，然后以运算结果作为最终的键-值  
+        >2. 也可以通过`zip()`函数缝合两个可迭代对象，在`for in`分别为`value`和`key`赋值
+        >3. `for in`前面也可以接一个`if else`表达式，按情况输出不同的`value`和`key` 
+        >4. `for in`后面接了`if`条件句，用于筛选可迭代对象中的元素  
+        >5. `key: value`部分可以对键-值做一些运算，然后以运算结果作为最终的键-值  
 * 备注  
     >1. `dict`对象的键几乎可以是任何值，除了非`hashable`的值，如列表、字典或其他可变类型的值。  
-    >2. 数字类型用作键时遵循数字比较的一般规则：如果两个数值相等(例如1和1.0)则两者可以被用来索引同一字典条目（但是请注意，由于计算机对于浮点数存储的只是近似值，因此将其用作字典键是不明智的。）  
-    >3. `dict`对象因为采用`key-value`(键-值方法)储存，查找和插入的速度极快，不会随着`key`的增加而变慢。但是需要占用大量的内存，内存浪费多  
+    >2. 数字类型用作键时遵循数字比较的一般规则：如果两个数值相等(例如1和1.0)则两者可以被用来索引同一字典条目（但是请注意，
+        由于计算机对于浮点数存储的只是近似值，因此将其用作字典键是不明智的。）  
+    >3. `dict`对象因为采用`key-value`(键-值方法)储存，查找和插入的速度极快，不会随着`key`的增加而变慢。但是需要占用大量的内存，
+        内存浪费多  
     >4. 两个字典的比较当且仅当它们具有相同的键-值对时才会相等（不考虑顺序）。排序比较`<`,`<=`,`>=`,`>`会引发`TypeError`  
     >5. `dict`对会保留插入时的顺序。请注意对键的更新不会影响顺序。删除并再次添加的键将被插入到末尾  
 ##### [集合类型](https://docs.python.org/zh-cn/3/library/stdtypes.html#set-types-set-frozenset)  
@@ -1000,7 +1049,8 @@ PI = 3. 14159265359
 * 分类  
     * set类型  
         * 定义  
-            `set`类型是可变的,其内容可以使用`add()`和`remove()`这样的方法来改变。由于是可变类型，它是非`hashable`的，且不能被用作`dict`的`key`或其他集合对象的元素  
+            `set`类型是可变的,其内容可以使用`add()`和`remove()`这样的方法来改变。由于是可变类型，它是非`hashable`的，
+            且不能被用作`dict`的`key`或其他集合对象的元素  
         * 函数  
             set([iterable])
             * 备注  
@@ -1015,7 +1065,8 @@ PI = 3. 14159265359
             * 备注  
                 >1. 想要创建一个空`frozenset`对象必须借助其构造器函数，直接使用`{}`会被识别为`dict`对象  
                 >2. 返回一个新的`frozenset`对象，其元素来自于`iterable`。集合的元素必须为`hashable`  
-                >3. 要表示由集合对象构成的`frozenset`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，则将返回一个新的空集合    
+                >3. 要表示由集合对象构成的`frozenset`对象，所有的内层集合必须为`frozenset`对象。如果未指定`iterable`，
+                    则将返回一个新的空集合    
 * 操作  
     * 集合对象通用操作  
         * <a id = 'len(set)'>len(set)</a>  
@@ -1044,7 +1095,8 @@ PI = 3. 14159265359
             * 结果  
                 验证集合`set1`是否是`set2`的子集，等价于`A.issubset(B)`  
             * 备注  
-                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issubset(B)`方法最大的区别  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，
+                    这是与`A.issubset(B)`方法最大的区别  
         * <a id = 'set1 < set2'>set1 < set2</a>  
             * 结果  
                 验证集合`set1`是否是`set2`的真子集，即`set <= other and set != other`  
@@ -1059,7 +1111,8 @@ PI = 3. 14159265359
             * 结果  
                 验证集合`set1`是否是`set2`的超集，等价于`A.issuperset(B)`  
             * 备注  
-                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，这是与`A.issuperset(B)`方法最大的区别  
+                >1. 受集合对象比较法则的约束，集合对象只可以和集合对象比较大小，`set`和`frozenset`可以互相比较，
+                    这是与`A.issuperset(B)`方法最大的区别  
         * <a id = 'set1 > set2'>set1 > set2</a>  
             * 结果  
                 验证集合`set1`是否是`set2`的真超集，即`set >= other and set != other`  
@@ -1074,7 +1127,8 @@ PI = 3. 14159265359
             * 结果  
                 返回集合对象`set1`到`setn`的并集  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.union(B1, B2, ...,Bn)`方法最大的区别      
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.union(B1, B2, ...,Bn)`方法最大的区别      
         * <a id = 'A.intersection(B1, B2, ...,Bn)'>A.intersection(B1, B2, ...,Bn)</a>  
             * 结果  
                 返回集合对象`A`和可迭代对象`B1-Bn`的交集  
@@ -1084,7 +1138,8 @@ PI = 3. 14159265359
             * 结果  
                 返回集合对象`set1`到`setn`的交集  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection(B1, B2, ...,Bn)`方法最大的区别  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.intersection(B1, B2, ...,Bn)`方法最大的区别  
         * <a id = 'A.difference(B1, B2, ...,Bn)'>A.difference(B1, B2, ...,Bn)</a>  
             * 结果  
                 返回集合对象`A`和可迭代对象`B1-Bn`的差集  
@@ -1094,7 +1149,8 @@ PI = 3. 14159265359
             * 结果  
                 返回集合对象`set1`到`setn`的差集  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference(B1, B2, ...,Bn)`方法最大的区别  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.difference(B1, B2, ...,Bn)`方法最大的区别  
         * <a id = 'A.symmetric_difference(B)'>A.symmetric_difference(B)</a>  
             * 结果  
                 返回集合对象`A`和可迭代对象`B`的对称差集  
@@ -1104,7 +1160,8 @@ PI = 3. 14159265359
             * 结果  
                 返回集合对象`set1`到`setn`的对称差集  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference(B1, B2, ...,Bn)`方法是不同的  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.symmetric_difference(B1, B2, ...,Bn)`方法是不同的  
                 >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference(B)`只支持两个对象求对称差集  
     * set类型操作  
         * A.add(x)  
@@ -1135,7 +1192,8 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#set1 | set2 | …… | setn'>`set1 | set2 | …… | setn`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.update(B1, B2, ...,Bn)`方法最大的区别      
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.update(B1, B2, ...,Bn)`方法最大的区别      
         * A.intersection_update(B1, B2, ...,Bn)  
             * 结果  
                 `set`类型版的<a href = '#A.intersection(B1, B2, ...,Bn)'>`A.intersection(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
@@ -1145,7 +1203,8 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#set1 & set2 & …… & setn'>`set1 & set2 & …… & setn`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.intersection_update(B1, B2, ...,Bn)`方法最大的区别  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.intersection_update(B1, B2, ...,Bn)`方法最大的区别  
         * A.difference_update(B1, B2, ...,Bn)  
             * 结果  
                 `set`类型版的<a href = '#A.difference(B1, B2, ...,Bn)'>`A.difference(B1, B2, ...,Bn)`</a>，可直接对原对象进行修改  
@@ -1155,8 +1214,10 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#set1 - set2 - …… - setn'>`set1 - set2 - …… - setn`</a>，可直接对原对象进行修改  
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.difference_update(B1, B2, ...,Bn)`方法最大的区别  
-                >2. 由于在运算符优先级中`-`高于`-=`,所以`set1 -= set2 - …… - setn`的写法是不行的，相当于`set1 -= (set2 - …… - setn)`，所以要改为`set1 -= set2 | …… | setn`  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.difference_update(B1, B2, ...,Bn)`方法最大的区别  
+                >2. 由于在运算符优先级中`-`高于`-=`,所以`set1 -= set2 - …… - setn`的写法是不行的，相当于`set1 -= (set2 - …… - setn)`，
+                    所以要改为`set1 -= set2 | …… | setn`  
         * A.symmetric_difference_update(B)  
             * 结果  
                 `set`类型版的<a href = '#A.symmetric_difference(B)'>`A.symmetric_difference(B)`</a>，可直接对原对象进行修改  
@@ -1166,13 +1227,16 @@ PI = 3. 14159265359
             * 结果  
                 `set`类型版的<a href = '#set1 ^ set2 ^ …… ^ setn'>`set1 ^ set2 ^ …… ^ setn`</a>，可直接对原对象进行修改    
             * 备注  
-                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，这是与`A.symmetric_difference_update(B1, B2, ...,Bn)`方法是不同的  
+                >1. 受集合对象运算法则的约束，集合对象只可以和集合对象使用运算符运算，`set`和`frozenset`可以互相使用运算符运算，
+                    这是与`A.symmetric_difference_update(B1, B2, ...,Bn)`方法是不同的  
                 >2. 该运算支持同时计算多个集合对象的对称差集，但是`A.symmetric_difference_update(B)`只支持两个对象求对称差集  
 * 备注  
     >1. 作为一种无序的多项集，集合对象并不记录元素位置或插入顺序。相应地，集合不支持索引、切片或其他序列类对象的操作  
     >2. 集合对象是可遍历的，因此可以使用`for i in set/frozenset`这样的遍历语句  
-    >3. 集合对象进行`|`/`|=`/`&`/`&=`/`-`/`-+`/`^`/`^=`等集合对象运算符操作时，如果参与运算的集合对象同时包括`set`和`frozenset`，则结果的类型取参与运算的第一个对象的类型  
-    >4. `set`和`frozenset`均支持集合与集合的比较。两个集合当且仅当各为对方的子集时则相等。一个集合当且仅当其为另一个集合的真子集时则小于另一个集合。一个集合当且仅当其为另一个集合的真超集时则大于另一个集合  
+    >3. 集合对象进行`|`/`|=`/`&`/`&=`/`-`/`-+`/`^`/`^=`等集合对象运算符操作时，如果参与运算的集合对象同时包括`set`和`frozenset`，
+        则结果的类型取参与运算的第一个对象的类型  
+    >4. `set`和`frozenset`均支持集合与集合的比较。两个集合当且仅当各为对方的子集时则相等。一个集合当且仅当其为另一个集合的真子集时则小于另一个集合。
+         一个集合当且仅当其为另一个集合的真超集时则大于另一个集合  
     >5. `set`的实例与`frozenset`的实例之间基于它们的成员进行比较。例如`set('abc') == frozenset('abc')`返回`True``set('abc') in set([frozenset('abc')])`也一样  
     >6. 子集与相等比较并不能推广为完全排序函数。例如任意两个非空且不相交的集合不相等且互不为对方的子集，因此`a<b`、`a==b`或`a>b`比较均返回`False`  
     >7. 由于集合仅定义了部分排序（子集关系），因此由集合构成的列表`list.sort()`方法的输出并无定义  
@@ -1204,7 +1268,8 @@ PI = 3. 14159265359
         >2. 函数如果没有`return`语句，函数执行完毕后也会返回结果，只是结果为`None`  
         >3. `return None`可以简写为`return`  
         >4. `return`多个值，会以`tuple`的形式返回  
-        >5. 如果想定义一个什么事也不做的空函数，可以在函数体中用`pass`语句。`pass`也可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个`pass`，让代码能运行起来  
+        >5. 如果想定义一个什么事也不做的空函数，可以在函数体中用`pass`语句。`pass`也可以用来作为占位符，
+            比如现在还没想好怎么写函数的代码，就可以先放一个`pass`，让代码能运行起来  
 ##### [检查参数](https://github.com/peterliu502/Hello_Python/blob/master/函数定义与检查.py)  
 * 检查参数个数  
     调用函数时，如果参数个数不对，`Python`解释器会自动检查出来，并抛出`TypeError`  
@@ -1291,6 +1356,57 @@ PI = 3. 14159265359
             `*arg`实参和`**kw`实参分别给前四种形参和后两种形参赋值
         >2. 默认参数后接可变位置参数，其默认值是无效的，因为若默认参数省略则会把可变位置实参中的第一个元素识别为默认参数  
         >3. 必选参数如果后接可变位置参数，则不可以用关键词传参，因为违反了关键词参数必须在位置参数的后面的规则  
-        
-                    
-                                                                                                                     
+### ![avatar](https://img.shields.io/badge/主题-生成器与遍历器-red)  
+***
+#### __time__  
+2020-03-02
+#### __content__  
+##### [![avatar](https://img.shields.io/badge/关键概念-生成器-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-generator)  
+* 解释  
+    当出于内存等方面的考虑不希望一次性将`list`、`dict`和`str`等对象完整算出，只用在需要的时候给出下一个元素即可的时候。就可以将序列元素替换成对应的生成器（`generator`）  
+* 生成方法  
+    * [![avatar](https://img.shields.io/badge/关键概念-生成器表达式-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-generator-expression)  
+        * 定义  
+            返回一个生成器迭代器的表达式       
+        * 格式  
+            (expression [if …… else expression] for …… in …… [if ……])
+    * [![avatar](https://img.shields.io/badge/关键概念-生成器函数-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-generator)                
+        * 定义  
+            返回一个`generator iterator`的函数。它看起来很像普通函数，不同点在于其包含`yield`表达式以便产生一系列值供给`for`循环使用或是通过`next()`函数逐一获取                                                                                                             
+        * 备注  
+            >1. `generator iterator`是`generator`函数所创建的对象。每个`yield`会临时暂停处理，记住当前位置执行状态
+               （包括局部变量和挂起的`try`语句），而非像`return`一样直接中断。当该生成器迭代器恢复时，它会从离开位置继续执行（这与每次调用都从新开始的普通函数差别很大） 
+            >2.  `yield`语句在语义上等同于`yield`表达式。`yield`语句可用来省略在使用等效的`yield`表达式语句时所必须的圆括号。
+                 `yield`表达式和语句仅在定义`generator`函数时使用，并且仅被用于生成器函数的函数体内部。
+                 在函数定义中使用`yield`就足以使得该定义创建的是生成器函数而非普通函数  
+* 获取元素方法  
+    * [![avatar](https://img.shields.io/badge/函数-next()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#next)  
+        * 结构  
+            next(iterator[, default])
+        * 作用  
+            通过调用`iterator`的`__next__()`方法获取下一个元素。如果迭代器耗尽，则返回给定的`default`，如果没有默认值则触发`StopIteration`  
+    * for in语句  
+        * 结构  
+            for elm in generator:  
+        * 作用  
+            因为`generator iterator`对象也是可以迭代的，所以也可以用`for in`语句的方法遍历`generator iterator`的元素，依次提取  
+    * 备注  
+        >1. `for in`方法比`next()`更常用  
+        >2. 但如果生成器函数有返回值并想取出返回值，就只能用`next()`结合捕获`StopIteration`异常的办法  
+##### [![avatar](https://img.shields.io/badge/关键概念-迭代器-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-iterator)                  
+* [![avatar](https://img.shields.io/badge/关键概念-可迭代对象-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-iterable)  
+    * 定义  
+        `list`、`tuple`、`dict`、`set`、`str`、`generator`等可以直接作用于`for`循环的对象统称为可迭代对象(`Iterable`)  
+    * 备注  
+        >1. 可以使用`isinstance()`(需引入`collections`)判断一个对象是否是`Iterable`对象  
+* [![avatar](https://img.shields.io/badge/关键概念-迭代器-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-iterator)  
+    * 定义  
+        可以被`next()`函数调用并不断返回下一个值的对象(如`generator`)称为迭代器`Iterator`  
+    * 备注  
+        >1. 可以使用`isinstance()`(需引入`collections`)判断一个对象是否是`Iterator`对象  
+        >2. `Iterable`对象可以通过`iter()`函数转为`Iterator`对象  
+        >3. `for`循环和`next()`对象是可以等价转换的  
+        >3. `Iterator`对象表示的是一个数据流，`Iterator`对象可以被`next()`函数调用并不断返回下一个数据，
+            直到没有数据时抛出`StopIteration`错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，
+            只能不断通过`next()`函数实现按需计算下一个数据，所以`Iterator`的计算是惰性的，只有在需要返回下一个数据时它才会计算   
+            `Iterator`甚至可以表示一个无限大的数据流，例如全体自然数。而使用`list`等类型是永远不可能存储全体自然数的  
