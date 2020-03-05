@@ -40,7 +40,7 @@ This repository is used to record my personal Python learning process.
         ```python
         "__coding[:=]\s*([-\w.]+)__"
         ```
-### [![avatar](https://img.shields.io/badge/主题-输入输出-red)](https://github.com/peterliu502/Hello_Python/blob/develop/输入输出.py)
+### [![avatar](https://img.shields.io/badge/主题-输入输出-red)](https://github.com/peterliu502/Hello_Python/blob/develop/输入输出.py)  
 ***
 #### __time__  
 2020-01-07
@@ -1240,7 +1240,7 @@ PI = 3. 14159265359
     >5. `set`的实例与`frozenset`的实例之间基于它们的成员进行比较。例如`set('abc') == frozenset('abc')`返回`True``set('abc') in set([frozenset('abc')])`也一样  
     >6. 子集与相等比较并不能推广为完全排序函数。例如任意两个非空且不相交的集合不相等且互不为对方的子集，因此`a<b`、`a==b`或`a>b`比较均返回`False`  
     >7. 由于集合仅定义了部分排序（子集关系），因此由集合构成的列表`list.sort()`方法的输出并无定义  
-### ![avatar](https://img.shields.io/badge/主题-函数定义与调用-red)  
+### [![avatar](https://img.shields.io/badge/主题-函数定义与调用-red)](https://github.com/peterliu502/Hello_Python/blob/master/函数定义与调用.py)  
 ***
 #### __time__  
 2020-02-26
@@ -1307,7 +1307,7 @@ PI = 3. 14159265359
     * 备注  
         >1. `filename`是指自定义函数所在文件的文件名，不含后缀
         >2. `function`只需要写函数名，不需要带`()`    
-### ![avatar](https://img.shields.io/badge/主题-函数形参-red)  
+### [![avatar](https://img.shields.io/badge/主题-函数形参-red)](https://github.com/peterliu502/Hello_Python/blob/master/函数形参.py)  
 ***
 #### __time__  
 2020-02-28
@@ -1356,7 +1356,7 @@ PI = 3. 14159265359
             `*arg`实参和`**kw`实参分别给前四种形参和后两种形参赋值
         >2. 默认参数后接可变位置参数，其默认值是无效的，因为若默认参数省略则会把可变位置实参中的第一个元素识别为默认参数  
         >3. 必选参数如果后接可变位置参数，则不可以用关键词传参，因为违反了关键词参数必须在位置参数的后面的规则  
-### ![avatar](https://img.shields.io/badge/主题-生成器与遍历器-red)  
+### [![avatar](https://img.shields.io/badge/主题-生成器与迭代器-red)](https://github.com/peterliu502/Hello_Python/blob/master/生成器与迭代器.py)  
 ***
 #### __time__  
 2020-03-02
@@ -1381,12 +1381,12 @@ PI = 3. 14159265359
                  在函数定义中使用`yield`就足以使得该定义创建的是生成器函数而非普通函数  
 * 获取元素方法  
     * [![avatar](https://img.shields.io/badge/函数-next()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#next)  
-        * 结构  
+        * 格式  
             next(iterator[, default])
         * 作用  
             通过调用`iterator`的`__next__()`方法获取下一个元素。如果迭代器耗尽，则返回给定的`default`，如果没有默认值则触发`StopIteration`  
     * for in语句  
-        * 结构  
+        * 格式  
             for elm in generator:  
         * 作用  
             因为`generator iterator`对象也是可以迭代的，所以也可以用`for in`语句的方法遍历`generator iterator`的元素，依次提取  
@@ -1410,3 +1410,56 @@ PI = 3. 14159265359
             直到没有数据时抛出`StopIteration`错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，
             只能不断通过`next()`函数实现按需计算下一个数据，所以`Iterator`的计算是惰性的，只有在需要返回下一个数据时它才会计算   
             `Iterator`甚至可以表示一个无限大的数据流，例如全体自然数。而使用`list`等类型是永远不可能存储全体自然数的  
+### ![avatar](https://img.shields.io/badge/主题-高阶函数-red)  
+***
+#### __time__  
+2020-02-28
+#### __content__  
+* 高阶函数  
+    * 定义  
+        接受函数为参数的函数，即为高阶函数（`Higher-order function`） 
+    * 变量指向函数  
+        将函数赋值给变量，变量便引用函数了。
+        ```python
+        function_abs = abs  # 将函数赋值给变量，变量便引用函数了
+        print(function_abs(-1))  # 变量现在可以使用函数的功能了
+        ```  
+        函数名实质上也等同于指向函数的一个变量名.所以函数名也是可以被赋予其他值的（强烈不建议这么做），之后便不再能用该函数名调用函数了
+        想在所有模块中都让某函数的指向改变，必须在使用`import`统一修改，格式为`import 函数所在模块; 函数所在模块.函数 = 自定义值`  
+        ```python
+        import builtins; builtins.abs = 10  # 修改abs变量的指向在其它模块也生效
+        abs = 10  # 将abs函数名赋值为10
+        ```
+    * 与高阶函数相关的函数和方法  
+        * [![avatar](https://img.shields.io/badge/函数-map()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#map)  
+            * 格式  
+                map(function, iterable, ...)  
+            * 参数  
+                * function
+                    `map()`调用的函数  
+                * iterable  
+                    为`function`提供实参的`iterable`对象  
+            * 作用  
+                返回一个将`function`应用于`iterable`中每一项并输出其结果的迭代器  
+            * 备注  
+                >1. 如果传入了额外的`iterable`参数，`function`必须接受相同个数的实参并被应用于从所有可迭代对象中并行获取的项  
+                >2. 当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束  
+        * [![avatar](https://img.shields.io/badge/方法-functools.reduce()-orange)](https://docs.python.org/zh-cn/3/library/functools.html#functools.reduce)  
+            * 格式  
+                将两个参数的`function`从左至右积累地应用到`iterable`的条目，以便将该可迭代对象缩减为单一的值。
+                如果存在可选项`initializer`，它会被放在参与计算的可迭代对象的条目之前，并在可迭代对象为空时作为默认值。
+                如果没有给出`initializer`并且`iterable`仅包含一个条目，则将返回第一项  
+                ```python
+                reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])
+                # 是计算 ((((1+2)+3)+4)+5) 的值
+                # 左边的参数 x 是积累值而右边的参数 y 则是来自iterable的更新值。
+                ``` 
+            * 参数  
+                * function
+                    `map()`调用的函数  
+                * iterable  
+                    为`function`提供实参的`iterable`对象  
+                * initializer  
+                    首个实参的默认值  
+              
+                
