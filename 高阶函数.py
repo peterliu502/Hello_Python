@@ -93,3 +93,52 @@ if abs(str2float('123.456') - 123.456) < 0.00001:
     print('测试成功!')
 else:
     print('测试失败!')
+
+
+# filter
+# 作业：筛选回数（方法1）
+def is_palindrome(n):
+    str_n = str(n)
+    for index in range(len(str_n)):
+        if str_n[index] != str_n[len(str_n) - (index + 1)]:
+            return False
+    return True
+
+
+output = filter(is_palindrome, range(1, 1000))
+print('1~1000:', list(output))
+if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
+
+# 作业：筛选回数（方法21）
+def is_palindrome1(n):
+    return str(n) == str(n)[::-1]
+
+
+output = filter(is_palindrome1, range(1, 1000))
+print('1~1000:', list(output))
+if list(filter(is_palindrome1, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
+
+# sorted()函数
+# 作业：按姓名排
+def by_name(t):
+    return t[0]
+
+
+# 作业：按分数排
+def by_score(t):
+    return -t[1]
+
+
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+L2 = sorted(L, key=by_name)
+print(L2)
+L3 = sorted(L, key=by_score)
+print(L3)
