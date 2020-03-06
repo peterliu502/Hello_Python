@@ -562,12 +562,12 @@ PI = 3. 14159265359
                         * key  
                             `key`参数可以接收一个函数，该函数必须可以接收一个参数并返回一个值，`list`对象中的元素会依次输入该函数，并将返回值作为排序对象  
                             `list`对象自身不可以作`key`参数，但可以用深浅拷贝来做参数  
-                            默认值`None`表示直接对列表项排序而不计算一个单独的键-值  
+                            默认值`None`表示直接对列表项排序而不计算每一个单独的键  
                         * reverse  
                             `reverse`为一个布尔值。如果设为`True`，则每个列表元素将按反向顺序比较进行排序。默认为`False`  
                     * 备注  
                         >1. 此方法会原地修改序列以保证空间经济性.此操作是通过间接影响进行的，它并不会返回排序后的序列  
-                        >2. 如需要返回一个已排序列表对象，请使用`sorted()`显示地请求一个新的已排序列表  
+                        >2. 如需要返回一个已排序列表对象，请使用<a href = 'sorted()'>`sorted()`</a>显示地请求一个新的已排序列表  
                         >3. `sort()`方法确保是稳定的。如果一个排序确保不会改变比较结果相等的元素的相对顺序就称其为稳定的，这有利于进行多重排序。  
             * [![avatar](https://img.shields.io/badge/关键概念-列表推导式-yellowgreen)](https://docs.python.org/zh-cn/3/faq/programming.html#how-do-i-create-a-multidimensional-list)  
                 * 格式  
@@ -1461,5 +1461,39 @@ PI = 3. 14159265359
                     为`function`提供实参的`iterable`对象  
                 * initializer  
                     首个实参的默认值  
-              
+        * [![avatar](https://img.shields.io/badge/函数-filter()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#filter)  
+            * 格式  
+                filter(function, iterable)  
+            * 参数  
+                * function  
+                    用于提供筛选标准的函数，返回值会被转为`True`/`False`
+                * iterable  
+                    提供待筛选对象的`iterable`
+            * 作用  
+                用`iterable`中函数`function`返回真的那些元素，构建一个新的迭代器。`iterable`可以是一个序列，
+                一个支持迭代的容器，或一个迭代器。  
+                如果`function`是`None`，则会假设它是一个身份函数，即直接用`iterable`中的元素值作为判断标准，
+                所有返回假的元素（比如`0`、`False`、`None`、`[]`等）会被移除
+            * 备注  
+                >1. `filter(function, iterable)`相当于一个生成器表达式:
+                ```python
+                # function不是None的时候
+                (item for item in iterable if function(item))
+                # function是None的时候 
+                (item for item in iterable if item)
+                ```
+        * <a id = 'sorted()'>[![avatar](https://img.shields.io/badge/函数-sorted()-orange)](https://docs.python.org/zh-cn/3/library/functions.html#sorted)</a>  
+            * 格式  
+                sorted(iterable, *, key=None, reverse=False)  
+            * 参数  
+                * iterable  
+                    提供待排序的对象  
+                * key  
+                    通过引用一个函数来指定排序方法，即将`iterable`对象迭代进`key`函数中，然后对`key`的返回值进行排序  
+                    为仅限关键字变量，默认为`None`(直接比较对象)  
+                * reverse  
+                    指定排序的顺序，`True`的话则进行逆序处理，为仅限关键字变量，默认为`False`
+            * 备注  
+                >1. 内置的`sorted()`确保是稳定的。如果一个排序确保不会改变比较结果相等的元素的相对顺序就称其为稳定的，
+                    这有利于进行多重排序（例如先按部门、再按薪级排序）                  
                 
