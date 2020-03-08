@@ -1503,9 +1503,9 @@ PI = 3. 14159265359
 #### __content__
 * 返回函数定义    
     指函数的返回值为一个函数，是<a href = '#高阶函数'>高阶函数</a>的一种用法  
-* 闭包  
+* ![avatar](https://img.shields.io/badge/关键概念-闭包-yellowgreen)  
     当高阶函数返回一个内部函数时，这个内部函数可以引用外部高阶函数的参数和局部变量，可以保存下来一并返回，这种结构称之为闭包(`Closure`)  
-    * 延迟绑定  
+    * ![avatar](https://img.shields.io/badge/关键概念-延迟绑定-yellowgreen)  
         因为闭包结构一般不会自动执行,所以会产生延迟绑定现象。具体来说就是返回函数中的所有变量都是以表达式的形式存在，没有与对象绑定。
         只有当函数被调用的时候才会开始将变量与对象绑定。  
         * 延迟绑定带来的问题  
@@ -1555,6 +1555,29 @@ PI = 3. 14159265359
     my_func()  # 这里才是调用了sec_func()，开始执行sec_func()函数体
     ```
     >* 多次调用高阶返回函数，每个函数都是独立的，彼此互不影响.相当于返回内部函数的深拷贝  
-    >* 闭包内的变量查找遵循LEGB规则  
-
-                              
+    >* 闭包内的变量查找遵循<a href = '#LEGB规则'>LEGB规则</a>  
+### [![avatar](https://img.shields.io/badge/主题-匿名函数-red)](https://github.com/peterliu502/Hello_Python/blob/master/匿名函数.py)    
+***
+#### __time__  
+2020-03-08
+#### __content__
+* 含义  
+    `Python`中也可以不用`def`关键字显性地定义函数，而改用匿名函数。在`Python`中，通过`lambda`关键字对匿名函数进行了有限支持  
+* [![avatar](https://img.shields.io/badge/关键概念-lambda表达式-yellowgreen)](https://docs.python.org/zh-cn/3/reference/expressions.html#lambda)    
+    * 含义  
+        `lambda`表达式（有时称为`lambda`构型）被用于创建匿名函数。表达式会产生一个函数对象  
+    * 格式  
+        lambda *parameters: expression  
+    * 参数  
+        * parameters
+            `lambda`的形参，可以接收多个参数  
+        * expression  
+            函数返回的表达式，一个`lambda`函数只能有一个表达式  
+    * 备注  
+        >* `lambda *parameters: expression`等价于以下代码：  
+        ```python
+        def <lambda>(parameters):
+            return expression
+        ```
+        >* `lambda`函数同样可以赋值或作为高阶函数的参数或返回值  
+        >* 高阶函数如果想返回`lambda`函数的返回值，可以表示为`return (lambda *parameters: expression)()`                         

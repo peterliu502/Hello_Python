@@ -67,7 +67,7 @@ def createCounter1():
                   '\nglobals():', globals(),
                   '\nlocals()', locals())
 
-    generator = my_iterator()
+    generator = my_iterator()  # 必须用一个变量接收下来，不然调用完会回收内存，下次调用会从头开始迭代
 
     def counter():
         print('counter():'
