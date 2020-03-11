@@ -172,3 +172,7 @@ def my_abs(num):
 print(type(my_abs))
 my_var3 = my_abs
 my_var3(-99)
+
+# 偏函数
+myprint = functools.partial(print, sep='\n')
+myprint('a', 'b', 'c')
