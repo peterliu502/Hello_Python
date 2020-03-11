@@ -1580,4 +1580,80 @@ PI = 3. 14159265359
             return expression
         ```
         >* `lambda`函数同样可以赋值或作为高阶函数的参数或返回值  
-        >* 高阶函数如果想返回`lambda`函数的返回值，可以表示为`return (lambda *parameters: expression)()`                         
+        >* 高阶函数如果想返回`lambda`函数的返回值，可以表示为`return (lambda *parameters: expression)()` 
+### [![avatar](https://img.shields.io/badge/主题-装饰器与偏函数-red)](https://github.com/peterliu502/Hello_Python/blob/master/装饰器与偏函数.py)    
+***
+#### __time__  
+2020-03-11
+#### __content__
+##### [![avatar](https://img.shields.io/badge/关键概念-装饰器-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-decorator)  
+* 定义  
+    装饰器(`decorator`)是指返回值为另一个函数的函数，通常使用`@wrapper`语法形式来进行函数变换。可以在不修改原函数的情况下，为原函数修补功能  
+* 格式  
+    * 自身不带参数的装饰器  
+        ```python
+        def decorator(func):  # 装饰器参数接收层
+            def wrapper(*args, **kwargs):  # 目标函数参数接收层
+                装饰器的执行语句  # 函数执行体
+                return func(*args, **kwargs)  # 返回所接受的函数
+        
+       @decorator  # 将目标函数输入装饰器的语法糖
+       def myfunc():
+           return
+       ```
+       上文`@decorator`的语法糖等价于:
+       ```python
+       decorator(myfunc)
+       ```
+    * 自身带参数的装饰器  
+        ```python
+        def decorator(dcrt_para):  # 装饰器参数接收层
+            def sub_decorator(func):  # 函数接收层
+                def wrapper(*args, **kwargs):  # 目标函数参数接收层
+                    装饰器的执行语句  # 函数执行体
+                    return func(*args, **kwargs)  # 返回所接受的函数
+                def wrapper
+            def sub_decorator    
+        
+       @decorator(mypara)  # 将目标函数输入装饰器的语法糖，并输入装饰器参数
+       def myfunc():
+           return
+       ```
+       上文`@decorator`的语法糖等价于:
+       ```python
+       decorator(mypara)(myfunc)
+       ```
+* 备注  
+    >1. 使用装饰器会把原函数的__name__属性也修改为`decorator`中的第二层函数的属性，这会导致后续无法正确使用该属性。
+     所以应当使用`functools`模块中的`wraps`方法将该属性修正回来。`@function.wraps()`语句应放置在接收目标函数的那一层中:
+     ```python
+     def decorator(func):  # 装饰器参数接收层
+         @function.wraps(func)  # 修正函数__name__属性
+         def wrapper(*args, **kwargs):  # 目标函数参数接收层
+              装饰器的执行语句  # 函数执行体
+              return func(*args, **kwargs)  # 返回所接受的函数     
+     ```
+#####  [![avatar](https://img.shields.io/badge/关键概念-偏函数-yellowgreen)](https://docs.python.org/zh-cn/3/library/functools.html#functools.partial)  
+* [![avatar](https://img.shields.io/badge/方法-functools.partial()-orange)](https://docs.python.org/zh-cn/3/library/functools.html#functools.partial)  
+    `Python`中的偏函数(`Partial function`)功能主要是通过`functools.partial()`实现的  
+    * 格式  
+        functools.partial(func, /, *args, **keywords)  
+    * 参数  
+        * func  
+            `func`是一个可调用对象或函数。对`partial`对象的调用将被转发给`func`并附带新的参数和关键字  
+        * args  
+            最左边的位置参数将放置在提供给`partial`对象调用的位置参数之前  
+        * keywords  
+            当调用`partial`对象时将要提供的关键字参数  
+    * 定义  
+        返回一个新的`partial`对象，当被调用时其行为类似于`func`附带位置参数`args`和关键字参数`keywords`被调用。
+        如果为调用提供了更多的参数，它们会被附加到`args`。如果提供了额外的关键字参数，它们会扩展并重载`keywords`  
+        `partial()`会被“冻结了”一部分函数参数和`/`或关键字的部分函数应用所使用，从而得到一个具有简化签名的新对象  
+    * 备注  
+        >1. `partial()`中`*args`,`**keywords`的赋值要遵循形参的顺序规则，比如对`func(a, b, c)`使用`partial(func, b=1)`，
+            则形参c必须使用关键词赋值（因为位置参数不可以在关键词参数后面） 
+        >2. `partial`对象与`function`对象的类似之处在于它们都是可调用、可弱引用的对象并可拥有属性。但两者也存在一些重要的区别。
+            例如前者不会自动创建`__name__`和`__doc__`属性。而且，在类中定义的`partial`对象的行为类似于静态方法，
+            并且不会在实例属性查找期间转换为绑定方法           
+    
+                       
