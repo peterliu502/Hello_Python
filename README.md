@@ -1003,7 +1003,7 @@ PI = 3. 14159265359
             返回一个以`iterable`的`seq`参数为键，`value`参数为值的`dict`对象,所以与该方法绑定的`dict`对象没什么关系  
     * dict.get(key, default)  
         * 结果  
-            `dict`中有`key`元素则返回`key`的值，没有则返回`default`，不会触发报错  
+            `dict`中有`key`元素则返回`key`的值，没有则返回`default`，不会像`dict[key]`那样触发报错  
         * 备注  
             >1. `default`默认为`None`  
     * dict.pop(x)  
