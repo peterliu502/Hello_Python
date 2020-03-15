@@ -6,8 +6,11 @@ import functools
 __author__ = 'Peterliu'
 
 
+def _add_2elm(elm1, elm2):
+    return elm1 + elm2
+
+
 def myadd(*args):
-    def add_2elm(elm1, elm2):
-        return elm1 + elm2
-    return functools.reduce(add_2elm, args)
+
+    return functools.reduce(_add_2elm, args)
 

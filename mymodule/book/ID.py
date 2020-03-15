@@ -7,3 +7,6 @@ def book_id(book):
         return str(ord(mychr))
     return ''.join(list(map(ord2str, [mychr for mychr in book])))
 
+
+def id_lens(book):
+    return len(book_id(book))
