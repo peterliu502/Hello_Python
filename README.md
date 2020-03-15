@@ -1655,5 +1655,103 @@ PI = 3. 14159265359
         >2. `partial`对象与`function`对象的类似之处在于它们都是可调用、可弱引用的对象并可拥有属性。但两者也存在一些重要的区别。
             例如前者不会自动创建`__name__`和`__doc__`属性。而且，在类中定义的`partial`对象的行为类似于静态方法，
             并且不会在实例属性查找期间转换为绑定方法           
+### [![avatar](https://img.shields.io/badge/主题-模块-red)](https://github.com/peterliu502/Hello_Python/blob/master/模块.py)    
+***
+#### __time__  
+2020-03-15
+#### __content__    
+* [![avatar](https://img.shields.io/badge/关键概念-模块-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-module)  
+    在代码量很大的时候，处于可维护性等方面的考虑，需要将代码分类放置。这样的组织结构可以使得每个文件内的代码不会过多。  
+    在`Python`中，是用后缀名为`.py`的文件作为分类存放代码的模块（`Module`），
+    通过导入(`import`)的方法将代码串联起来，提高代码的可维护性与复用性。
+    此外模块式的组织结构还可以避免同一命名空间内来自不同模块的同名属性(`attribute`函数、类等)冲突，
+    可以通过各属性的模块前缀加以区别，例子如下:  
+```python
+    import numpy
+    import math
+    import scipy
     
-                       
+    print(math.pi, 'from the math module') 
+    print(numpy.pi, 'from the numpy package') 
+    print(scipy.pi, 'from the scipy package')
+```
+    * 备注
+        >1. 自定义的`attribute name`尽量不要与`python`内置`attribute name`重复
+        >2. 自定义`attribute name`要遵循`python`命名规范  
+* [![avatar](https://img.shields.io/badge/关键概念-包-yellowgreen)](https://docs.python.org/zh-cn/3/glossary.html#term-package)  
+    `module`也可能会出现命名冲突的问题，因此需要借助包(`package`)来实现对module的管理。  
+    具体来说就是将命名冲突的module放进不同的package当中。一个包的目录结构如下：
+    ```
+       mypackage
+        ├─ __init__.py
+        ├─ mymodule1.py
+        └─ mymodule2.py 
+    ```
+    于是`mymodule1.py`的模块名变为了`mypackage.mymodule1.py`。
+    通过`mypackage.`前缀与同名模块进行区分
+    `package`也可以采用多级结构，可以在下面继续嵌套子包，
+    下面的`web`就是`mymodule`的子包:
+    ```
+       mycompany
+         ├─ web
+         │  ├─ __init__.py
+         │  ├─ utils.py
+         │  └─ www.py
+         ├─ __init__.py
+         ├─ abc.py
+         └─ utils.py
+    ```
+    总的来说引入`package`之后，只要顶层`package name`不重名，那就不会发生重名问题  
+    * 备注
+        >1. 自定义的`module name`尽量不要与`module name`内置属性名重复
+        >2. 自定义`module name`要遵循`python`命名规范  
+* __init__.py    
+    * __init__.py的命名方式  
+    `__init__.py`的模块名是它所在的`package`目录名，而非它自身的目录名+文件名。
+    在`mycompany`这个`package`中`__init__.py`的`module name`不是`mycompany.__init__.py`而是`mycompany`。同理`web`中`__init__.py`的`module name`
+    不是`mycompany.web.__init__.py`而是`mycompany.web`  
+    * __init__.py的作用
+        * 区别包与普通文件夹  
+            `__init__.py`是区别`package`与普通文件夹的重要因素。
+            即只有内含了一个名为`__init__.py`文件的文件夹，
+            才能被`python`识别为`package`  
+        * 批量导入包内模块  
+            `__init__.py`内容可以为空，但也可以用来批量导入`package`内的`module`，
+            * 批量导入方法  
+                * 提前import进同级的__init__.py  
+                    将本`package`中的`module`先`import`进同级的`__init__.py`,
+                    然后只需`import`该`__init__.py`就可以将本`package`中的`module`全部引入  
+                * 通配符法  
+                    可以将`package`中的所有`module`以`list`形式赋值给·__init__.py·中的·__all__·属性。
+                    `module name`必须作为`list`的`str`格式元素。
+                    然后使用`from package[.subpackage] import *`方式一次性引入所有`module`  
+* [![avatar](https://img.shields.io/badge/关键概念-import语句-yellowgreen)](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#grammar-token-import-stmt)  
+    `import`主要用来导入`package`/`module`/`attribute`,可以拓展为`from import as`结构  
+    * 具体句型  
+        * import package[.subpackage].module  
+            对于使用`import package[.subpackage].module`方式引入的`module`
+            调用时必须按照`package[.subpackage].module.attribute`的格式
+            整写出`module`与`attribute`的名字  
+        * from package[.subpackage] import module  
+            对于使用`from package[.subpackage] import module`方式引入`module`
+            调用时只需写`module.attribute`即可，但这种方式遇到来自不同`package`的同名`module`时会触发命名空间冲突  
+        * from package[.subpackage].module import attribute  
+            对于使用`from package[.subpackage].module import attribute`方式引入`module`
+            调用时可以直接用`attribute`调用，但是当来自不同`module`的`attribute`同名时也会触发命名空间冲突  
+        * from package[.subpackage].module import attribute as alias  
+            给引入的`attribute`起一个别名，然后就可以以这个别名来调用`attribute`  
+            其他规则和`from package[.subpackage].module import attribute`类似              
+        * from package[.subpackage] import module as alias  
+            给引入的`module`起一个别名，然后就可以以这个别名来调用`module`  
+            其他规则和`from package[.subpackage] import module`类似  
+    * 备注 
+        >1. 当`import`语句包含多个对象（由逗号分隔）时，每个对象将被分别执行，
+         如同这些对象被分成独立的`import`语句一样  
+        >2. `import`语句支持使用相对路径导入某一`module`或`package`的上级`package`，
+        具体方法是在`module`或`package`前面加前缀`.`,没加一个代表回溯一级  
+        ```python
+           # 对于package1.package2.module而言：
+           import .module == import package2
+           import ..module == import package3
+         ```
+    
