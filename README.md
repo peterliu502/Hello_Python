@@ -1754,4 +1754,26 @@ PI = 3. 14159265359
            import .module == import package2
            import ..module == import package3
          ```
-    
+### [![avatar](https://img.shields.io/badge/主题-面向对象编程-red)](https://github.com/peterliu502/Hello_Python/blob/master/面向对象编程.py)   
+***
+#### __time__  
+2020-03-16
+#### __content__  
+##### ![avatar](https://img.shields.io/badge/关键概念-面向过程编程-yellowgreen)  
+面向过程的程序设计(`Procedure-Oriented Programming`，简称为`POP`)把计算机程序视为一系列的命令集合，即一组函数的顺序执行。
+为了简化程序设计，面向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度  
+##### ![avatar](https://img.shields.io/badge/关键概念-面向对象编程-yellowgreen)  
+面向对象编程(`Object Oriented Programming`，简称`OOP`)，是一种程序设计思想。OOP把对象作为程序的基本单元，
+一个对象包含了数据和操作数据的函数。面向对象的程序设计把计算机程序视为一组对象的集合，而每个对象都可以接收其他对象发过来的消息，
+并处理这些消息，计算机程序的执行就是一系列消息在各个对象之间传递  
+* [![avatar](https://img.shields.io/badge/关键概念-类-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#classes)  
+在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。自定义的对象数据类型就是面向对象中的类（`Class`）的概念。
+类提供了一种组合数据和功能的方法。创建一个新类意味着创建一个新的对象 类型，从而允许创建一个该类型的新实例(`Instance`)。
+每个类的实例可以拥有保存自己状态的属性(`attribute`)。 一个类的实例也可以有改变自己状态的(定义在类中的)方法(`method`)   
+    * [![avatar](https://img.shields.io/badge/关键概念-类对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#class-objects)  
+    * [![avatar](https://img.shields.io/badge/关键概念-实例对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#instance-objects)  
+    * [![avatar](https://img.shields.io/badge/关键概念-方法对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#method-objects)  
+    * 备注  
+        >1. Class与Instance的关系：`Class`是一种抽象概念，比如我们定义的`Class`——`Student`，是指学生这个概念，
+         而实例（`Instance`）则是一个个具体的`Student`，比如，`Bart Simpson`和`Lisa Simpson`是两个具体的`Student`。
+         所以，面向对象的设计思想是抽象出`Class`，根据`Class`创建`Instance`  
