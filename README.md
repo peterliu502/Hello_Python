@@ -1754,6 +1754,11 @@ PI = 3. 14159265359
            import .module == import package2
            import ..module == import package3
          ```
+* [![avatar](https://img.shields.io/badge/关键概念-私有变量-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#tut-private)  
+    大多数`Python`代码都遵循这样一个约定：带有一个下划线的名称(例如`_spam`)应该被当作是`API`的私有(`private`)部分(无论它是函数、方法或是数据成员)。
+    这应当被视为一个实现细节，可能不经通知即加以改变  
+    * 备注  
+        >1. 需要注意的是，仅限从一个对象内部访问的“私有”实例变量在`Python`中并不存在。即`Python`没有任何机制可以保证私有变量无法被外部掉用  
 ### [![avatar](https://img.shields.io/badge/主题-面向对象编程-red)](https://github.com/peterliu502/Hello_Python/blob/master/面向对象编程.py)   
 ***
 #### __time__  
@@ -1771,6 +1776,8 @@ PI = 3. 14159265359
 类提供了一种组合数据和功能的方法。创建一个新类意味着创建一个新的对象 类型，从而允许创建一个该类型的新实例(`Instance`)。
 每个类的实例可以拥有保存自己状态的属性(`attribute`)。 一个类的实例也可以有改变自己状态的(定义在类中的)方法(`method`)   
     * [![avatar](https://img.shields.io/badge/关键概念-类对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#class-objects)  
+        * 定义类  
+            
     * [![avatar](https://img.shields.io/badge/关键概念-实例对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#instance-objects)  
     * [![avatar](https://img.shields.io/badge/关键概念-方法对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#method-objects)  
     * 备注  
