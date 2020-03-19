@@ -1754,6 +1754,11 @@ PI = 3. 14159265359
            import .module == import package2
            import ..module == import package3
          ```
+* [![avatar](https://img.shields.io/badge/关键概念-私有变量-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#tut-private)  
+    大多数`Python`代码都遵循这样一个约定：带有一个下划线的名称(例如`_spam`)应该被当作是`API`的私有(`private`)部分(无论它是函数、方法或是数据成员)。
+    这应当被视为一个实现细节，可能不经通知即加以改变  
+    * 备注  
+        >1. 需要注意的是，仅限从一个对象内部访问的“私有”实例变量在`Python`中并不存在。即`Python`没有任何机制可以保证私有变量无法被外部掉用  
 ### [![avatar](https://img.shields.io/badge/主题-面向对象编程-red)](https://github.com/peterliu502/Hello_Python/blob/master/面向对象编程.py)   
 ***
 #### __time__  
@@ -1771,9 +1776,84 @@ PI = 3. 14159265359
 类提供了一种组合数据和功能的方法。创建一个新类意味着创建一个新的对象 类型，从而允许创建一个该类型的新实例(`Instance`)。
 每个类的实例可以拥有保存自己状态的属性(`attribute`)。 一个类的实例也可以有改变自己状态的(定义在类中的)方法(`method`)   
     * [![avatar](https://img.shields.io/badge/关键概念-类对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#class-objects)  
+        * 定义类  
+            使用class关键词定义`class`,紧跟`class`的是类名`ClassName`,按规范需要首字母大写.后面`()`内的是基类名`BaseClassName`，
+            表明定义的这个`class`由哪个`class`派生/继承下来的，实例如下：
+            ```python
+            class Stu(object):
+                """A simple example class"""
+                i = 12345
+            
+                def f(self):
+                    return 'hello world'
+            ```
+            * 备注  
+                >1. 如果没有合适的基类，就使用`object`类，这是所有`class`最终都会继承的`class`  
+        * 类对象操作  
+            `class object`的操作分为属性引用与实例化两部分  
+            * 属性引用  
+                `class object`的`attribute`引用使用`Python`中所有`attribute`引用所使用的标准语法`obj.name`。
+                比如`__doc__`也是`Stu class`的一个有效的属性，将返回所属类的文档字符串:`"A simple example class"`
+                有效的`attribute name`是类对象被创建时存在于类命名空间中的所有名称，比上面示例的`Stu class`中变量`i`和`f`都是`class attribute`  
+                `class attribute`也可以被赋值，因此可以通过赋值来更改`class attribute`的值  
+            * 实例化  
+                `class object`实例化使用函数表示法。可以把`class object`视为是返回该`class`的一个新`instance`的不带参数的函数    
     * [![avatar](https://img.shields.io/badge/关键概念-实例对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#instance-objects)  
+        调用`class object`返回的对象就是实例对象(`instance object`)，`instance`能保留`class`的所有数据，包括可以拥有保存自己状态的`attribute`，
+        以及可以有改变自己状态的（定义在类中的）`method`  
+        * 创建实例对象  
+            创建`instance`是通过`class name`+`()`实现的，比如`lisa = Stu('Lisa', 79)`就是将`Stu class`的`instance`赋值给变量`bart`  
+        * 实例属性绑定  
+            可以自由地给一个`instance`对象绑定`attribute`，比如给`instance_object1`绑定一个`class object`没定义过的`attribute1`  
+            和静态语言不同，`Python`允许对`instance`对象绑定任何数据。也就是说，对于两个instance变量，
+            虽然它们都是同一个`class`的不同`instance`，但拥有的`attrribute`都可能不同。比如`instance_object2`就没有`attribute1`  
+            ```python
+            instance_object1 = Stu()
+            instance_object2 = Stu()
+            instance_object1.attribute1 = attribute1 
+            ```
+        * 实例对象操作(属性调用)  
+            `instance object`唯一的操作就是属性调用，可以调用的实例属性分为数据属性与实例方法两种  
+            * 实例属性  
+                * 数据属性  
+                  数据属性不需要声明。像局部变量一样，它们将在第一次被赋值时产生。  
+                * 实例方法
+                  详见方法对象部分
+        * 数据封装  
+            `class`的`instance`可以保留类的所有数据，想要访问这些内部数据没必要专门在外部设计函数来访问它们。可以直接在`class`的内部定义调用这些数据的函数，
+            就可以尽可能地将这些数据限制在`class`内部，这称之为数据封装。对数据和逻辑封装的好处在于调用很容易，但却不用知道内部实现的细节，
+            可以当个黑盒使用,从而避免了外部对`class`内部数据的过度依赖                                        
     * [![avatar](https://img.shields.io/badge/关键概念-方法对象-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#method-objects)  
+        这些封装数据的函数是和`class`本身是关联起来的，我们称这些`class`的函数为`instance`的`method`，或者说`method`就是与`instance`绑定的函数  
+        * 定义方法  
+            要定义一个`method`，除了第一个形参必须是`self`外，其他(如形参的规则)和普通函数的定义方法一样  
+        * 调用方法  
+            要调用一个`method`，只需要在`instance`变量上直接调用,格式为`instance.method`  
+            除了`self`不用传递，其他参数正常传入  
+            `instance`的`attribute`在`method`内可以通过`self`参数调用  
+            ```python
+            def print_score(self):
+                print('{:s}\'s score is {:d}'.format(self.name, self.score))
+          
+            instance_object1 = Stu()
+            instance_object1.print_score()
+            ```
+        * __init__方法  
+            为了发挥`class`的模板作用,可以在`class`内部定义一个特殊的`__init__ method`，强制在`instance`创建时就必须填入指定的参数  
+            ```python
+            def __init__(self, name, score):
+                self.name = name
+                # 意为将形参name接收到的对象赋值给instance(self)的name attribute
+                self.score = score
+                # 意为将形参score接收到的对象赋值给instance(self)的score attribute  
+            ```
+        * 备注  
+            > 1. `method`类似闭包会产生延迟执行等性质          
     * 备注  
-        >1. Class与Instance的关系：`Class`是一种抽象概念，比如我们定义的`Class`——`Student`，是指学生这个概念，
-         而实例（`Instance`）则是一个个具体的`Student`，比如，`Bart Simpson`和`Lisa Simpson`是两个具体的`Student`。
-         所以，面向对象的设计思想是抽象出`Class`，根据`Class`创建`Instance`  
+        >1. class与instance的关系：  
+         `class`是一种抽象概念，比如我们定义的`class`——`Student`，是指学生这个概念，
+         而实例（`instance`）则是一个个具体的`Student`，比如，`Bart Simpson`和`Lisa Simpson`是两个具体的`Student`。
+         所以，面向对象的设计思想是抽象出`Class`，根据`Class`创建`Instance`
+        >2. instance与method的关系  
+         `method`是指与对应`instance`绑定了的函数。即`instance.f`是实例的数据属性还是方法属性，取决于是否存在`class.f`这个函数，
+         需要注意的是`instance.f`与`instance`绑定了所以就是方法对象，而`class.f`是函数对像  
