@@ -30,3 +30,27 @@ print(idl('My birthday is today'))
 # 将mymodule.book.ID模块的属性mymodule.book.ID.id_lens通过import as语句赋予别名idl，因此可以用idl这个变量来调用id_lens
 mh.hello()
 #  将mymodule.math.hello模块通过import as语句赋予别名mh，因此可以用mh这个变量来调用该模块
+
+
+# 类的私有变量
+class Student(object):
+    def __init__(self, name, gender):
+        self.name = name
+        self.__gender = gender
+
+    def get_gender(self):
+        return self.__gender
+
+    def set_gender(self, gender):
+        self.__gender = gender
+
+
+bart = Student('Bart', 'male')
+if bart.get_gender() != 'male':
+    print('测试失败!')
+else:
+    bart.set_gender('female')
+    if bart.get_gender() != 'female':
+        print('测试失败!')
+    else:
+        print('测试成功!')
