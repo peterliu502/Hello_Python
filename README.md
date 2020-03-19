@@ -1755,8 +1755,14 @@ PI = 3. 14159265359
            import ..module == import package3
          ```
 * [![avatar](https://img.shields.io/badge/关键概念-私有变量-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#tut-private)  
-    大多数`Python`代码都遵循这样一个约定：带有一个下划线的名称(例如`_spam`)应该被当作是`API`的私有(`private`)部分(无论它是函数、方法或是数据成员)。
-    这应当被视为一个实现细节，可能不经通知即加以改变  
+    大多数`Python`代码都遵循这样一个约定：带有下划线前缀的变量应该被当作是`API`的私有(`private`)部分(无论它是函数、方法或是数据成员)。  
+    但是`Python`中其实没有任何机制可以确保私有变量可以不被修改，更多的是依仗与约定俗成的规则  
+    `Python`中存在两种私有变量：  
+        * 一个下划线前缀的私有变量  
+            这种私有变量是可以被正常访问与修改，但我们最好当作它们是不可以被修改的  
+        * 两个下划线前缀的私有变量  
+            在`class`中，还有一双下划线前缀的私有变量。这种变量不可以被直接访问或修改。原因是系统将其名称隐性地从`__varname`改为`_classname__varname`
+            可以通过`_classname__var`访问与修改该变量，但是及其不推荐这么做，因为不同编译器对这种变量的改名方式可能不一致，可能会导致异常  
     * 备注  
         >1. 需要注意的是，仅限从一个对象内部访问的“私有”实例变量在`Python`中并不存在。即`Python`没有任何机制可以保证私有变量无法被外部掉用  
 ### [![avatar](https://img.shields.io/badge/主题-面向对象编程-red)](https://github.com/peterliu502/Hello_Python/blob/master/面向对象编程.py)   
