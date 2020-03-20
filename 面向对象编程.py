@@ -1,7 +1,7 @@
 # 面向过程编程
 # student信息用dict储存
-stu1 = {'name':'Bob', 'score':90}
-stu2 = {'name':'Mary', 'score':86}
+stu1 = {'name': 'Bob', 'score': 90}
+stu2 = {'name': 'Mary', 'score': 86}
 
 
 # 打印student信息的功能用function完成
@@ -84,3 +84,72 @@ print(bart.count)
 bart = Student('bart', 11)
 print(bart.count)
 bart = Student('bart', 11)
+
+
+# 继承
+class PrimarySchoolStu(Stu):  # 继承自class Stu
+    def hello(self):  # 在基类基础上增加新method也可以对基类的基础上进行修改
+        return print('Hello, my name is {:s}. I\'m a primary school student.'.format(self.name))
+        # 可以看到PrimarySchoolStu继承了Stu的attribute
+
+    def print_score(self):  # 也可以直接在基类的基础上对method进行修改(本质上是替换了print_score的指代对象)
+        print('Little {:s}\'s score is {:d}'.format(self.name, self.score))
+
+
+Tom = PrimarySchoolStu('Tom', 80)
+Tom.print_score()
+# 继承了基类Stu的全部属性与方法
+Tom.hello()
+# 子类自己的方法
+
+
+# 对象的类型判断
+print(isinstance(Tom, PrimarySchoolStu))
+print(isinstance(Tom, Stu))  # instance对象的类型既是直接派生它的class，同时也可以识别为它的任意基类(如果有的话)
+print(isinstance(lisa, PrimarySchoolStu))
+print(isinstance(lisa, Stu))  # 但是基类的instance对象类型不能被识别为它的subclass
+
+
+# 多态
+class Animal(object):
+    def shout(self):
+        pass
+
+
+class Dog(Animal):
+    def shout(self):
+        return 'Wang Wang!'
+
+
+class Cat(Animal):
+    def shout(self):
+        return 'Miao Miao!'
+
+
+class Cow(Animal):
+    def shout(self):
+        return 'Mu Mu!'
+
+
+def shout(animal: Animal):
+    print(animal.shout())
+    return
+
+
+class Human(object):
+    def shout(self):
+        return 'Shut up!'
+
+
+# 多态就是将class通过派生出不同的subclass（Animal->Dog/Cat/Cow）
+# 实现同一个基类method在不同subclass上呈现不同形态的结果（Animal.shout->Dog.shout/Cat.shout/Cow.shout）
+# 针对这一特性，当我们想设计对所有subclass适用的method时，只需考虑基类的数据情况(shout(animal))
+# 而不用逐个对subclass进行适配，因为基类的操作会对其所有subclass兼容
+# 后续基类继续产生新subclass时，只要确保method编写正确，不用管原来的代码是如何调用的，这些method仍会适用于新subclass
+# 因此对于一个变量，我们只需要知道它是属于哪个class，无需确切地知道它是哪个subclass，只要method编写正确，就可以放心地调用
+# 这样调用方只管调用，不用管细节
+# 同时因为不同subclass间的同名method作用不同，所以可以实现一个接口不同效果
+shout(Dog())
+shout(Cat())
+shout(Cow())
+

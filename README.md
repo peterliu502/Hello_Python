@@ -1863,3 +1863,43 @@ PI = 3. 14159265359
         >2. instance与method的关系  
          `method`是指与对应`instance`绑定了的函数。即`instance.f`是实例的数据属性还是方法属性，取决于是否存在`class.f`这个函数，
          需要注意的是`instance.f`与`instance`绑定了所以就是方法对象，而`class.f`是函数对像  
+    * [![avatar](https://img.shields.io/badge/关键概念-继承-yellowgreen)](https://docs.python.org/zh-cn/3/tutorial/classes.html#inheritance)  
+        * 定义
+            * 子类    
+                在面向对象程序设计中，当我们定义一个`class`的时候，可以从某个现有的`class`继承，新的`class`称为子类（`subclass`），
+                而被继承的`class`称为基类、父类或超类（`Base class`、`Super class`）  
+            * 基类  
+                `subclass`可以获得父类的全部功能，可以在原有功能功能基础上修改基类的`method`（本质上是替换了`method name`的指代对象，不会影响基类的同名`method`） 
+                `subclass`也可以添加基类没有定义的`method`，同样不会影响基类  
+        * 类的数据类型  
+            可以使用`isinstance()`函数判断一个对象是否为指定的类型
+            * 子类    
+                对于`subclass`，除了可以被识别为本身的类型之外，还可以被识别为他的任意基类类型  
+            * 基类  
+                但对于基类来说，则无法被识别为它的`subclass`
+        * 备注  
+            >1. 基类名称`BaseClassName`必须定义于包含派生类定义的作用域中。也允许用其他任意表达式代替基类名称所在的位置。  
+            >2. 如果请求的`attribute`在`class`中找不到，搜索将转往基类中进行查找。如果基类本身也派生自其他某个`class`，则此规则将被递归地应用  
+            >3. 在派生类中的重载方法中想要实现扩展而非简单地替换同名的基类方法。有一种方式可以简单地直接调用基类方法：
+                即调用`BaseClassName.methodname(self, arguments)`。有时这对客户端来说也是有用的。
+                （请注意仅当此基类可在全局作用域中以`BaseClassName`的名称被访问时方可使用此方式。）
+    * ![avatar](https://img.shields.io/badge/关键概念-多态-yellowgreen)        
+        * 定义  
+            多态就是将`class`通过派生出不同的`subclass`实现同一个基类的`method`在不同`subclass`上呈现不同形态的结果  
+        * 多态的优点      
+            针对这一特性，当我们想设计对所有`subclass`适用的`method`时，只需考虑基类的`method`适配情况,而不用逐个对subclass进行适配，
+            因为基类的操作会对其所有`subclass`兼容。后续基类继续产生新`subclass`时，只要确保`method`编写正确，不用管原来的代码是如何调用的，
+            这些`method`仍会适用于新`subclass`。  
+            因此对于一个变量，我们只需要知道它是属于哪个`class`，无需确切地知道它是哪个`subclass`，只要`method`编写正确，就可以放心地调用
+            这样调用方只管调用，不用管细节。同时因为不同`subclass`间的同名`method`作用不同，所以可以实现一个接口不同效果  
+        * 开闭原则  
+            开闭原则是面向对象编程的重要原则之一，即*`对扩展开放，对修改封闭`*  
+            * 对扩展开放  
+                `class`对象增加新`subclass`不会对基于多态的函数造成影响，可以有效兼容  
+            * 对修改封闭  
+                新增了`subclass`不需要对`class`的对应`method`进行修改  
+        * 鸭子类型  
+            指动态类型语言的一种编程风格，它并不依靠查找对象类型来确定其是否具有正确的接口，而是查看对象是否有对应的目标方法或属性(名称符合即可)
+            （"看起来像鸭子，叫起来也像鸭子，那么肯定就是鸭子"）  
+            由于强调接口而非特定类型，设计良好的代码可通过允许多态替代来提升灵活性。鸭子类型避免使用`type()`或`isinstance()`检测。
+            (但要注意鸭子类型可以使用抽象基类作为补充) 
